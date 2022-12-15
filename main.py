@@ -23,21 +23,10 @@ clock = pyglet.clock.Clock()
 
 
 def generate_all(_):
-    """
-    Triggers an entire read_actors call in our SoT Memory Reader. Will
-    re-populate all of the display objects if something entered the screen
-    or render distance.
-    """
     smr.read_actors()
 
 
 def update_graphics(_):
-    """
-    Our main graphical loop which updates all of our "interesting" items.
-    During a "full run" (update_all()), a list of the objects near us and we
-    care about is generated. Each of those objects has a ".update()" method
-    we use to re-poll data for that item (required per display_object.py)
-    """
     # Update our players coordinate information
     smr.update_my_coords()
 
@@ -87,11 +76,6 @@ if __name__ == '__main__':
 
     @window.event
     def on_draw():
-        """
-        The event which our window uses to determine what to draw on the
-        screen. First clears the screen, then updates our player count, then
-        draws both our batch (think of a canvas) & fps display
-        """
         window.clear()
 
         # Update our player count Label & crew list
@@ -119,6 +103,7 @@ if __name__ == '__main__':
     # Adds an FPS counter at the bottom left corner of our pyglet window
     # Note: May not translate to actual FPS, but rather FPS of the program
     fps_display = pyglet.window.FPSDisplay(window)
+    fps_display.label.font_size = 10
 
     # Our base player_count label in the top-right of our screen. Updated
     # in on_draw(). Use a default of "Initializing", which will update once the

@@ -3,10 +3,12 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 """
 
-import math
 import json
 import logging
+import math
+import os
 from base64 import b64decode
+
 import win32gui
 from pyglet.graphics import Batch
 from pyglet.text import Label
@@ -49,41 +51,19 @@ except Exception as e:
 main_batch = Batch()
 
 # Load our offset json file
-with open("offsets.json") as infile:
+with open("Data" + os.sep + "offsets.json") as infile:
     OFFSETS = json.load(infile)
 
 
 def dot(array_1: tuple, array_2: tuple) -> float:
-    """
-    Python-converted version of Gummy's External SoT v2 vMatrix Dot method (No
-    Longer Avail). Takes two lists and multiplies the same index across both
-    lists, and adds them together. (Need Source)
-    :param tuple array_1: Presumably some array about our player position
-    :param tuple array_2: Presumably some array about the dest actor position
-    :rtype: float
-    :return: The result of a math equation between those two arrays
-    """
     if array_2[0] == 0 and array_2[1] == 0 and array_2[2] == 0:
         return 0.0
 
     return array_1[0] * array_2[0] + array_1[1] \
-           * array_2[1] + array_1[2] * array_2[2]
+        * array_2[1] + array_1[2] * array_2[2]
 
 
 def object_to_screen(player: dict, actor: dict) -> tuple:
-    """
-    Using the player and an actors coordinates, determine where on the screen
-    an object should be displayed. Assumes your screen is 2560x1440
-
-    Python-converted version of Gummy's External SoT v2 WorldToScreen method:
-    (No Longer Avail; Need Source)
-
-    :param player: The player coordinate dictionary
-    :param actor: An actor coordinate dictionary
-    :rtype: tuple
-    :return: tuple of x and y screen coordinates to display where the actor is
-    on screen
-    """
     try:
         player_camera = (player.get("cam_x"), player.get("cam_y"),
                          player.get("cam_z"))
@@ -127,16 +107,6 @@ def object_to_screen(player: dict, actor: dict) -> tuple:
 
 
 def make_v_matrix(rot: tuple) -> list:
-    """
-    Builds data around how the camera is currently rotated.
-
-    Python-converted version of Gummy's External SoT v2 Matrix method:
-    (No Longer Avail; Need Source)
-
-    :param rot: The player objects camera rotation information
-    :rtype: list
-    :return: A list of lists containing data about the rotation of our actor
-    """
     rad_pitch = (rot[0] * math.pi / 180)
     rad_yaw = (rot[1] * math.pi / 180)
     rad_roll = (rot[2] * math.pi / 180)
@@ -164,27 +134,12 @@ def make_v_matrix(rot: tuple) -> list:
 
 
 def calculate_distance(obj_to: dict, obj_from: dict) -> int:
-    """
-    Determines the distances From one object To another in meters, rounding
-    to whatever degree of precision you request
-    (**2 == ^2)
-
-    Note: Can convert the int() to a round() if you want more precision
-
-    :param obj_to: A coordinate dict for the destination object
-    :param obj_from: A coordinate dict for the origin object
-    :rtype: int
-    :return: the distance in meters from obj_from to obj_to
-    """
     return int(math.sqrt((obj_to.get("x") - obj_from.get("x")) ** 2 +
                          (obj_to.get("y") - obj_from.get("y")) ** 2 +
                          (obj_to.get("z") - obj_from.get("z")) ** 2))
 
 
 def initialize_window():
-    """
-    Initializes our window with a given label
-    """
     b_label = Label(b64decode('RG91Z1RoZURydWlkJ3MgRVNQIEZyYW1ld29yaw==').decode("utf-8"),
                     x=SOT_WINDOW_W - 537, y=10, font_size=10, bold=True,
                     color=(127, 127, 127, 65), batch=main_batch)

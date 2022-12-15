@@ -4,17 +4,18 @@
 For community support, please contact me on Discord: DougTheDruid#2784
 """
 import json
-import struct
 import logging
+import os
+import struct
 from os.path import exists
 
 from Data.mapping import everything, fixthese, ships
 from Modules.ALL_ESP import ALL_ESP
 from Modules.MISC_ESP import MISC_ESP
-from utils.memory_helper import ReadMemory
-from utils.helpers import OFFSETS, CONFIG, logger
-from Modules.ship import Ship
 from Modules.crews import Crews
+from Modules.ship import Ship
+from utils.helpers import OFFSETS, CONFIG, logger
+from utils.memory_helper import ReadMemory
 
 
 class SoTMemoryReader:
@@ -63,16 +64,27 @@ class SoTMemoryReader:
 
         self.u_level = self.rm.read_ptr(self.world_address +
                                         OFFSETS.get('World.PersistentLevel'))
+        logging.info(f"SoT uLevel Address: {hex(self.u_level)}")
 
+        # store the incoming BP_ variables into a json file every 10 min's
         self.BP_DICTStore = {}
-
-        if exists('BP_DICTStore.json'):
-            with open('BP_DICTStore.json') as fp:
+        if exists("Data" + os.sep + "BP_DICTStore.json"):
+            with open("Data" + os.sep + "BP_DICTStore.json") as fp:
                 print("json (BP_): " + str(fp))
                 self.BP_DICTStore = json.load(fp)
                 print("dict (BP_): " + str(self.BP_DICTStore))
         else:
             print("dict (BP_): " + str(self.BP_DICTStore))
+
+        # store the incoming BP_ variables into a json file every 10 min's
+        self.OTHER_DICTStore = {}
+        if exists("Data" + os.sep + "OTHER_DICTStore.json"):
+            with open("Data" + os.sep + "OTHER_DICTStore.json") as fp:
+                print("json (other): " + str(fp))
+                self.BP_DICTStore = json.load(fp)
+                print("dict (other): " + str(self.OTHER_DICTStore))
+        else:
+            print("dict (other): " + str(self.OTHER_DICTStore))
 
         self.u_local_player = self._load_local_player()
         self.player_controller = self.rm.read_ptr(
@@ -137,8 +149,10 @@ class SoTMemoryReader:
             actor_bytes = self.rm.read_bytes(actor_address + offset, 24)
             unpacked = struct.unpack("<ffffff", actor_bytes)
 
-        coordinate_dict = {"x": unpacked[0]/100, "y": unpacked[1]/100,
-                           "z": unpacked[2]/100}
+        coordinate_dict = {
+            "x": unpacked[0] / 100, "y": unpacked[1] / 100,
+            "z": unpacked[2] / 100
+        }
         if camera:
             coordinate_dict["cam_x"] = unpacked[3]
             coordinate_dict["cam_y"] = unpacked[4]
@@ -181,7 +195,7 @@ class SoTMemoryReader:
             # We start by getting the ActorID for a given actor, and comparing
             # that ID to a list of "known" id's we cache in self.actor_name_map
             raw_name = ""
-            actor_address = int.from_bytes(level_actors_raw[(x*8):(x*8+8)], byteorder='little', signed=False)
+            actor_address = int.from_bytes(level_actors_raw[(x * 8):(x * 8 + 8)], byteorder='little', signed=False)
             actor_id = self.rm.read_int(
                 actor_address + OFFSETS.get('Actor.actorId')
             )
@@ -200,6 +214,14 @@ class SoTMemoryReader:
             # Ignore anything we cannot find a name for
             if not raw_name:
                 continue
+
+            # Append incoming variables to their respective Dictionaries
+            # print(f"{raw_name}")
+            if raw_name.startswith("BP_") and raw_name not in self.BP_DICTStore.keys():
+                self.BP_DICTStore[raw_name] = {"Name": raw_name}
+
+            if not raw_name.startswith("BP_") and raw_name not in self.OTHER_DICTStore.keys():
+                self.OTHER_DICTStore[raw_name] = {"Name": raw_name}
 
             # If we have Ship ESP enabled in helpers.py, and the name of the
             # actor is in our mapping.py ship_keys object, interpret the actor
@@ -231,7 +253,6 @@ class SoTMemoryReader:
             #     npcesp = NPC_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
             #     self.display_objects.append(npcesp)
 
-
             # If we have the crews data enabled in helpers.py and the name
             # of the actor is CrewService, we create a class based on that Crew
             # data to generate information about people on the server
@@ -240,12 +261,15 @@ class SoTMemoryReader:
             elif CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
                 self.crew_data = Crews(self.rm, actor_id, actor_address)
 
-
         if self.waitamount == 115:
-            with open('BP_DICTStore.json', 'w') as fp:
+            with open("Data" + os.sep + "BP_DICTStore.json", 'w') as fp:
                 json.dump(self.BP_DICTStore, fp)
                 print("dict (BP_): " + str(self.BP_DICTStore))
-                self.waitamount = 0
+
+            with open("Data" + os.sep + "OTHER_DICTStore.json", 'w') as fp:
+                json.dump(self.BP_DICTStore, fp)
+                print("dict (other): " + str(self.BP_DICTStore))
+
+            self.waitamount = 0
         else:
             self.waitamount += 1
-

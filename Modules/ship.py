@@ -15,29 +15,8 @@ CIRCLE_SIZE = 10  # The size of the indicator circle we want
 
 
 class Ship(DisplayObject):
-    """
-    Class to generate information for a ship object in memory
-    """
 
     def __init__(self, memory_reader, actor_id, address, my_coords, raw_name):
-        """
-        Upon initialization of this class, we immediately initialize the
-        DisplayObject parent class as well (to utilize common methods)
-
-        We then set our class variables and perform all of our info collecting
-        functions, like finding the actors base address and converting the
-        "raw" name to a more readable name per our Mappings. We also create
-        a circle and label and add it to our batch for display to the screen.
-
-        All of this data represents a "Ship". If you want to add more, you will
-        need to add another class variable under __init__ and in the update()
-        function
-
-        :param memory_reader: The SoT MemoryHelper Object we use to read memory
-        :param address: The address in which the AActor begins
-        :param my_coords: a dictionary of the local players coordinates
-        :param raw_name: The raw actor name used to translate w/ mapping.py
-        """
         # Initialize our super-class
         super().__init__(memory_reader)
 
@@ -65,11 +44,6 @@ class Ship(DisplayObject):
         self.to_delete = False
 
     def _build_circle_render(self) -> Circle:
-        """
-        Creates a circle located at the screen coordinates (if they exist).
-        Uses the color specified in our globals w/ a size of 10px radius.
-        Assigns the object to our batch & group
-        """
         if self.screen_coords:
             return Circle(self.screen_coords[0], self.screen_coords[1],
                           CIRCLE_SIZE, color=self.color, batch=main_batch)
@@ -77,22 +51,9 @@ class Ship(DisplayObject):
         return Circle(0, 0, 10, color=self.color, batch=main_batch)
 
     def _built_text_string(self) -> str:
-        """
-        Generates a string used for rendering. Separate function in the event
-        you need to add more data (Sunk %, hole count, etc)
-        """
         return f"{self.name} - {self.distance}m"
 
     def _build_text_render(self) -> Label:
-        """
-        Function to build our actual label which is sent to Pyglet. Sets it to
-        be located at the screen coordinated + our text_offsets from helpers.py
-
-        Assigns the object to our batch & group
-
-        :rtype: Label
-        :return: What text we want displayed next to the ship
-        """
         if self.screen_coords:
             return Label(self.text_str,
                          x=self.screen_coords[0] + TEXT_OFFSET_X,
@@ -103,18 +64,6 @@ class Ship(DisplayObject):
         return Label(self.text_str, x=0, y=0, batch=main_batch)
 
     def update(self, my_coords: dict):
-        """
-        A generic method to update all the interesting data about a ship
-        object, to be called when seeking to perform an update on the
-        Actor without doing a full-scan of all actors in the game.
-
-        1. Determine if the actor is what we expect it to be
-        2. See if any data has changed
-        3. Update the data if something has changed
-
-        In theory if all data is the same, we could *not* update our Label's
-        text, therefore saving resources. Not implemented, but a possibility
-        """
         if self._get_actor_id(self.address) != self.actor_id:
             self.to_delete = True
             self.icon.delete()

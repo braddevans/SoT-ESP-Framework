@@ -130,3 +130,4 @@ dmypy.json
 *idea*
 *SDK*
 *.log*
+/Data/BP_DICTStore.json
