@@ -3,12 +3,16 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 For community support, please contact me on Discord: DougTheDruid#2784
 """
-
+import json
 import struct
 import logging
-from memory_helper import ReadMemory
-from mapping import ship_keys
-from helpers import OFFSETS, CONFIG, logger
+from os.path import exists
+
+from Data.mapping import everything, fixthese, ships
+from Modules.ALL_ESP import ALL_ESP
+from Modules.MISC_ESP import MISC_ESP
+from utils.memory_helper import ReadMemory
+from utils.helpers import OFFSETS, CONFIG, logger
 from Modules.ship import Ship
 from Modules.crews import Crews
 
@@ -32,6 +36,7 @@ class SoTMemoryReader:
         Also initialize a number of class variables which help us cache some
         basic information
         """
+        self.waitamount = 0
         self.rm = ReadMemory("SoTGame.exe")
         base_address = self.rm.base_address
         logging.info(f"Process ID: {self.rm.pid}")
@@ -58,6 +63,16 @@ class SoTMemoryReader:
 
         self.u_level = self.rm.read_ptr(self.world_address +
                                         OFFSETS.get('World.PersistentLevel'))
+
+        self.BP_DICTStore = {}
+
+        if exists('BP_DICTStore.json'):
+            with open('BP_DICTStore.json') as fp:
+                print("json (BP_): " + str(fp))
+                self.BP_DICTStore = json.load(fp)
+                print("dict (BP_): " + str(self.BP_DICTStore))
+        else:
+            print("dict (BP_): " + str(self.BP_DICTStore))
 
         self.u_local_player = self._load_local_player()
         self.player_controller = self.rm.read_ptr(
@@ -189,13 +204,33 @@ class SoTMemoryReader:
             # If we have Ship ESP enabled in helpers.py, and the name of the
             # actor is in our mapping.py ship_keys object, interpret the actor
             # as a ship
-            if CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
+            if CONFIG.get('SHIPS_ENABLED') and raw_name in ships.keys():
+                print(f"Checking: {raw_name}, Localised Name: {ships.get(raw_name).get('Name')}")
                 ship = Ship(self.rm, actor_id, actor_address, self.my_coords,
                             raw_name)
                 # if "Near" not in ship.name and ship.distance < 1720:
                 #     continue
                 # else:
                 self.display_objects.append(ship)
+
+            if CONFIG.get('ALL_ESP') and raw_name in everything:
+                # [RawMemory, actor_id, actor_memory_address, player_coords, raw_item_name]
+                # print(f"Checking: {raw_name}, Localised Name: {everything_keys.get(raw_name).get('Name')}")
+                allesp = ALL_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
+                self.display_objects.append(allesp)
+
+            if CONFIG.get('MISC_ESP') and raw_name in fixthese:
+                # [RawMemory, actor_id, actor_memory_address, player_coords, raw_item_name]
+                # print(f"Checking: {raw_name}, Localised Name: {fixthese_keys.get(raw_name).get('Name')}")
+                miscesp = MISC_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
+                self.display_objects.append(miscesp)
+
+            # if CONFIG.get('NPC_ESP') and raw_name in NPCS_AND_PLAYERS_KEYS:
+            #     # [RawMemory, actor_id, actor_memory_address, player_coords, raw_item_name]
+            #     # print(f"Checking: {raw_name}, Localised Name: {NPCS_AND_PLAYERS_KEYS.get(raw_name).get('Name')}")
+            #     npcesp = NPC_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
+            #     self.display_objects.append(npcesp)
+
 
             # If we have the crews data enabled in helpers.py and the name
             # of the actor is CrewService, we create a class based on that Crew
@@ -204,3 +239,13 @@ class SoTMemoryReader:
             # sake of ESP
             elif CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
                 self.crew_data = Crews(self.rm, actor_id, actor_address)
+
+
+        if self.waitamount == 115:
+            with open('BP_DICTStore.json', 'w') as fp:
+                json.dump(self.BP_DICTStore, fp)
+                print("dict (BP_): " + str(self.BP_DICTStore))
+                self.waitamount = 0
+        else:
+            self.waitamount += 1
+

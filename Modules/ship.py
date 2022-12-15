@@ -5,9 +5,9 @@
 
 from pyglet.text import Label
 from pyglet.shapes import Circle
-from helpers import calculate_distance, object_to_screen, main_batch, \
+from utils.helpers import calculate_distance, object_to_screen, main_batch, \
      TEXT_OFFSET_X, TEXT_OFFSET_Y
-from mapping import ships
+from Data.mapping import ships
 from Modules.display_object import DisplayObject
 
 SHIP_COLOR = (100, 0, 0)  # The color we want the indicator circle to be
@@ -97,6 +97,7 @@ class Ship(DisplayObject):
             return Label(self.text_str,
                          x=self.screen_coords[0] + TEXT_OFFSET_X,
                          y=self.screen_coords[1] + TEXT_OFFSET_Y,
+                         font_size=9,
                          batch=main_batch)
 
         return Label(self.text_str, x=0, y=0, batch=main_batch)
@@ -130,15 +131,15 @@ class Ship(DisplayObject):
         if self.screen_coords:
             # Ships have two actors dependant on distance. This switches them
             # seamlessly at 1750m
-            if "Near" in self.name and new_distance > 1750:
-                self.text_render.visible = False
-                self.icon.visible = False
-            elif "Near" not in self.name and new_distance < 1750:
-                self.text_render.visible = False
-                self.icon.visible = False
-            else:
-                self.text_render.visible = True
-                self.icon.visible = True
+            # if "Near" in self.name and new_distance > 1750:
+            #     self.text_render.visible = False
+            #     self.icon.visible = False
+            # elif "Near" not in self.name and new_distance < 1750:
+            #     self.text_render.visible = False
+            #     self.icon.visible = False
+            # else:
+            self.text_render.visible = True
+            self.icon.visible = True
 
             # Update the position of our circle and text
             self.icon.x = self.screen_coords[0]

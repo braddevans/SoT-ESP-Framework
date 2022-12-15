@@ -4,7 +4,7 @@
 """
 
 import struct
-from helpers import OFFSETS, crew_tracker
+from utils.helpers import OFFSETS, crew_tracker
 from Modules.display_object import DisplayObject
 
 
