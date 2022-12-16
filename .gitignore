@@ -131,3 +131,4 @@ dmypy.json
 *SDK*
 *.log*
 /Data/BP_DICTStore.json
+/Data/OTHER_DICTStore.json
