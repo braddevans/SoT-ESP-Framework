@@ -17,6 +17,7 @@ from pyglet.text import Label
 CONFIG = {
     "CREWS_ENABLED": True,
     "MISC_ESP": True,
+    "NPC_ESP": True,
     "ALL_ESP": True,
     "SHIPS_ENABLED": True
 }

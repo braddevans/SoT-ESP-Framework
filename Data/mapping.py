@@ -641,10 +641,13 @@ FOOD_ITEMS = {
 
 NPCS_AND_PLAYERS = {
     "BP_PlayerPirate_C": {"Name": "Player"},
-    "BP_GiantSkeletonPawnBase_C": {"Name": "Ashen Lord", }, "BP_Mermaid_C": {"Name": "Mermaid", },
-    "BP_Shark_C": {"Name": "Shark", },
-    "BP_LootStorage_Retrieve_C": {"Name": "Loot Mermaid", }, "BP_TinyShark_C": {"Name": "Megalodon", },
-    "BP_SirenGruntPawn_C": {"Name": "Siren", }, "BP_SirenLeaderPawn_C": {"Name": "Siren Leader", },
+    "BP_GiantSkeletonPawnBase_C": {"Name": "Ashen Lord", },
+    "BP_Mermaid_C": {"Name": "Mermaid", },
+    "BP_Shark_C": {"Name": "Shork", },
+    "BP_LootStorage_Retrieve_C": {"Name": "Loot Mermaid", },
+    "BP_TinyShark_C": {"Name": "Totally a Tiny shark :)", },
+    "BP_SirenGruntPawn_C": {"Name": "Siren", },
+    "BP_SirenLeaderPawn_C": {"Name": "Siren Leader", },
     "BP_PhantomPawnBase_C": {"Name": "Phantom", },
     "BP_OceanCrawlerCharacter_Hermit_C": {"Name": "Hermit", },
     "BP_OceanCrawlerCharacter_Eelectric_C": {"Name": "Eelectric", },

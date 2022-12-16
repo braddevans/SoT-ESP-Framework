@@ -9,9 +9,10 @@ import os
 import struct
 from os.path import exists
 
-from Data.mapping import everything, fixthese, ships
+from Data.mapping import everything, fixthese, ships, NPCS_AND_PLAYERS
 from Modules.ALL_ESP import ALL_ESP
 from Modules.MISC_ESP import MISC_ESP
+from Modules.NPC_ESP import NPC_ESP
 from Modules.crews import Crews
 from Modules.ship import Ship
 from utils.helpers import OFFSETS, CONFIG, logger
@@ -227,7 +228,7 @@ class SoTMemoryReader:
             # actor is in our mapping.py ship_keys object, interpret the actor
             # as a ship
             if CONFIG.get('SHIPS_ENABLED') and raw_name in ships.keys():
-                print(f"Checking: {raw_name}, Localised Name: {ships.get(raw_name).get('Name')}")
+                # print(f"Checking: {raw_name}, Localised Name: {ships.get(raw_name).get('Name')}")
                 ship = Ship(self.rm, actor_id, actor_address, self.my_coords,
                             raw_name)
                 # if "Near" not in ship.name and ship.distance < 1720:
@@ -247,11 +248,11 @@ class SoTMemoryReader:
                 miscesp = MISC_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
                 self.display_objects.append(miscesp)
 
-            # if CONFIG.get('NPC_ESP') and raw_name in NPCS_AND_PLAYERS_KEYS:
-            #     # [RawMemory, actor_id, actor_memory_address, player_coords, raw_item_name]
-            #     # print(f"Checking: {raw_name}, Localised Name: {NPCS_AND_PLAYERS_KEYS.get(raw_name).get('Name')}")
-            #     npcesp = NPC_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
-            #     self.display_objects.append(npcesp)
+            if CONFIG.get('NPC_ESP') and raw_name in NPCS_AND_PLAYERS:
+                # [RawMemory, actor_id, actor_memory_address, player_coords, raw_item_name]
+                # print(f"Checking: {raw_name}, Localised Name: {NPCS_AND_PLAYERS_KEYS.get(raw_name).get('Name')}")
+                npcesp = NPC_ESP(self.rm, actor_id, actor_address, self.my_coords, raw_name)
+                self.display_objects.append(npcesp)
 
             # If we have the crews data enabled in helpers.py and the name
             # of the actor is CrewService, we create a class based on that Crew
