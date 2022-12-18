@@ -114,7 +114,7 @@ everything = {
     "BP_EelThrowWeapon_Wieldable_C": {"Name": "BP_EelThrowWeapon_Wieldable_C"},
     "BP_EmergentGoldPouch_Phantom_Proxy_C": {"Name": "Phantom Gold Pouch"},
     "BP_EmissaryFlotsam_AthenasFortune_ItemInfo_C": {"Name": "Athena's Fortune Flag Lvl1", },
-    "BP_EmissaryFlotsam_AthenasFortune_Proxy_C": {"Name": "BP_EmissaryFlotsam_AthenasFortune_Proxy_C"},
+    "BP_EmissaryFlotsam_AthenasFortune_Proxy_C": {"Name": "Flotsam Athena's Fortune Flag"},
     "BP_EmissaryFlotsam_AthenasFortune_Rank2_ItemInfo_C": {"Name": "Athena's Fortune Flag Lvl2", },
     "BP_EmissaryFlotsam_AthenasFortune_Rank3_ItemInfo_C": {"Name": "Athena's Fortune Flag Lvl3", },
     "BP_EmissaryFlotsam_AthenasFortune_Rank4_ItemInfo_C": {"Name": "Athena's Fortune Flag Lvl4", },

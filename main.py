@@ -81,7 +81,7 @@ if __name__ == '__main__':
         # Update our player count Label & crew list
         if smr.crew_data:
             player_count.text = f"Player Count: {smr.crew_data.total_players}"
-            crew_list.text = smr.crew_data.crew_str
+            # crew_list.text = smr.crew_data.crew_str
 
         # Draw our main batch & FPS counter at the bottom left
         main_batch.draw()
@@ -114,7 +114,7 @@ if __name__ == '__main__':
 
     # The label for showing all players on the server under the count
     # This purely INITIALIZES it does not inherently update automatically
-    if True:  # pylint: disable=using-constant-test
+    if False:  # pylint: disable=using-constant-test
         crew_list = Label("", x=SOT_WINDOW_W * 0.008,
                           y=(SOT_WINDOW_H-25) * 0.9, batch=main_batch, width=300,
                           multiline=True)

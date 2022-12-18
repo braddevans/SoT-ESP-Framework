@@ -82,7 +82,7 @@ class SoTMemoryReader:
         if exists("Data" + os.sep + "OTHER_DICTStore.json"):
             with open("Data" + os.sep + "OTHER_DICTStore.json") as fp:
                 print("json (other): " + str(fp))
-                self.BP_DICTStore = json.load(fp)
+                self.OTHER_DICTStore = json.load(fp)
                 print("dict (other): " + str(self.OTHER_DICTStore))
         else:
             print("dict (other): " + str(self.OTHER_DICTStore))
@@ -264,12 +264,12 @@ class SoTMemoryReader:
 
         if self.waitamount == 115:
             with open("Data" + os.sep + "BP_DICTStore.json", 'w') as fp:
-                json.dump(self.BP_DICTStore, fp)
+                json.dump(self.BP_DICTStore, fp, indent=4)
                 print("dict (BP_): " + str(self.BP_DICTStore))
 
             with open("Data" + os.sep + "OTHER_DICTStore.json", 'w') as fp:
-                json.dump(self.BP_DICTStore, fp)
-                print("dict (other): " + str(self.BP_DICTStore))
+                json.dump(self.OTHER_DICTStore, fp, indent=4)
+                print("dict (other): " + str(self.OTHER_DICTStore))
 
             self.waitamount = 0
         else:
