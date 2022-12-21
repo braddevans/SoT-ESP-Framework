@@ -1,0 +1,1304 @@
+{
+    "AthenaWorldSettings": {
+        "Name": "AthenaWorldSettings"
+    },
+    "DefaultPhysicsVolume": {
+        "Name": "DefaultPhysicsVolume"
+    },
+    "ParticleEventManager": {
+        "Name": "ParticleEventManager"
+    },
+    "SphereReflectionCapture": {
+        "Name": "SphereReflectionCapture"
+    },
+    "WorldRegion_BlueSeaOfPlenty": {
+        "Name": "WorldRegion_BlueSeaOfPlenty"
+    },
+    "WorldRegion_TheWilds": {
+        "Name": "WorldRegion_TheWilds"
+    },
+    "WorldRegion_WideSeaOfPlunder": {
+        "Name": "WorldRegion_WideSeaOfPlunder"
+    },
+    "WorldMaxVolume": {
+        "Name": "WorldMaxVolume"
+    },
+    "WorldMapMaxVolume": {
+        "Name": "WorldMapMaxVolume"
+    },
+    "NavModifierVolume2": {
+        "Name": "NavModifierVolume2"
+    },
+    "NavModifierVolume4": {
+        "Name": "NavModifierVolume4"
+    },
+    "NavModifierVolume7": {
+        "Name": "NavModifierVolume7"
+    },
+    "NavModifierVolume11": {
+        "Name": "NavModifierVolume11"
+    },
+    "NavModifierVolume21": {
+        "Name": "NavModifierVolume21"
+    },
+    "NavModifierVolume5": {
+        "Name": "NavModifierVolume5"
+    },
+    "NavModifierVolume8": {
+        "Name": "NavModifierVolume8"
+    },
+    "NavModifierVolume9": {
+        "Name": "NavModifierVolume9"
+    },
+    "NavModifierVolume12": {
+        "Name": "NavModifierVolume12"
+    },
+    "NavModifierVolume13": {
+        "Name": "NavModifierVolume13"
+    },
+    "NavModifierVolume14": {
+        "Name": "NavModifierVolume14"
+    },
+    "NavModifierVolume15": {
+        "Name": "NavModifierVolume15"
+    },
+    "NavModifierVolume16": {
+        "Name": "NavModifierVolume16"
+    },
+    "NavMeshBoundsVolume2": {
+        "Name": "NavMeshBoundsVolume2"
+    },
+    "NavMeshBoundsVolume3": {
+        "Name": "NavMeshBoundsVolume3"
+    },
+    "NavMeshBoundsVolume4": {
+        "Name": "NavMeshBoundsVolume4"
+    },
+    "NavMeshBoundsVolume5": {
+        "Name": "NavMeshBoundsVolume5"
+    },
+    "NavMeshBoundsVolume6": {
+        "Name": "NavMeshBoundsVolume6"
+    },
+    "NavMeshBoundsVolume7": {
+        "Name": "NavMeshBoundsVolume7"
+    },
+    "NavMeshBoundsVolume8": {
+        "Name": "NavMeshBoundsVolume8"
+    },
+    "NavMeshBoundsVolume9": {
+        "Name": "NavMeshBoundsVolume9"
+    },
+    "NavMeshBoundsVolume10": {
+        "Name": "NavMeshBoundsVolume10"
+    },
+    "NavMeshBoundsVolume11": {
+        "Name": "NavMeshBoundsVolume11"
+    },
+    "NavMeshBoundsVolume12": {
+        "Name": "NavMeshBoundsVolume12"
+    },
+    "NavMeshBoundsVolume13": {
+        "Name": "NavMeshBoundsVolume13"
+    },
+    "NavMeshBoundsVolume14": {
+        "Name": "NavMeshBoundsVolume14"
+    },
+    "NavMeshBoundsVolume15": {
+        "Name": "NavMeshBoundsVolume15"
+    },
+    "NavMeshBoundsVolume16": {
+        "Name": "NavMeshBoundsVolume16"
+    },
+    "NavMeshBoundsVolume17": {
+        "Name": "NavMeshBoundsVolume17"
+    },
+    "NavMeshBoundsVolume18": {
+        "Name": "NavMeshBoundsVolume18"
+    },
+    "NavMeshBoundsVolume19": {
+        "Name": "NavMeshBoundsVolume19"
+    },
+    "NavModifierVolume3": {
+        "Name": "NavModifierVolume3"
+    },
+    "VendorNavMesh4": {
+        "Name": "VendorNavMesh4"
+    },
+    "NavModifierVolume6": {
+        "Name": "NavModifierVolume6"
+    },
+    "VendorNavMesh5": {
+        "Name": "VendorNavMesh5"
+    },
+    "NavModifierVolume10": {
+        "Name": "NavModifierVolume10"
+    },
+    "VendorNavMesh6": {
+        "Name": "VendorNavMesh6"
+    },
+    "NavModifierVolume17": {
+        "Name": "NavModifierVolume17"
+    },
+    "VendorNavMesh7": {
+        "Name": "VendorNavMesh7"
+    },
+    "NavModifierVolume18": {
+        "Name": "NavModifierVolume18"
+    },
+    "NavModifierVolume19": {
+        "Name": "NavModifierVolume19"
+    },
+    "VendorNavMesh8": {
+        "Name": "VendorNavMesh8"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds4": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds4"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds5": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds5"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds6": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds6"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds7": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds7"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds8": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds8"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds9": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds9"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds10": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds10"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds11": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds11"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds12": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds12"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds13": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds13"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds14": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds14"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds15": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds15"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds16": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds16"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds17": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds17"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds18": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds18"
+    },
+    "WorldRegion_ShoresOfGold": {
+        "Name": "WorldRegion_ShoresOfGold"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds19": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds19"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds2": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds2"
+    },
+    "wld_feature_tribute_peak_chasm_NavMeshBounds3": {
+        "Name": "wld_feature_tribute_peak_chasm_NavMeshBounds3"
+    },
+    "PremShopNulVol3": {
+        "Name": "PremShopNulVol3"
+    },
+    "PremShopNulVol": {
+        "Name": "PremShopNulVol"
+    },
+    "PremShopNulVol4": {
+        "Name": "PremShopNulVol4"
+    },
+    "PremShopNulVol5": {
+        "Name": "PremShopNulVol5"
+    },
+    "PremShopNulVol6": {
+        "Name": "PremShopNulVol6"
+    },
+    "PremShopNulVol7": {
+        "Name": "PremShopNulVol7"
+    },
+    "PremShopNulVol8": {
+        "Name": "PremShopNulVol8"
+    },
+    "PremShopNulVol9": {
+        "Name": "PremShopNulVol9"
+    },
+    "PremShopNulVol10": {
+        "Name": "PremShopNulVol10"
+    },
+    "PremShopNulVol11": {
+        "Name": "PremShopNulVol11"
+    },
+    "PremShopNulVol12": {
+        "Name": "PremShopNulVol12"
+    },
+    "PremShopNulVol13": {
+        "Name": "PremShopNulVol13"
+    },
+    "PremShopNulVol14": {
+        "Name": "PremShopNulVol14"
+    },
+    "PremShopNulVol15": {
+        "Name": "PremShopNulVol15"
+    },
+    "PremShopNulVol16": {
+        "Name": "PremShopNulVol16"
+    },
+    "PremShopNulVol17": {
+        "Name": "PremShopNulVol17"
+    },
+    "PremShopNulVol18": {
+        "Name": "PremShopNulVol18"
+    },
+    "PremShopNulVol19": {
+        "Name": "PremShopNulVol19"
+    },
+    "PremShopNulVol20": {
+        "Name": "PremShopNulVol20"
+    },
+    "PremShopNulVol21": {
+        "Name": "PremShopNulVol21"
+    },
+    "PremShopNulVol22": {
+        "Name": "PremShopNulVol22"
+    },
+    "PremShopNulVol23": {
+        "Name": "PremShopNulVol23"
+    },
+    "PremShopNulVol24": {
+        "Name": "PremShopNulVol24"
+    },
+    "PremShopNulVol25": {
+        "Name": "PremShopNulVol25"
+    },
+    "PremShopNulVol26": {
+        "Name": "PremShopNulVol26"
+    },
+    "PremShopNulVol27": {
+        "Name": "PremShopNulVol27"
+    },
+    "PremShopNulVol28": {
+        "Name": "PremShopNulVol28"
+    },
+    "PremShopNulVol29": {
+        "Name": "PremShopNulVol29"
+    },
+    "WorldRegion_BlueSeaOfPlentyReef": {
+        "Name": "WorldRegion_BlueSeaOfPlentyReef"
+    },
+    "WorldRegion_HeartOfFire": {
+        "Name": "WorldRegion_HeartOfFire"
+    },
+    "NavBlocker": {
+        "Name": "NavBlocker"
+    },
+    "ChamberNav6": {
+        "Name": "ChamberNav6"
+    },
+    "ChamberNav7": {
+        "Name": "ChamberNav7"
+    },
+    "HellishNav3": {
+        "Name": "HellishNav3"
+    },
+    "HellishNav4": {
+        "Name": "HellishNav4"
+    },
+    "ChamberNav8": {
+        "Name": "ChamberNav8"
+    },
+    "ChamberNav9": {
+        "Name": "ChamberNav9"
+    },
+    "Spire_NavMeshBoundsVolume_01": {
+        "Name": "Spire_NavMeshBoundsVolume_01"
+    },
+    "Spire_NavMeshBoundsVolume_02": {
+        "Name": "Spire_NavMeshBoundsVolume_02"
+    },
+    "Spire_NavMeshBoundsVolume_03": {
+        "Name": "Spire_NavMeshBoundsVolume_03"
+    },
+    "Spire_NavMeshBoundsVolume_04": {
+        "Name": "Spire_NavMeshBoundsVolume_04"
+    },
+    "Spire_NavMeshBoundsVolume_05": {
+        "Name": "Spire_NavMeshBoundsVolume_05"
+    },
+    "HellishNav5": {
+        "Name": "HellishNav5"
+    },
+    "HellishNav6": {
+        "Name": "HellishNav6"
+    },
+    "ChamberNav5": {
+        "Name": "ChamberNav5"
+    },
+    "ChamberNav10": {
+        "Name": "ChamberNav10"
+    },
+    "ChamberNav11": {
+        "Name": "ChamberNav11"
+    },
+    "HellishNav7": {
+        "Name": "HellishNav7"
+    },
+    "ChamberNav12": {
+        "Name": "ChamberNav12"
+    },
+    "ChamberNav13": {
+        "Name": "ChamberNav13"
+    },
+    "ChamberNav14": {
+        "Name": "ChamberNav14"
+    },
+    "HellishNav8": {
+        "Name": "HellishNav8"
+    },
+    "ChamberNav15": {
+        "Name": "ChamberNav15"
+    },
+    "ChamberNav16": {
+        "Name": "ChamberNav16"
+    },
+    "ChamberNav17": {
+        "Name": "ChamberNav17"
+    },
+    "HellishNav9": {
+        "Name": "HellishNav9"
+    },
+    "ShrineNavMesh": {
+        "Name": "ShrineNavMesh"
+    },
+    "ChamberNav18": {
+        "Name": "ChamberNav18"
+    },
+    "ChamberNav19": {
+        "Name": "ChamberNav19"
+    },
+    "HellishNav10": {
+        "Name": "HellishNav10"
+    },
+    "HellishNav11": {
+        "Name": "HellishNav11"
+    },
+    "NavMesh_SilverBlade_Lower2": {
+        "Name": "NavMesh_SilverBlade_Lower2"
+    },
+    "NavMesh_SilverBlade_Lower3": {
+        "Name": "NavMesh_SilverBlade_Lower3"
+    },
+    "HellishNav12": {
+        "Name": "HellishNav12"
+    },
+    "NavMesh_SilverBlade_LowerCannons2": {
+        "Name": "NavMesh_SilverBlade_LowerCannons2"
+    },
+    "NavMesh_SilverBlade_LowerCannons3": {
+        "Name": "NavMesh_SilverBlade_LowerCannons3"
+    },
+    "HellishNav13": {
+        "Name": "HellishNav13"
+    },
+    "NavMesh_SilverBlade_LowerCannons4": {
+        "Name": "NavMesh_SilverBlade_LowerCannons4"
+    },
+    "NavMesh_SilverBlade_LowerCannons5": {
+        "Name": "NavMesh_SilverBlade_LowerCannons5"
+    },
+    "HellishNav14": {
+        "Name": "HellishNav14"
+    },
+    "NavMesh_SilverBlade_LowerCannons6": {
+        "Name": "NavMesh_SilverBlade_LowerCannons6"
+    },
+    "NavMesh_SilverBlade_LowerCannons7": {
+        "Name": "NavMesh_SilverBlade_LowerCannons7"
+    },
+    "HellishNav15": {
+        "Name": "HellishNav15"
+    },
+    "NavMesh_SilverBlade_LowerCannons8": {
+        "Name": "NavMesh_SilverBlade_LowerCannons8"
+    },
+    "NavMesh_SilverBlade_LowerCannons9": {
+        "Name": "NavMesh_SilverBlade_LowerCannons9"
+    },
+    "HellishNav16": {
+        "Name": "HellishNav16"
+    },
+    "NavMesh_SilverBlade_LowerCannons10": {
+        "Name": "NavMesh_SilverBlade_LowerCannons10"
+    },
+    "NavMesh_SilverBlade_LowerCannons11": {
+        "Name": "NavMesh_SilverBlade_LowerCannons11"
+    },
+    "HellishNav17": {
+        "Name": "HellishNav17"
+    },
+    "NavMesh_SilverBlade_LowerCannons12": {
+        "Name": "NavMesh_SilverBlade_LowerCannons12"
+    },
+    "NavMesh_SilverBlade_LowerCannons13": {
+        "Name": "NavMesh_SilverBlade_LowerCannons13"
+    },
+    "HellishNav18": {
+        "Name": "HellishNav18"
+    },
+    "NavMesh_SilverBlade_LowerCannons14": {
+        "Name": "NavMesh_SilverBlade_LowerCannons14"
+    },
+    "NavMesh_SilverBlade_LowerCannons15": {
+        "Name": "NavMesh_SilverBlade_LowerCannons15"
+    },
+    "HellishNav19": {
+        "Name": "HellishNav19"
+    },
+    "NavMesh_SilverBlade_LowerCannons16": {
+        "Name": "NavMesh_SilverBlade_LowerCannons16"
+    },
+    "NavMesh_SilverBlade_LowerCannons17": {
+        "Name": "NavMesh_SilverBlade_LowerCannons17"
+    },
+    "HellishNav20": {
+        "Name": "HellishNav20"
+    },
+    "NavMesh_SilverBlade_LowerCannons18": {
+        "Name": "NavMesh_SilverBlade_LowerCannons18"
+    },
+    "NavMesh_SilverBlade_LowerCannons19": {
+        "Name": "NavMesh_SilverBlade_LowerCannons19"
+    },
+    "WorldRegion_SunkenKingdom": {
+        "Name": "WorldRegion_SunkenKingdom"
+    },
+    "HellishNav21": {
+        "Name": "HellishNav21"
+    },
+    "ShrineNavMesh_Upper2": {
+        "Name": "ShrineNavMesh_Upper2"
+    },
+    "NavModifier_ShrineUpper2": {
+        "Name": "NavModifier_ShrineUpper2"
+    },
+    "NavModifier_ShrineLower7": {
+        "Name": "NavModifier_ShrineLower7"
+    },
+    "ShrineNavMesh_Lower4": {
+        "Name": "ShrineNavMesh_Lower4"
+    },
+    "NavModifier_ShrineLower8": {
+        "Name": "NavModifier_ShrineLower8"
+    },
+    "NavModifier_ShrineLower9": {
+        "Name": "NavModifier_ShrineLower9"
+    },
+    "ShrineNavMesh_Lower5": {
+        "Name": "ShrineNavMesh_Lower5"
+    },
+    "ShrineNavMesh_Lower6": {
+        "Name": "ShrineNavMesh_Lower6"
+    },
+    "HellishNav22": {
+        "Name": "HellishNav22"
+    },
+    "ShrineNavMesh_Upper3": {
+        "Name": "ShrineNavMesh_Upper3"
+    },
+    "NavModifier_ShrineUpper3": {
+        "Name": "NavModifier_ShrineUpper3"
+    },
+    "ShrineNavMesh_Lower7": {
+        "Name": "ShrineNavMesh_Lower7"
+    },
+    "ShrineNavMesh_Lower8": {
+        "Name": "ShrineNavMesh_Lower8"
+    },
+    "ShrineNavMesh_Lower9": {
+        "Name": "ShrineNavMesh_Lower9"
+    },
+    "HellishNav23": {
+        "Name": "HellishNav23"
+    },
+    "ShrineNavMesh_Upper4": {
+        "Name": "ShrineNavMesh_Upper4"
+    },
+    "NavModifier_ShrineUpper4": {
+        "Name": "NavModifier_ShrineUpper4"
+    },
+    "Spire_NavMeshBoundsVolume_06": {
+        "Name": "Spire_NavMeshBoundsVolume_06"
+    },
+    "HellishNav24": {
+        "Name": "HellishNav24"
+    },
+    "ShrineNavMesh_Upper5": {
+        "Name": "ShrineNavMesh_Upper5"
+    },
+    "NavModifier_ShrineUpper5": {
+        "Name": "NavModifier_ShrineUpper5"
+    },
+    "HellishNav25": {
+        "Name": "HellishNav25"
+    },
+    "ShrineNavMesh_Upper6": {
+        "Name": "ShrineNavMesh_Upper6"
+    },
+    "NavModifier_ShrineUpper6": {
+        "Name": "NavModifier_ShrineUpper6"
+    },
+    "HellishNav26": {
+        "Name": "HellishNav26"
+    },
+    "ShrineNavMesh_Upper7": {
+        "Name": "ShrineNavMesh_Upper7"
+    },
+    "NavModifier_ShrineUpper7": {
+        "Name": "NavModifier_ShrineUpper7"
+    },
+    "HellishNav27": {
+        "Name": "HellishNav27"
+    },
+    "ShrineNavMesh_Upper8": {
+        "Name": "ShrineNavMesh_Upper8"
+    },
+    "NavModifier_ShrineUpper8": {
+        "Name": "NavModifier_ShrineUpper8"
+    },
+    "HellishNav28": {
+        "Name": "HellishNav28"
+    },
+    "ShrineNavMesh_Upper9": {
+        "Name": "ShrineNavMesh_Upper9"
+    },
+    "NavModifier_ShrineUpper9": {
+        "Name": "NavModifier_ShrineUpper9"
+    },
+    "HellishNav29": {
+        "Name": "HellishNav29"
+    },
+    "shrine_01a_NavMeshVolume": {
+        "Name": "shrine_01a_NavMeshVolume"
+    },
+    "shrine_01a_NavModifier": {
+        "Name": "shrine_01a_NavModifier"
+    },
+    "AthenaCalmWaterZone11": {
+        "Name": "AthenaCalmWaterZone11"
+    },
+    "BridgeBlockingVolume2": {
+        "Name": "BridgeBlockingVolume2"
+    },
+    "BridgeBlockingVolume3": {
+        "Name": "BridgeBlockingVolume3"
+    },
+    "BridgeBlockingVolume4": {
+        "Name": "BridgeBlockingVolume4"
+    },
+    "BridgeBlockingVolume5": {
+        "Name": "BridgeBlockingVolume5"
+    },
+    "BridgeBlockingVolume6": {
+        "Name": "BridgeBlockingVolume6"
+    },
+    "BridgeBlockingVolume7": {
+        "Name": "BridgeBlockingVolume7"
+    },
+    "BridgeBlockingVolume8": {
+        "Name": "BridgeBlockingVolume8"
+    },
+    "BridgeBlockingVolume9": {
+        "Name": "BridgeBlockingVolume9"
+    },
+    "SOT_World_layout_Starlight_C": {
+        "Name": "SOT_World_layout_Starlight_C"
+    },
+    "BridgeBlockingVolume10": {
+        "Name": "BridgeBlockingVolume10"
+    },
+    "BridgeBlockingVolume11": {
+        "Name": "BridgeBlockingVolume11"
+    },
+    "BridgeBlockingVolume12": {
+        "Name": "BridgeBlockingVolume12"
+    },
+    "BridgeBlockingVolume13": {
+        "Name": "BridgeBlockingVolume13"
+    },
+    "InstancedNavMeshBoundsVolume": {
+        "Name": "InstancedNavMeshBoundsVolume"
+    },
+    "Copiedwsp_feature_disovery_ridge_navmeshbounds": {
+        "Name": "Copiedwsp_feature_disovery_ridge_navmeshbounds"
+    },
+    "Copiedwsp_feature_snake_island_navmeshbounds": {
+        "Name": "Copiedwsp_feature_snake_island_navmeshbounds"
+    },
+    "Copiedwsp_feature_crooks_hollow_navmeshbounds": {
+        "Name": "Copiedwsp_feature_crooks_hollow_navmeshbounds"
+    },
+    "Copiedwsp_feature_thieves_haven_navmeshbounds": {
+        "Name": "Copiedwsp_feature_thieves_haven_navmeshbounds"
+    },
+    "CopiedNavModifierVolume13": {
+        "Name": "CopiedNavModifierVolume13"
+    },
+    "Copiedwsp_feature_sharkbait_cove_navmeshbounds": {
+        "Name": "Copiedwsp_feature_sharkbait_cove_navmeshbounds"
+    },
+    "Copiedwsp_feature_devils_ridge_navmeshbounds": {
+        "Name": "Copiedwsp_feature_devils_ridge_navmeshbounds"
+    },
+    "CopiedNavMeshBoundsVolume5": {
+        "Name": "CopiedNavMeshBoundsVolume5"
+    },
+    "Copiedwsp_feature_plunder_valley_navmeshbounds": {
+        "Name": "Copiedwsp_feature_plunder_valley_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_01_a_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_01_a_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_01_b_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_01_b_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_01_c_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_01_c_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_01_d_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_01_d_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_01_e_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_01_e_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_02_a_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_02_a_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_02_b_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_02_b_navmeshbounds"
+    },
+    "Copiedbsp_feature_crescent_cove_navmeshbounds": {
+        "Name": "Copiedbsp_feature_crescent_cove_navmeshbounds"
+    },
+    "Copiedbsp_feature_crescent_island_navmeshbounds": {
+        "Name": "Copiedbsp_feature_crescent_island_navmeshbounds"
+    },
+    "CopiedNavModifierVolume14": {
+        "Name": "CopiedNavModifierVolume14"
+    },
+    "Copiedbsp_feature_lone_cove_navmeshbounds": {
+        "Name": "Copiedbsp_feature_lone_cove_navmeshbounds"
+    },
+    "Copiedbsp_feature_mermaids_hideaway_navmeshbounds": {
+        "Name": "Copiedbsp_feature_mermaids_hideaway_navmeshbounds"
+    },
+    "CopiedNavMeshBoundsVolume6": {
+        "Name": "CopiedNavMeshBoundsVolume6"
+    },
+    "CopiedNavModifierVolume15": {
+        "Name": "CopiedNavModifierVolume15"
+    },
+    "Copiedbsp_feature_sailors_bounty_navmeshbounds": {
+        "Name": "Copiedbsp_feature_sailors_bounty_navmeshbounds"
+    },
+    "CopiedNavModifierVolume16": {
+        "Name": "CopiedNavModifierVolume16"
+    },
+    "Copiedbsp_feature_smugglers_bay_navmeshbounds": {
+        "Name": "Copiedbsp_feature_smugglers_bay_navmeshbounds"
+    },
+    "Copiedbsp_feature_wanderers_archipelago_navmeshbounds": {
+        "Name": "Copiedbsp_feature_wanderers_archipelago_navmeshbounds"
+    },
+    "Copiedbsp_outpost_1_navmeshbounds": {
+        "Name": "Copiedbsp_outpost_1_navmeshbounds"
+    },
+    "CopiedNavModifierVolume18": {
+        "Name": "CopiedNavModifierVolume18"
+    },
+    "CopiedPremShopNulVol3": {
+        "Name": "CopiedPremShopNulVol3"
+    },
+    "Copiedbsp_outpost_2_navmeshbounds": {
+        "Name": "Copiedbsp_outpost_2_navmeshbounds"
+    },
+    "CopiedNavModifierVolume19": {
+        "Name": "CopiedNavModifierVolume19"
+    },
+    "CopiedNavModifierVolume2": {
+        "Name": "CopiedNavModifierVolume2"
+    },
+    "Copiedwsp_outpost_1_navmeshvolume": {
+        "Name": "Copiedwsp_outpost_1_navmeshvolume"
+    },
+    "Copiedwsp_resource_island_02_e_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_02_e_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_02_f_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_02_f_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_01_a_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_01_a_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_01_b_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_01_b_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_01_c_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_01_c_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_01_c_NavModifierVolume": {
+        "Name": "Copiedbsp_resource_island_01_c_NavModifierVolume"
+    },
+    "CopiedNavModifierVolume": {
+        "Name": "CopiedNavModifierVolume"
+    },
+    "Copiedbsp_resource_island_01_d_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_01_d_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_01_e_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_01_e_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_02_a_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_02_a_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_02_b_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_02_b_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_02_c_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_02_c_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_02_d_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_02_d_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_02_e_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_02_e_navmeshbounds"
+    },
+    "Copiedwld_feature_arches_navmeshbounds": {
+        "Name": "Copiedwld_feature_arches_navmeshbounds"
+    },
+    "Copiedwld_feature_canvern_isle_navmeshbounds": {
+        "Name": "Copiedwld_feature_canvern_isle_navmeshbounds"
+    },
+    "Copiedwld_feature_dragons_breath_navmeshbounds": {
+        "Name": "Copiedwld_feature_dragons_breath_navmeshbounds"
+    },
+    "Copiedwld_feature_old_faithful_navmeshbounds": {
+        "Name": "Copiedwld_feature_old_faithful_navmeshbounds"
+    },
+    "Copiedwld_feature_three_peaks_navmeshbounds": {
+        "Name": "Copiedwld_feature_three_peaks_navmeshbounds"
+    },
+    "Copiedwld_feature_shipwreck_bay_navmeshbounds": {
+        "Name": "Copiedwld_feature_shipwreck_bay_navmeshbounds"
+    },
+    "Copiedwld_outpost_1_navmeshbounds": {
+        "Name": "Copiedwld_outpost_1_navmeshbounds"
+    },
+    "CopiedNavModifierVolume3": {
+        "Name": "CopiedNavModifierVolume3"
+    },
+    "CopiedPremShopNulVol": {
+        "Name": "CopiedPremShopNulVol"
+    },
+    "CopiedNavModifierVolume_WaterTower": {
+        "Name": "CopiedNavModifierVolume_WaterTower"
+    },
+    "Copiedwld_resource_island_01_a_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_01_a_navmeshbounds"
+    },
+    "Copiedwld_resource_island_01_a_NavModifierVolume": {
+        "Name": "Copiedwld_resource_island_01_a_NavModifierVolume"
+    },
+    "Copiedwld_resource_island_01_b_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_01_b_navmeshbounds"
+    },
+    "Copiedwld_resource_island_01_c_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_01_c_navmeshbounds"
+    },
+    "Copiedwld_resource_island_01_d_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_01_d_navmeshbounds"
+    },
+    "Copiedwld_resource_island_01_e_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_01_e_navmeshbounds"
+    },
+    "Copiedwld_resource_island_02_a_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_02_a_navmeshbounds"
+    },
+    "Copiedwld_resource_island_02_b_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_02_b_navmeshbounds"
+    },
+    "Copiedwld_resource_island_02_c_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_02_c_navmeshbounds"
+    },
+    "Copiedwld_resource_island_02_d_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_02_d_navmeshbounds"
+    },
+    "Copiedwld_resource_island_02_e_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_02_e_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_01_f_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_01_f_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_01_f_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_01_f_navmeshbounds"
+    },
+    "Copiedbsp_resource_island_02_f_navmeshbounds": {
+        "Name": "Copiedbsp_resource_island_02_f_navmeshbounds"
+    },
+    "Copiedwsp_resource_island_02_d_navmeshbounds": {
+        "Name": "Copiedwsp_resource_island_02_d_navmeshbounds"
+    },
+    "Copiedwsp_res_island_01_g_navmeshbounds": {
+        "Name": "Copiedwsp_res_island_01_g_navmeshbounds"
+    },
+    "Copiedwsp_outpost_2_navmeshbounds": {
+        "Name": "Copiedwsp_outpost_2_navmeshbounds"
+    },
+    "CopiedNavMeshBoundsVolume2": {
+        "Name": "CopiedNavMeshBoundsVolume2"
+    },
+    "CopiedNavMeshBoundsVolume_Cavern_b": {
+        "Name": "CopiedNavMeshBoundsVolume_Cavern_b"
+    },
+    "CopiedNavMeshBoundsVolume_throneCave": {
+        "Name": "CopiedNavMeshBoundsVolume_throneCave"
+    },
+    "Copiedwld_resource_island_01_j_NavMeshBounds": {
+        "Name": "Copiedwld_resource_island_01_j_NavMeshBounds"
+    },
+    "Copiedwld_resource_island_01_h_NavMeshBounds": {
+        "Name": "Copiedwld_resource_island_01_h_NavMeshBounds"
+    },
+    "Copiedbsp_resource_island_01_i_NavMeshBounds": {
+        "Name": "Copiedbsp_resource_island_01_i_NavMeshBounds"
+    },
+    "Copiedwld_outpost_2_navmeshbounds": {
+        "Name": "Copiedwld_outpost_2_navmeshbounds"
+    },
+    "Copiedwld_resource_island_01_k_NavMeshBounds": {
+        "Name": "Copiedwld_resource_island_01_k_NavMeshBounds"
+    },
+    "Copiedwsp_res_island_01_h_navmeshbounds": {
+        "Name": "Copiedwsp_res_island_01_h_navmeshbounds"
+    },
+    "Copiedwsp_res_island_01_h_navblocker": {
+        "Name": "Copiedwsp_res_island_01_h_navblocker"
+    },
+    "Copieddvr_resource_island_01_i_navmeshbounds": {
+        "Name": "Copieddvr_resource_island_01_i_navmeshbounds"
+    },
+    "Copieddvr_resource_island_01_h_navmeshbounds": {
+        "Name": "Copieddvr_resource_island_01_h_navmeshbounds"
+    },
+    "Copieddvr_resource_island_01_g_navmeshbounds": {
+        "Name": "Copieddvr_resource_island_01_g_navmeshbounds"
+    },
+    "Copieddvr_resource_island_01_f_navmeshbounds": {
+        "Name": "Copieddvr_resource_island_01_f_navmeshbounds"
+    },
+    "Copieddvr_resource_island_01_e_navmeshbounds": {
+        "Name": "Copieddvr_resource_island_01_e_navmeshbounds"
+    },
+    "Copiedwld_resource_island_02_i_navmeshbounds": {
+        "Name": "Copiedwld_resource_island_02_i_navmeshbounds"
+    },
+    "Copieddvr_outpost_1_navmeshbounds": {
+        "Name": "Copieddvr_outpost_1_navmeshbounds"
+    },
+    "CopiedNavModifierVolume4": {
+        "Name": "CopiedNavModifierVolume4"
+    },
+    "Copieddvr_feature_island_01_e_NavMeshBounds": {
+        "Name": "Copieddvr_feature_island_01_e_NavMeshBounds"
+    },
+    "CopiedNavMeshBoundsVolume7": {
+        "Name": "CopiedNavMeshBoundsVolume7"
+    },
+    "CopiedNavModifierVolume5": {
+        "Name": "CopiedNavModifierVolume5"
+    },
+    "CopiedNavModifierVolume6": {
+        "Name": "CopiedNavModifierVolume6"
+    },
+    "Copieddvr_feature_island_01_b_navmeshbounds": {
+        "Name": "Copieddvr_feature_island_01_b_navmeshbounds"
+    },
+    "Copieddvr_feature_island_01_a_NavMeshBounds": {
+        "Name": "Copieddvr_feature_island_01_a_NavMeshBounds"
+    },
+    "Copieddvr_seapost_navmeshbounds": {
+        "Name": "Copieddvr_seapost_navmeshbounds"
+    },
+    "Copiedbsp_seapost_navmeshbounds": {
+        "Name": "Copiedbsp_seapost_navmeshbounds"
+    },
+    "Copiedwld_seapost_navmeshbounds": {
+        "Name": "Copiedwld_seapost_navmeshbounds"
+    },
+    "Copiedwsp_seapost_navmeshbounds": {
+        "Name": "Copiedwsp_seapost_navmeshbounds"
+    },
+    "Copiedbsp_seapost_01_b_navmeshbounds": {
+        "Name": "Copiedbsp_seapost_01_b_navmeshbounds"
+    },
+    "Copiedwsp_seapost_b_navmeshbounds": {
+        "Name": "Copiedwsp_seapost_b_navmeshbounds"
+    },
+    "Copiedwld_seapost_b_navmeshbounds": {
+        "Name": "Copiedwld_seapost_b_navmeshbounds"
+    },
+    "Copieddvr_seapost_b_navmeshbounds": {
+        "Name": "Copieddvr_seapost_b_navmeshbounds"
+    },
+    "CopiednavBlocker": {
+        "Name": "CopiednavBlocker"
+    },
+    "Copiedwsp_feature_rome_exterior_navmeshbounds": {
+        "Name": "Copiedwsp_feature_rome_exterior_navmeshbounds"
+    },
+    "CopiedCopiedCopiedNavModifierVolume7": {
+        "Name": "CopiedCopiedCopiedNavModifierVolume7"
+    },
+    "Copiedwld_feature_tribute_peak_island_NavMeshBounds": {
+        "Name": "Copiedwld_feature_tribute_peak_island_NavMeshBounds"
+    },
+    "Copiedwld_feature_tribute_peak_treasure_NavMeshBounds": {
+        "Name": "Copiedwld_feature_tribute_peak_treasure_NavMeshBounds"
+    },
+    "Copiedwld_feature_tribute_peak_chasm_NavMeshBounds2": {
+        "Name": "Copiedwld_feature_tribute_peak_chasm_NavMeshBounds2"
+    },
+    "BridgeBlockingVolume14": {
+        "Name": "BridgeBlockingVolume14"
+    },
+    "CopiedNavModifierVolume7": {
+        "Name": "CopiedNavModifierVolume7"
+    },
+    "CopiedNavModifierVolume9": {
+        "Name": "CopiedNavModifierVolume9"
+    },
+    "CopiedNavModifierVolume17": {
+        "Name": "CopiedNavModifierVolume17"
+    },
+    "CopiedNavMeshBoundsVolume9": {
+        "Name": "CopiedNavMeshBoundsVolume9"
+    },
+    "CopiedChamberNav2": {
+        "Name": "CopiedChamberNav2"
+    },
+    "CopiedBossBattleNav": {
+        "Name": "CopiedBossBattleNav"
+    },
+    "CopiedHellishNav3": {
+        "Name": "CopiedHellishNav3"
+    },
+    "CopiedExploringTheTunnelsNavBounds": {
+        "Name": "CopiedExploringTheTunnelsNavBounds"
+    },
+    "CopiedExploringNavBlockVolume": {
+        "Name": "CopiedExploringNavBlockVolume"
+    },
+    "CopiedNavMEsh_ThroneRoom": {
+        "Name": "CopiedNavMEsh_ThroneRoom"
+    },
+    "CopiedNavMesh_TrophyRoom": {
+        "Name": "CopiedNavMesh_TrophyRoom"
+    },
+    "CopiedNavMesh_SilverBlade_LowerCannons2": {
+        "Name": "CopiedNavMesh_SilverBlade_LowerCannons2"
+    },
+    "CopiedNavMesh_SilverBlade_UpperCannons": {
+        "Name": "CopiedNavMesh_SilverBlade_UpperCannons"
+    },
+    "CopiedShrineNavMesh_Upper1": {
+        "Name": "CopiedShrineNavMesh_Upper1"
+    },
+    "CopiedNavModifier_ShrineUpper1": {
+        "Name": "CopiedNavModifier_ShrineUpper1"
+    },
+    "CopiedNavModifier_ShrineLower1": {
+        "Name": "CopiedNavModifier_ShrineLower1"
+    },
+    "CopiedShrineNavMesh_Lower1": {
+        "Name": "CopiedShrineNavMesh_Lower1"
+    },
+    "Copiedshrine_01a_NavMeshVolume": {
+        "Name": "Copiedshrine_01a_NavMeshVolume"
+    },
+    "Copiedshrine_01a_NavModifier": {
+        "Name": "Copiedshrine_01a_NavModifier"
+    },
+    "CopiedNavBlocker_UpperEntrance": {
+        "Name": "CopiedNavBlocker_UpperEntrance"
+    },
+    "CopiedNavMeshBoundsVolume8": {
+        "Name": "CopiedNavMeshBoundsVolume8"
+    },
+    "CopiedNavMeshBoundsVolume10": {
+        "Name": "CopiedNavMeshBoundsVolume10"
+    },
+    "CopiedNavMeshBoundsVolume11": {
+        "Name": "CopiedNavMeshBoundsVolume11"
+    },
+    "CopiedNavMeshBoundsVolume12": {
+        "Name": "CopiedNavMeshBoundsVolume12"
+    },
+    "CopiedNavMeshBoundsVolume13": {
+        "Name": "CopiedNavMeshBoundsVolume13"
+    },
+    "CopiedNavMeshBoundsVolume14": {
+        "Name": "CopiedNavMeshBoundsVolume14"
+    },
+    "CopiedNavMeshBoundsVolume15": {
+        "Name": "CopiedNavMeshBoundsVolume15"
+    },
+    "CopiedNavMeshBoundsVolume16": {
+        "Name": "CopiedNavMeshBoundsVolume16"
+    },
+    "CopiedNavMeshBoundsVolume17": {
+        "Name": "CopiedNavMeshBoundsVolume17"
+    },
+    "CopiedNavModifierVolume8": {
+        "Name": "CopiedNavModifierVolume8"
+    },
+    "CopiedNavMeshBoundsVolume18": {
+        "Name": "CopiedNavMeshBoundsVolume18"
+    },
+    "CopiedNavMeshBoundsVolume19": {
+        "Name": "CopiedNavMeshBoundsVolume19"
+    },
+    "CopiedNavModifierVolume10": {
+        "Name": "CopiedNavModifierVolume10"
+    },
+    "CopiedNavModifierVolume11": {
+        "Name": "CopiedNavModifierVolume11"
+    },
+    "CopiedNavModifierVolume12": {
+        "Name": "CopiedNavModifierVolume12"
+    },
+    "CopiedCopiedCopiedNavModifierVolume8": {
+        "Name": "CopiedCopiedCopiedNavModifierVolume8"
+    },
+    "CopiedCopiedNavModifierVolume11": {
+        "Name": "CopiedCopiedNavModifierVolume11"
+    },
+    "CopiedCopiedCopiedNavModifierVolume12": {
+        "Name": "CopiedCopiedCopiedNavModifierVolume12"
+    },
+    "CopiedCopiedCopiedNavModifierVolume13": {
+        "Name": "CopiedCopiedCopiedNavModifierVolume13"
+    },
+    "CopiedCopiedCopiedNavModifierVolume14": {
+        "Name": "CopiedCopiedCopiedNavModifierVolume14"
+    },
+    "CopiedNavModifierVolumeGlitterBeard": {
+        "Name": "CopiedNavModifierVolumeGlitterBeard"
+    },
+    "CameraActor": {
+        "Name": "CameraActor"
+    },
+    "TunnelsOfTheDamnedService": {
+        "Name": "TunnelsOfTheDamnedService"
+    },
+    "InvasionService": {
+        "Name": "InvasionService"
+    },
+    "ShipService": {
+        "Name": "ShipService"
+    },
+    "DebugTimeService": {
+        "Name": "DebugTimeService"
+    },
+    "CoherentUIGTSystem": {
+        "Name": "CoherentUIGTSystem"
+    },
+    "WindService": {
+        "Name": "WindService"
+    },
+    "CrewService": {
+        "Name": "CrewService"
+    },
+    "StoryService": {
+        "Name": "StoryService"
+    },
+    "PlayerManagerService": {
+        "Name": "PlayerManagerService"
+    },
+    "NPCService": {
+        "Name": "NPCService"
+    },
+    "GenericMarkerService": {
+        "Name": "GenericMarkerService"
+    },
+    "StormService": {
+        "Name": "StormService"
+    },
+    "PlayerBuriedItemService": {
+        "Name": "PlayerBuriedItemService"
+    },
+    "SharedObjectReplicationService": {
+        "Name": "SharedObjectReplicationService"
+    },
+    "KrakenService": {
+        "Name": "KrakenService"
+    },
+    "TinySharkService": {
+        "Name": "TinySharkService"
+    },
+    "TallTaleService": {
+        "Name": "TallTaleService"
+    },
+    "ServiceStatusNotificationsService": {
+        "Name": "ServiceStatusNotificationsService"
+    },
+    "AllianceService": {
+        "Name": "AllianceService"
+    },
+    "FactionService": {
+        "Name": "FactionService"
+    },
+    "CampaignService": {
+        "Name": "CampaignService"
+    },
+    "CargoRunService": {
+        "Name": "CargoRunService"
+    },
+    "CommodityDemandService": {
+        "Name": "CommodityDemandService"
+    },
+    "IslandService": {
+        "Name": "IslandService"
+    },
+    "SpireService": {
+        "Name": "SpireService"
+    },
+    "FireworkService": {
+        "Name": "FireworkService"
+    },
+    "CaptainedSessionService": {
+        "Name": "CaptainedSessionService"
+    },
+    "SeaFortsService": {
+        "Name": "SeaFortsService"
+    },
+    "LoadoutCostService": {
+        "Name": "LoadoutCostService"
+    },
+    "UserSettingsService": {
+        "Name": "UserSettingsService"
+    },
+    "BootyStorageService": {
+        "Name": "BootyStorageService"
+    },
+    "AthenaPlayerState": {
+        "Name": "AthenaPlayerState"
+    },
+    "CrewShipManifest": {
+        "Name": "CrewShipManifest"
+    },
+    "FFTWaterService": {
+        "Name": "FFTWaterService"
+    },
+    "DeepSeaRegionService": {
+        "Name": "DeepSeaRegionService"
+    },
+    "CharacterSocketCollisionService": {
+        "Name": "CharacterSocketCollisionService"
+    },
+    "PirateGeneratorService": {
+        "Name": "PirateGeneratorService"
+    },
+    "ProjectileService": {
+        "Name": "ProjectileService"
+    },
+    "GlobalEmitterService": {
+        "Name": "GlobalEmitterService"
+    },
+    "BeckonService": {
+        "Name": "BeckonService"
+    },
+    "ConstellationsService": {
+        "Name": "ConstellationsService"
+    },
+    "MusicZoneService": {
+        "Name": "MusicZoneService"
+    },
+    "RevealableService": {
+        "Name": "RevealableService"
+    },
+    "MysteriousNotesService": {
+        "Name": "MysteriousNotesService"
+    },
+    "FlamesOfFateSettingsService": {
+        "Name": "FlamesOfFateSettingsService"
+    },
+    "ProjectileCooldownService": {
+        "Name": "ProjectileCooldownService"
+    },
+    "SeasonProgressionUIService": {
+        "Name": "SeasonProgressionUIService"
+    },
+    "BuriedDecalClientService": {
+        "Name": "BuriedDecalClientService"
+    },
+    "ShipsLogService": {
+        "Name": "ShipsLogService"
+    },
+    "ActorOfInterestService": {
+        "Name": "ActorOfInterestService"
+    },
+    "DebugMenu": {
+        "Name": "DebugMenu"
+    },
+    "StaticMeshActor": {
+        "Name": "StaticMeshActor"
+    },
+    "WindDirectionalSource": {
+        "Name": "WindDirectionalSource"
+    },
+    "RegionAssetCacheActor": {
+        "Name": "RegionAssetCacheActor"
+    },
+    "PhasedClusterRoot": {
+        "Name": "PhasedClusterRoot"
+    },
+    "IndividualReplicationChannel": {
+        "Name": "IndividualReplicationChannel"
+    },
+    "CloudDome": {
+        "Name": "CloudDome"
+    },
+    "MapTable_C": {
+        "Name": "MapTable_C"
+    },
+    "RiggingSystem": {
+        "Name": "RiggingSystem"
+    },
+    "AlwaysRelevantLightweightPlayerNameplate": {
+        "Name": "AlwaysRelevantLightweightPlayerNameplate"
+    },
+    "cmn_candle_group_01_C": {
+        "Name": "cmn_candle_group_01_C"
+    },
+    "LandmarkReactionPlayer": {
+        "Name": "LandmarkReactionPlayer"
+    },
+    "Ensemble": {
+        "Name": "Ensemble"
+    },
+    "InterpolatingItem": {
+        "Name": "InterpolatingItem"
+    },
+    "cmn_candle_group_02_C": {
+        "Name": "cmn_candle_group_02_C"
+    }
+}

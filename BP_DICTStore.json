@@ -1,0 +1,1772 @@
+{
+    "BP_TradeRoute_bsp_outpost_1_to_wld_outpost_2_BACKWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_1_to_wld_outpost_2_BACKWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_1_to_wld_outpost_2_FORWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_1_to_wld_outpost_2_FORWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_1_to_wld_seapost_01_a_BACKWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_1_to_wld_seapost_01_a_BACKWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_1_to_wld_seapost_01_a_FORWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_1_to_wld_seapost_01_a_FORWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_2_to_bsp_feature_smugglers_bay_BACKWA": {
+        "Name": "BP_TradeRoute_bsp_outpost_2_to_bsp_feature_smugglers_bay_BACKWA"
+    },
+    "BP_TradeRoute_bsp_outpost_2_to_bsp_feature_smugglers_bay_FORWAR": {
+        "Name": "BP_TradeRoute_bsp_outpost_2_to_bsp_feature_smugglers_bay_FORWAR"
+    },
+    "BP_TradeRoute_bsp_outpost_2_to_wld_outpost_1_BACKWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_2_to_wld_outpost_1_BACKWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_2_to_wld_outpost_1_FORWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_2_to_wld_outpost_1_FORWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_2_to_wsp_seapost_01_b_BACKWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_2_to_wsp_seapost_01_b_BACKWARD"
+    },
+    "BP_TradeRoute_bsp_outpost_2_to_wsp_seapost_01_b_FORWARD": {
+        "Name": "BP_TradeRoute_bsp_outpost_2_to_wsp_seapost_01_b_FORWARD"
+    },
+    "BP_TradeRoute_dvr_outpost_1_to_dvr_feature_island_01_e_BACKWARD": {
+        "Name": "BP_TradeRoute_dvr_outpost_1_to_dvr_feature_island_01_e_BACKWARD"
+    },
+    "BP_TradeRoute_dvr_outpost_1_to_dvr_feature_island_01_e_FORWARD": {
+        "Name": "BP_TradeRoute_dvr_outpost_1_to_dvr_feature_island_01_e_FORWARD"
+    },
+    "BP_TradeRoute_dvr_outpost_1_to_wld_outpost_2_BACKWARD": {
+        "Name": "BP_TradeRoute_dvr_outpost_1_to_wld_outpost_2_BACKWARD"
+    },
+    "BP_TradeRoute_dvr_outpost_1_to_wld_outpost_2_FORWARD": {
+        "Name": "BP_TradeRoute_dvr_outpost_1_to_wld_outpost_2_FORWARD"
+    },
+    "BP_TradeRoute_dvr_outpost_1_to_wsp_outpost_1_BACKWARD": {
+        "Name": "BP_TradeRoute_dvr_outpost_1_to_wsp_outpost_1_BACKWARD"
+    },
+    "BP_TradeRoute_dvr_outpost_1_to_wsp_outpost_1_FORWARD": {
+        "Name": "BP_TradeRoute_dvr_outpost_1_to_wsp_outpost_1_FORWARD"
+    },
+    "BP_TradeRoute_dvr_seapost_01_b_to_dvr_seapost_01_a_BACKWARD": {
+        "Name": "BP_TradeRoute_dvr_seapost_01_b_to_dvr_seapost_01_a_BACKWARD"
+    },
+    "BP_TradeRoute_dvr_seapost_01_b_to_dvr_seapost_01_a_FORWARD": {
+        "Name": "BP_TradeRoute_dvr_seapost_01_b_to_dvr_seapost_01_a_FORWARD"
+    },
+    "BP_TradeRoute_wld_outpost_1_to_wld_feature_arches_BACKWARD": {
+        "Name": "BP_TradeRoute_wld_outpost_1_to_wld_feature_arches_BACKWARD"
+    },
+    "BP_TradeRoute_wld_outpost_1_to_wld_feature_arches_FORWARD": {
+        "Name": "BP_TradeRoute_wld_outpost_1_to_wld_feature_arches_FORWARD"
+    },
+    "BP_TradeRoute_wld_outpost_2_to_wsp_outpost_2_BACKWARD": {
+        "Name": "BP_TradeRoute_wld_outpost_2_to_wsp_outpost_2_BACKWARD"
+    },
+    "BP_TradeRoute_wld_outpost_2_to_wsp_outpost_2_FORWARD": {
+        "Name": "BP_TradeRoute_wld_outpost_2_to_wsp_outpost_2_FORWARD"
+    },
+    "BP_TradeRoute_wsp_outpost_2_to_wsp_seapost_01_b_BACKWARD": {
+        "Name": "BP_TradeRoute_wsp_outpost_2_to_wsp_seapost_01_b_BACKWARD"
+    },
+    "BP_TradeRoute_wsp_outpost_2_to_wsp_seapost_01_b_FORWARD": {
+        "Name": "BP_TradeRoute_wsp_outpost_2_to_wsp_seapost_01_b_FORWARD"
+    },
+    "BP_TradeRoute_wsp_seapost_01_b_to_wsp_feature_devils_ridge_BACK": {
+        "Name": "BP_TradeRoute_wsp_seapost_01_b_to_wsp_feature_devils_ridge_BACK"
+    },
+    "BP_TradeRoute_wsp_seapost_01_b_to_wsp_feature_devils_ridge_FORW": {
+        "Name": "BP_TradeRoute_wsp_seapost_01_b_to_wsp_feature_devils_ridge_FORW"
+    },
+    "BP_MermaidService": {
+        "Name": "BP_MermaidService"
+    },
+    "BP_OnlineAthenaPlayerController_C": {
+        "Name": "BP_OnlineAthenaPlayerController_C"
+    },
+    "BP_AthenaPlayerCameraManager_C": {
+        "Name": "BP_AthenaPlayerCameraManager_C"
+    },
+    "BP_AthenaHUD_C": {
+        "Name": "BP_AthenaHUD_C"
+    },
+    "BP_AthenaGameState_C": {
+        "Name": "BP_AthenaGameState_C"
+    },
+    "BP_PromptActor_TunnelOfTheDamned_BootyWillBeLost_C": {
+        "Name": "BP_PromptActor_TunnelOfTheDamned_BootyWillBeLost_C"
+    },
+    "BP_PromptActor_ChooseFaction_C": {
+        "Name": "BP_PromptActor_ChooseFaction_C"
+    },
+    "BP_Sea_Fort_WindowGlows_C": {
+        "Name": "BP_Sea_Fort_WindowGlows_C"
+    },
+    "BP_Storm_C": {
+        "Name": "BP_Storm_C"
+    },
+    "BP_SkellyShip_ShipCloud_C": {
+        "Name": "BP_SkellyShip_ShipCloud_C"
+    },
+    "BP_WorldMarkerManager_C": {
+        "Name": "BP_WorldMarkerManager_C"
+    },
+    "BP_PetPreview_Dog_C": {
+        "Name": "BP_PetPreview_Dog_C"
+    },
+    "BP_PlayerPirate_C": {
+        "Name": "BP_PlayerPirate_C"
+    },
+    "BP_LargeShipTemplate_C": {
+        "Name": "BP_LargeShipTemplate_C"
+    },
+    "BP_LargeShip_StandardHull_InternalShipWater_C": {
+        "Name": "BP_LargeShip_StandardHull_InternalShipWater_C"
+    },
+    "BP_SailAngle_MiddleSail_C": {
+        "Name": "BP_SailAngle_MiddleSail_C"
+    },
+    "BP_AudioBoatLargeHullAmbi_C": {
+        "Name": "BP_AudioBoatLargeHullAmbi_C"
+    },
+    "BP_LargeShipWheel_C": {
+        "Name": "BP_LargeShipWheel_C"
+    },
+    "BP_Rudder_C": {
+        "Name": "BP_Rudder_C"
+    },
+    "BP_Anchor_C": {
+        "Name": "BP_Anchor_C"
+    },
+    "BP_large_mast_mizzen_C": {
+        "Name": "BP_large_mast_mizzen_C"
+    },
+    "BP_Sail_C": {
+        "Name": "BP_Sail_C"
+    },
+    "BP_large_mast_main_C": {
+        "Name": "BP_large_mast_main_C"
+    },
+    "BP_LargeShipLadderMainMast_C": {
+        "Name": "BP_LargeShipLadderMainMast_C"
+    },
+    "BP_Bell_C": {
+        "Name": "BP_Bell_C"
+    },
+    "BP_ShipFlagCustomizationChest_C": {
+        "Name": "BP_ShipFlagCustomizationChest_C"
+    },
+    "BP_MastEmissaryFlag_C": {
+        "Name": "BP_MastEmissaryFlag_C"
+    },
+    "BP_large_mast_fore_C": {
+        "Name": "BP_large_mast_fore_C"
+    },
+    "BP_LargeShip_Capstan_C": {
+        "Name": "BP_LargeShip_Capstan_C"
+    },
+    "BP_Ship_CasptanRelease_C": {
+        "Name": "BP_Ship_CasptanRelease_C"
+    },
+    "BP_Ship_CapstanArm_C": {
+        "Name": "BP_Ship_CapstanArm_C"
+    },
+    "BP_SailHoist_MiddleSail_C": {
+        "Name": "BP_SailHoist_MiddleSail_C"
+    },
+    "BP_SailHoist_BackSail_C": {
+        "Name": "BP_SailHoist_BackSail_C"
+    },
+    "BP_SailHoist_FrontSail_C": {
+        "Name": "BP_SailHoist_FrontSail_C"
+    },
+    "BP_SailAngle_BackSail_C": {
+        "Name": "BP_SailAngle_BackSail_C"
+    },
+    "BP_SailAngle_FrontSail_C": {
+        "Name": "BP_SailAngle_FrontSail_C"
+    },
+    "BP_LargeShip_StandardHull_C": {
+        "Name": "BP_LargeShip_StandardHull_C"
+    },
+    "BP_LargeShip_StandardHull_Art_C": {
+        "Name": "BP_LargeShip_StandardHull_Art_C"
+    },
+    "BP_LargeShip_StandardHull_Art_Interior_Map_Deck_C": {
+        "Name": "BP_LargeShip_StandardHull_Art_Interior_Map_Deck_C"
+    },
+    "BP_ShipCookingPot_C": {
+        "Name": "BP_ShipCookingPot_C"
+    },
+    "BP_LargeShip_MapDeck_Dressing_01_a_C": {
+        "Name": "BP_LargeShip_MapDeck_Dressing_01_a_C"
+    },
+    "BP_LargeShip_StandardHull_Art_Interior_Brig_Deck_C": {
+        "Name": "BP_LargeShip_StandardHull_Art_Interior_Brig_Deck_C"
+    },
+    "BP_LargeShip_StandardHull_Art_Interior_Captains_Cabin_C": {
+        "Name": "BP_LargeShip_StandardHull_Art_Interior_Captains_Cabin_C"
+    },
+    "BP_LargeShip_CapCabin_Dressing_01_a_C": {
+        "Name": "BP_LargeShip_CapCabin_Dressing_01_a_C"
+    },
+    "BP_CaptainsBookcase_01_C": {
+        "Name": "BP_CaptainsBookcase_01_C"
+    },
+    "BP_LargeShip_StandardHull_Art_Doors_C": {
+        "Name": "BP_LargeShip_StandardHull_Art_Doors_C"
+    },
+    "BP_LargeShip_StandardHull_Damage_C": {
+        "Name": "BP_LargeShip_StandardHull_Damage_C"
+    },
+    "BP_LowerDeckDamageZone_01_C": {
+        "Name": "BP_LowerDeckDamageZone_01_C"
+    },
+    "BP_LowerDeckDamageZone_00_C": {
+        "Name": "BP_LowerDeckDamageZone_00_C"
+    },
+    "BP_MiddleDeckDamageZone_01_C": {
+        "Name": "BP_MiddleDeckDamageZone_01_C"
+    },
+    "BP_MiddleDeckDamageZone_00_C": {
+        "Name": "BP_MiddleDeckDamageZone_00_C"
+    },
+    "BP_LargeShipLadder_C": {
+        "Name": "BP_LargeShipLadder_C"
+    },
+    "BP_Cannon_ShipPartMMC_C": {
+        "Name": "BP_Cannon_ShipPartMMC_C"
+    },
+    "BP_Cannon_PlayerLoadingInteractionPoint_C": {
+        "Name": "BP_Cannon_PlayerLoadingInteractionPoint_C"
+    },
+    "BP_ShipStorageBarrel_C": {
+        "Name": "BP_ShipStorageBarrel_C"
+    },
+    "BP_ShipStorageBarrel_Wood_C": {
+        "Name": "BP_ShipStorageBarrel_Wood_C"
+    },
+    "BP_ShipStorageBarrel_Cannonball_C": {
+        "Name": "BP_ShipStorageBarrel_Cannonball_C"
+    },
+    "BP_Figurehead_C": {
+        "Name": "BP_Figurehead_C"
+    },
+    "BP_ShipsCompass_C": {
+        "Name": "BP_ShipsCompass_C"
+    },
+    "BP_MapTableControlPoint_C": {
+        "Name": "BP_MapTableControlPoint_C"
+    },
+    "BP_LargeShipLanterns_C": {
+        "Name": "BP_LargeShipLanterns_C"
+    },
+    "BP_Lantern_LargeShip_Cabin_Entrance_C": {
+        "Name": "BP_Lantern_LargeShip_Cabin_Entrance_C"
+    },
+    "BP_Lantern_LargeShip_MapDeck_MainStairs_C": {
+        "Name": "BP_Lantern_LargeShip_MapDeck_MainStairs_C"
+    },
+    "BP_Lantern_LargeShip_MapDeck_MapTable_C": {
+        "Name": "BP_Lantern_LargeShip_MapDeck_MapTable_C"
+    },
+    "BP_Lantern_LargeShip_MapDeck_Galley_C": {
+        "Name": "BP_Lantern_LargeShip_MapDeck_Galley_C"
+    },
+    "BP_Lantern_LargeShip_MapDeck_BowLeft_C": {
+        "Name": "BP_Lantern_LargeShip_MapDeck_BowLeft_C"
+    },
+    "BP_Lantern_LargeShip_MapDeck_BowRight_C": {
+        "Name": "BP_Lantern_LargeShip_MapDeck_BowRight_C"
+    },
+    "BP_Lantern_LargeShip_MapDeck_RearStairs_C": {
+        "Name": "BP_Lantern_LargeShip_MapDeck_RearStairs_C"
+    },
+    "BP_Lantern_LargeShip_BrigDeck_InsideBrig_C": {
+        "Name": "BP_Lantern_LargeShip_BrigDeck_InsideBrig_C"
+    },
+    "BP_Lantern_LargeShip_BrigDeck_OutsideBrig_C": {
+        "Name": "BP_Lantern_LargeShip_BrigDeck_OutsideBrig_C"
+    },
+    "BP_Lantern_LargeShip_BrigDeck_StairsLeft_C": {
+        "Name": "BP_Lantern_LargeShip_BrigDeck_StairsLeft_C"
+    },
+    "BP_Lantern_LargeShip_BrigDeck_StairsRight_C": {
+        "Name": "BP_Lantern_LargeShip_BrigDeck_StairsRight_C"
+    },
+    "BP_Lantern_LargeShip_Cabin_Lantern_C": {
+        "Name": "BP_Lantern_LargeShip_Cabin_Lantern_C"
+    },
+    "BP_RailingLight_LargeShip_Stern_C": {
+        "Name": "BP_RailingLight_LargeShip_Stern_C"
+    },
+    "BP_RailingLight_LargeShip_BowLeftBack_C": {
+        "Name": "BP_RailingLight_LargeShip_BowLeftBack_C"
+    },
+    "BP_RailingLight_LargeShip_BowRightBack_C": {
+        "Name": "BP_RailingLight_LargeShip_BowRightBack_C"
+    },
+    "BP_ShipStorageBarrel_Food_C": {
+        "Name": "BP_ShipStorageBarrel_Food_C"
+    },
+    "BP_ShipStorageBarrel_Grog_C": {
+        "Name": "BP_ShipStorageBarrel_Grog_C"
+    },
+    "BP_ShipAmmoChest_C": {
+        "Name": "BP_ShipAmmoChest_C"
+    },
+    "BP_ShipClothingChest_C": {
+        "Name": "BP_ShipClothingChest_C"
+    },
+    "BP_EquipmentChest_C": {
+        "Name": "BP_EquipmentChest_C"
+    },
+    "BP_ShipWeaponsChest_C": {
+        "Name": "BP_ShipWeaponsChest_C"
+    },
+    "BP_ShipVanityChest_C": {
+        "Name": "BP_ShipVanityChest_C"
+    },
+    "BP_RowboatMountpoint_LargeShip_C": {
+        "Name": "BP_RowboatMountpoint_LargeShip_C"
+    },
+    "BP_HarpoonLauncher_C": {
+        "Name": "BP_HarpoonLauncher_C"
+    },
+    "BP_HarpoonTether_C": {
+        "Name": "BP_HarpoonTether_C"
+    },
+    "BP_HarpoonProjectile_C": {
+        "Name": "BP_HarpoonProjectile_C"
+    },
+    "BP_ShipPetChest_C": {
+        "Name": "BP_ShipPetChest_C"
+    },
+    "BP_Shroudbreaker_OnShip_C": {
+        "Name": "BP_Shroudbreaker_OnShip_C"
+    },
+    "BP_WaterBarrel_C": {
+        "Name": "BP_WaterBarrel_C"
+    },
+    "BP_LargeShip_CageLatch_03_b_C": {
+        "Name": "BP_LargeShip_CageLatch_03_b_C"
+    },
+    "BP_LargeShip_CageLatch_03_a_C": {
+        "Name": "BP_LargeShip_CageLatch_03_a_C"
+    },
+    "BP_EmissaryFlag_C": {
+        "Name": "BP_EmissaryFlag_C"
+    },
+    "BP_ShipStorageBarrelThree_C": {
+        "Name": "BP_ShipStorageBarrelThree_C"
+    },
+    "BP_ShipStorageBarrelTwo_C": {
+        "Name": "BP_ShipStorageBarrelTwo_C"
+    },
+    "BP_LargeShip_QuestTable_ShipPartMMC_C": {
+        "Name": "BP_LargeShip_QuestTable_ShipPartMMC_C"
+    },
+    "BP_VotableVoyageProposal_C": {
+        "Name": "BP_VotableVoyageProposal_C"
+    },
+    "BP_VotableCancelVoyage_C": {
+        "Name": "BP_VotableCancelVoyage_C"
+    },
+    "BP_VotableCancelTale_C": {
+        "Name": "BP_VotableCancelTale_C"
+    },
+    "BP_PlayerBuriedItemsMapBundleInteractionPoint_C": {
+        "Name": "BP_PlayerBuriedItemsMapBundleInteractionPoint_C"
+    },
+    "BP_VotableCancelAdventure_C": {
+        "Name": "BP_VotableCancelAdventure_C"
+    },
+    "BP_FactionHourglass_C": {
+        "Name": "BP_FactionHourglass_C"
+    },
+    "BP_WarMap_C": {
+        "Name": "BP_WarMap_C"
+    },
+    "BP_WarMapVoteSingle_C": {
+        "Name": "BP_WarMapVoteSingle_C"
+    },
+    "BP_WarMapVoteNormalMode_C": {
+        "Name": "BP_WarMapVoteNormalMode_C"
+    },
+    "BP_WarMapVoteHardMode_C": {
+        "Name": "BP_WarMapVoteHardMode_C"
+    },
+    "BP_Chair_ShipPartMMC_C": {
+        "Name": "BP_Chair_ShipPartMMC_C"
+    },
+    "BP_Curtains_ShipPartMMC_C": {
+        "Name": "BP_Curtains_ShipPartMMC_C"
+    },
+    "BP_Chandelier_ShipPartMMC_C": {
+        "Name": "BP_Chandelier_ShipPartMMC_C"
+    },
+    "BP_Bed_Large_C": {
+        "Name": "BP_Bed_Large_C"
+    },
+    "BP_Drapes_Large_C": {
+        "Name": "BP_Drapes_Large_C"
+    },
+    "BP_Rugs_Large_C": {
+        "Name": "BP_Rugs_Large_C"
+    },
+    "BP_Crest_Large_C": {
+        "Name": "BP_Crest_Large_C"
+    },
+    "BP_CaptainsLog_Interactable_Proxy_C": {
+        "Name": "BP_CaptainsLog_Interactable_Proxy_C"
+    },
+    "BP_TreasureMap_ItemInfo_CargoRun_DVR_C": {
+        "Name": "BP_TreasureMap_ItemInfo_CargoRun_DVR_C"
+    },
+    "BP_TreasureMap_ItemInfo_Bounty_DVR_C": {
+        "Name": "BP_TreasureMap_ItemInfo_Bounty_DVR_C"
+    },
+    "BP_wpn_cutlass_eas_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_cutlass_eas_01_a_ItemInfo_C"
+    },
+    "BP_wpn_sniper_rifle_smp_01_a_v03_ItemInfo_C": {
+        "Name": "BP_wpn_sniper_rifle_smp_01_a_v03_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_living_01_a_CaptainBriggsy_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_living_01_a_CaptainBriggsy_ItemInfo_C"
+    },
+    "BP_msc_drum_leg_01_a_ItemInfo_C": {
+        "Name": "BP_msc_drum_leg_01_a_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_rocket_01_a_Landlubber_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_rocket_01_a_Landlubber_ItemInfo_C"
+    },
+    "BP_MysteriousNote_ItemInfo_C": {
+        "Name": "BP_MysteriousNote_ItemInfo_C"
+    },
+    "BP_BountyMap_DVR_C": {
+        "Name": "BP_BountyMap_DVR_C"
+    },
+    "BP_gmp_repair_wood_02_a_ItemInfo_C": {
+        "Name": "BP_gmp_repair_wood_02_a_ItemInfo_C"
+    },
+    "BP_gmp_pocket_watch_ash_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_pocket_watch_ash_01_a_ItemInfo_C"
+    },
+    "BP_cmp_tankard_oos_05_a_ItemInfo_C": {
+        "Name": "BP_cmp_tankard_oos_05_a_ItemInfo_C"
+    },
+    "BP_tls_speaking_trumpet_pol_01_a_ItemInfo_C": {
+        "Name": "BP_tls_speaking_trumpet_pol_01_a_ItemInfo_C"
+    },
+    "BP_wpn_sniper_rifle_smp_01_a_v03_Wieldable_C": {
+        "Name": "BP_wpn_sniper_rifle_smp_01_a_v03_Wieldable_C"
+    },
+    "BP_wpn_cutlass_eas_01_a_Wieldable_C": {
+        "Name": "BP_wpn_cutlass_eas_01_a_Wieldable_C"
+    },
+    "BP_msc_banjo_leg_01_a_ItemInfo_C": {
+        "Name": "BP_msc_banjo_leg_01_a_ItemInfo_C"
+    },
+    "BP_gmp_tal_enchanted_compass_ros_01_b_ItemInfo_C": {
+        "Name": "BP_gmp_tal_enchanted_compass_ros_01_b_ItemInfo_C"
+    },
+    "BP_MysteriousNote_C": {
+        "Name": "BP_MysteriousNote_C"
+    },
+    "BP_gmp_repair_wood_02_a_Wieldable_C": {
+        "Name": "BP_gmp_repair_wood_02_a_Wieldable_C"
+    },
+    "BP_gmp_fireworks_rocket_01_a_Landlubber_Wieldable_C": {
+        "Name": "BP_gmp_fireworks_rocket_01_a_Landlubber_Wieldable_C"
+    },
+    "BP_gmp_pocket_watch_ash_01_a_Wieldable_C": {
+        "Name": "BP_gmp_pocket_watch_ash_01_a_Wieldable_C"
+    },
+    "BP_msc_drum_leg_01_a_Wieldable_C": {
+        "Name": "BP_msc_drum_leg_01_a_Wieldable_C"
+    },
+    "BP_cmp_tankard_oos_05_a_Wieldable_C": {
+        "Name": "BP_cmp_tankard_oos_05_a_Wieldable_C"
+    },
+    "BP_gmp_fishing_rod_par_01_a_v02_ItemInfo_C": {
+        "Name": "BP_gmp_fishing_rod_par_01_a_v02_ItemInfo_C"
+    },
+    "BP_tls_speaking_trumpet_pol_01_a_Wieldable_C": {
+        "Name": "BP_tls_speaking_trumpet_pol_01_a_Wieldable_C"
+    },
+    "BP_msc_banjo_leg_01_a_Wieldable_C": {
+        "Name": "BP_msc_banjo_leg_01_a_Wieldable_C"
+    },
+    "BP_gmp_telescope_ros_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_telescope_ros_01_a_ItemInfo_C"
+    },
+    "BP_cmp_hand_lantern_klw_01_a_ItemInfo_C": {
+        "Name": "BP_cmp_hand_lantern_klw_01_a_ItemInfo_C"
+    },
+    "BP_msc_hurdygurdy_kra_01_a_v02_ItemInfo_C": {
+        "Name": "BP_msc_hurdygurdy_kra_01_a_v02_ItemInfo_C"
+    },
+    "BP_CargoRunMap_DVR_C": {
+        "Name": "BP_CargoRunMap_DVR_C"
+    },
+    "BP_msc_concertina_cra_01_a_v02_ItemInfo_C": {
+        "Name": "BP_msc_concertina_cra_01_a_v02_ItemInfo_C"
+    },
+    "BP_gmp_tal_enchanted_compass_ros_01_b_Wieldable_C": {
+        "Name": "BP_gmp_tal_enchanted_compass_ros_01_b_Wieldable_C"
+    },
+    "BP_cmp_hand_lantern_klw_01_a_Wieldable_C": {
+        "Name": "BP_cmp_hand_lantern_klw_01_a_Wieldable_C"
+    },
+    "BP_cmn_cannon_ball_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannon_ball_01_a_ItemInfo_C"
+    },
+    "BP_msc_concertina_cra_01_a_v02_Wieldable_C": {
+        "Name": "BP_msc_concertina_cra_01_a_v02_Wieldable_C"
+    },
+    "BP_tls_bucket_ros_01_a_ItemInfo_C": {
+        "Name": "BP_tls_bucket_ros_01_a_ItemInfo_C"
+    },
+    "BP_gmp_fishing_rod_par_01_a_v02_Wieldable_C": {
+        "Name": "BP_gmp_fishing_rod_par_01_a_v02_Wieldable_C"
+    },
+    "BP_cmn_cannonball_cur_ballast_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_cur_ballast_01_a_ItemInfo_C"
+    },
+    "BP_gmp_telescope_ros_01_a_Wieldable_C": {
+        "Name": "BP_gmp_telescope_ros_01_a_Wieldable_C"
+    },
+    "BP_msc_hurdygurdy_kra_01_a_v02_Wieldable_C": {
+        "Name": "BP_msc_hurdygurdy_kra_01_a_v02_Wieldable_C"
+    },
+    "BP_tls_shovel_cra_01_a_v02_ItemInfo_C": {
+        "Name": "BP_tls_shovel_cra_01_a_v02_ItemInfo_C"
+    },
+    "BP_fod_CoconutFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_CoconutFresh_00_a_ItemInfo_C"
+    },
+    "BP_tls_bucket_ros_01_a_Wieldable_C": {
+        "Name": "BP_tls_bucket_ros_01_a_Wieldable_C"
+    },
+    "BP_cmn_cannonball_cur_ballast_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_cur_ballast_01_a_Wieldable_C"
+    },
+    "BP_tls_shovel_cra_01_a_v02_Wieldable_C": {
+        "Name": "BP_tls_shovel_cra_01_a_v02_Wieldable_C"
+    },
+    "BP_fod_CoconutFresh_00_a_Wieldable_C": {
+        "Name": "BP_fod_CoconutFresh_00_a_Wieldable_C"
+    },
+    "BP_Rowboat_WithFrontHarpoon_C": {
+        "Name": "BP_Rowboat_WithFrontHarpoon_C"
+    },
+    "BP_ClamberSpot_Rowboat_C": {
+        "Name": "BP_ClamberSpot_Rowboat_C"
+    },
+    "BP_ForceSpot_Rowboat_Launch_C": {
+        "Name": "BP_ForceSpot_Rowboat_Launch_C"
+    },
+    "BP_Rowboat_Lantern_Front_C": {
+        "Name": "BP_Rowboat_Lantern_Front_C"
+    },
+    "BP_RowboatRowingSeat_C": {
+        "Name": "BP_RowboatRowingSeat_C"
+    },
+    "BP_RowboatStorageSeat_C": {
+        "Name": "BP_RowboatStorageSeat_C"
+    },
+    "BP_RowboatSeat_C": {
+        "Name": "BP_RowboatSeat_C"
+    },
+    "BP_RowboatHarpoonLauncher_C": {
+        "Name": "BP_RowboatHarpoonLauncher_C"
+    },
+    "BP_Shipwreck_01_a_NetProxy_C": {
+        "Name": "BP_Shipwreck_01_a_NetProxy_C"
+    },
+    "BP_Seagull01_32POI_Circling_Shipwreck_C": {
+        "Name": "BP_Seagull01_32POI_Circling_Shipwreck_C"
+    },
+    "BP_CoralMiB_VoyageMap_Shrine01a_ItemInfo_C": {
+        "Name": "BP_CoralMiB_VoyageMap_Shrine01a_ItemInfo_C"
+    },
+    "BP_CoralMiB_VoyageMap_Shrine01a_Wieldable_C": {
+        "Name": "BP_CoralMiB_VoyageMap_Shrine01a_Wieldable_C"
+    },
+    "BP_PetItemInfo_Dog_Default_C": {
+        "Name": "BP_PetItemInfo_Dog_Default_C"
+    },
+    "BP_cmn_cannon_ball_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannon_ball_01_a_Wieldable_C"
+    },
+    "BP_gmp_compass_ash_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_compass_ash_01_a_ItemInfo_C"
+    },
+    "BP_msc_hurdygurdy_gho_01_a_ItemInfo_C": {
+        "Name": "BP_msc_hurdygurdy_gho_01_a_ItemInfo_C"
+    },
+    "BP_wpn_cutlass_hal_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_cutlass_hal_01_a_ItemInfo_C"
+    },
+    "BP_wpn_blunderbuss_ash_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_blunderbuss_ash_01_a_ItemInfo_C"
+    },
+    "BP_msc_concertina_ash_01_a_ItemInfo_C": {
+        "Name": "BP_msc_concertina_ash_01_a_ItemInfo_C"
+    },
+    "BP_msc_hurdygurdy_gho_01_a_Wieldable_C": {
+        "Name": "BP_msc_hurdygurdy_gho_01_a_Wieldable_C"
+    },
+    "BP_cmn_cannonball_chain_shot_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_chain_shot_01_a_ItemInfo_C"
+    },
+    "BP_msc_drum_ash_01_a_ItemInfo_C": {
+        "Name": "BP_msc_drum_ash_01_a_ItemInfo_C"
+    },
+    "BP_gmp_compass_ash_01_a_Wieldable_C": {
+        "Name": "BP_gmp_compass_ash_01_a_Wieldable_C"
+    },
+    "BP_tls_bucket_ash_01_a_ItemInfo_C": {
+        "Name": "BP_tls_bucket_ash_01_a_ItemInfo_C"
+    },
+    "BP_cmn_cannonball_cur_fire_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_cur_fire_01_a_ItemInfo_C"
+    },
+    "BP_cmn_cannonball_chain_shot_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_chain_shot_01_a_Wieldable_C"
+    },
+    "BP_tls_tankard_ash_01_a_ItemInfo_C": {
+        "Name": "BP_tls_tankard_ash_01_a_ItemInfo_C"
+    },
+    "BP_gmp_fishing_rod_gho_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_fishing_rod_gho_01_a_ItemInfo_C"
+    },
+    "BP_msc_banjo_gho_01_a_ItemInfo_C": {
+        "Name": "BP_msc_banjo_gho_01_a_ItemInfo_C"
+    },
+    "BP_tls_shovel_ash_01_a_ItemInfo_C": {
+        "Name": "BP_tls_shovel_ash_01_a_ItemInfo_C"
+    },
+    "BP_gmp_telescope_ash_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_telescope_ash_01_a_ItemInfo_C"
+    },
+    "BP_tls_hand_lantern_hal_01_a_ItemInfo_C": {
+        "Name": "BP_tls_hand_lantern_hal_01_a_ItemInfo_C"
+    },
+    "BP_msc_drum_ash_01_a_Wieldable_C": {
+        "Name": "BP_msc_drum_ash_01_a_Wieldable_C"
+    },
+    "BP_wpn_cutlass_hal_01_a_Wieldable_C": {
+        "Name": "BP_wpn_cutlass_hal_01_a_Wieldable_C"
+    },
+    "BP_gmp_fishing_rod_gho_01_a_Wieldable_C": {
+        "Name": "BP_gmp_fishing_rod_gho_01_a_Wieldable_C"
+    },
+    "BP_msc_concertina_ash_01_a_Wieldable_C": {
+        "Name": "BP_msc_concertina_ash_01_a_Wieldable_C"
+    },
+    "BP_tls_hand_lantern_hal_01_a_Wieldable_C": {
+        "Name": "BP_tls_hand_lantern_hal_01_a_Wieldable_C"
+    },
+    "BP_gmp_telescope_ash_01_a_Wieldable_C": {
+        "Name": "BP_gmp_telescope_ash_01_a_Wieldable_C"
+    },
+    "BP_cmn_cannonball_cur_fire_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_cur_fire_01_a_Wieldable_C"
+    },
+    "BP_tls_speaking_trumpet_ash_01_a_ItemInfo_C": {
+        "Name": "BP_tls_speaking_trumpet_ash_01_a_ItemInfo_C"
+    },
+    "BP_msc_banjo_gho_01_a_Wieldable_C": {
+        "Name": "BP_msc_banjo_gho_01_a_Wieldable_C"
+    },
+    "BP_tls_tankard_ash_01_a_Wieldable_C": {
+        "Name": "BP_tls_tankard_ash_01_a_Wieldable_C"
+    },
+    "BP_tls_speaking_trumpet_ash_01_a_Wieldable_C": {
+        "Name": "BP_tls_speaking_trumpet_ash_01_a_Wieldable_C"
+    },
+    "BP_wpn_blunderbuss_ash_01_a_Wieldable_C": {
+        "Name": "BP_wpn_blunderbuss_ash_01_a_Wieldable_C"
+    },
+    "BP_tls_shovel_ash_01_a_Wieldable_C": {
+        "Name": "BP_tls_shovel_ash_01_a_Wieldable_C"
+    },
+    "BP_tls_bucket_ash_01_a_Wieldable_C": {
+        "Name": "BP_tls_bucket_ash_01_a_Wieldable_C"
+    },
+    "BP_fod_BananaFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_BananaFresh_00_a_ItemInfo_C"
+    },
+    "BP_FishingRod_ItemInfo_C": {
+        "Name": "BP_FishingRod_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_rocket_01_a_CoralReef_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_rocket_01_a_CoralReef_ItemInfo_C"
+    },
+    "BP_wpn_cutlass_smp_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_cutlass_smp_01_a_ItemInfo_C"
+    },
+    "BP_msc_drum_smp_01_a_ItemInfo_C": {
+        "Name": "BP_msc_drum_smp_01_a_ItemInfo_C"
+    },
+    "BP_msc_banjo_smp_01_a_ItemInfo_C": {
+        "Name": "BP_msc_banjo_smp_01_a_ItemInfo_C"
+    },
+    "BP_tls_speaking_trumpet_smp_01_a_ItemInfo_C": {
+        "Name": "BP_tls_speaking_trumpet_smp_01_a_ItemInfo_C"
+    },
+    "BP_tls_lantern_smp_01_a_ItemInfo_C": {
+        "Name": "BP_tls_lantern_smp_01_a_ItemInfo_C"
+    },
+    "BP_tls_tankard_smp_01_a_ItemInfo_C": {
+        "Name": "BP_tls_tankard_smp_01_a_ItemInfo_C"
+    },
+    "BP_tls_bucket_smp_01_a_ItemInfo_C": {
+        "Name": "BP_tls_bucket_smp_01_a_ItemInfo_C"
+    },
+    "BP_wpn_sniper_rifle_smp_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_sniper_rifle_smp_01_a_ItemInfo_C"
+    },
+    "BP_tls_shovel_smp_01_a_ItemInfo_C": {
+        "Name": "BP_tls_shovel_smp_01_a_ItemInfo_C"
+    },
+    "BP_tls_speaking_trumpet_smp_01_a_Wieldable_C": {
+        "Name": "BP_tls_speaking_trumpet_smp_01_a_Wieldable_C"
+    },
+    "BP_tls_tankard_smp_01_a_Wieldable_C": {
+        "Name": "BP_tls_tankard_smp_01_a_Wieldable_C"
+    },
+    "BP_tls_shovel_smp_01_a_Wieldable_C": {
+        "Name": "BP_tls_shovel_smp_01_a_Wieldable_C"
+    },
+    "BP_msc_banjo_smp_01_a_Wieldable_C": {
+        "Name": "BP_msc_banjo_smp_01_a_Wieldable_C"
+    },
+    "BP_msc_drum_smp_01_a_Wieldable_C": {
+        "Name": "BP_msc_drum_smp_01_a_Wieldable_C"
+    },
+    "BP_tls_lantern_smp_01_a_Wieldable_C": {
+        "Name": "BP_tls_lantern_smp_01_a_Wieldable_C"
+    },
+    "BP_msc_hurdygurdy_smp_01_a_ItemInfo_C": {
+        "Name": "BP_msc_hurdygurdy_smp_01_a_ItemInfo_C"
+    },
+    "BP_FishingRod_C": {
+        "Name": "BP_FishingRod_C"
+    },
+    "BP_gmp_compass_wth_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_compass_wth_01_a_ItemInfo_C"
+    },
+    "BP_msc_hurdygurdy_smp_01_a_Wieldable_C": {
+        "Name": "BP_msc_hurdygurdy_smp_01_a_Wieldable_C"
+    },
+    "BP_msc_concertina_smp_01_a_ItemInfo_C": {
+        "Name": "BP_msc_concertina_smp_01_a_ItemInfo_C"
+    },
+    "BP_SpyglassItemInfo_C": {
+        "Name": "BP_SpyglassItemInfo_C"
+    },
+    "BP_msc_concertina_smp_01_a_Wieldable_C": {
+        "Name": "BP_msc_concertina_smp_01_a_Wieldable_C"
+    },
+    "BP_gmp_pocketwatch_smp_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_pocketwatch_smp_01_a_ItemInfo_C"
+    },
+    "BP_gmp_pocketwatch_smp_01_a_Wieldable_C": {
+        "Name": "BP_gmp_pocketwatch_smp_01_a_Wieldable_C"
+    },
+    "BP_gmp_compass_wth_01_a_Wieldable_C": {
+        "Name": "BP_gmp_compass_wth_01_a_Wieldable_C"
+    },
+    "BP_wpn_cutlass_smp_01_a_Wieldable_C": {
+        "Name": "BP_wpn_cutlass_smp_01_a_Wieldable_C"
+    },
+    "BP_tls_bucket_smp_01_a_Wieldable_C": {
+        "Name": "BP_tls_bucket_smp_01_a_Wieldable_C"
+    },
+    "BP_fod_BananaFresh_00_a_Wieldable_C": {
+        "Name": "BP_fod_BananaFresh_00_a_Wieldable_C"
+    },
+    "BP_wpn_sniper_rifle_smp_01_a_Wieldable_C": {
+        "Name": "BP_wpn_sniper_rifle_smp_01_a_Wieldable_C"
+    },
+    "BP_Spyglass_01_a_Wieldable_C": {
+        "Name": "BP_Spyglass_01_a_Wieldable_C"
+    },
+    "BP_PetItemInfo_Cat_Default_C": {
+        "Name": "BP_PetItemInfo_Cat_Default_C"
+    },
+    "BP_EmissaryFlotsam_AthenasFortune_Rank3_ItemInfo_C": {
+        "Name": "BP_EmissaryFlotsam_AthenasFortune_Rank3_ItemInfo_C"
+    },
+    "BP_EmissaryFlotsam_AthenasFortune_Rank3_Proxy_C": {
+        "Name": "BP_EmissaryFlotsam_AthenasFortune_Rank3_Proxy_C"
+    },
+    "BP_MerchantCrate_AnyItemCrate_ItemInfo_C": {
+        "Name": "BP_MerchantCrate_AnyItemCrate_ItemInfo_C"
+    },
+    "BP_PortableAmmoCrate_ItemInfo_C": {
+        "Name": "BP_PortableAmmoCrate_ItemInfo_C"
+    },
+    "BP_PortableAmmoCrate_Proxy_C": {
+        "Name": "BP_PortableAmmoCrate_Proxy_C"
+    },
+    "BP_StoolItem_DVR_ItemInfo_C": {
+        "Name": "BP_StoolItem_DVR_ItemInfo_C"
+    },
+    "BP_StoolItem_DVR_Proxy_C": {
+        "Name": "BP_StoolItem_DVR_Proxy_C"
+    },
+    "BP_MerchantCrate_AnyItemCrate_Proxy_C": {
+        "Name": "BP_MerchantCrate_AnyItemCrate_Proxy_C"
+    },
+    "BP_Seagulls_Barrels_BarrelsOfPlenty_C": {
+        "Name": "BP_Seagulls_Barrels_BarrelsOfPlenty_C"
+    },
+    "BP_FogBank_C": {
+        "Name": "BP_FogBank_C"
+    },
+    "BP_DVR_Outpost_Dressing_C": {
+        "Name": "BP_DVR_Outpost_Dressing_C"
+    },
+    "BP_xmas_tavern_dvr_dressing1_C": {
+        "Name": "BP_xmas_tavern_dvr_dressing1_C"
+    },
+    "BP_PetProxy_Dog_C": {
+        "Name": "BP_PetProxy_Dog_C"
+    },
+    "BP_gmp_fireworks_rocket_01_a_ReapersBlade_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_rocket_01_a_ReapersBlade_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_rocket_01_a_WondersOfTheSea_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_rocket_01_a_WondersOfTheSea_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_flare_01_a_white_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_flare_01_a_white_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_flare_01_a_white_Wieldable_C": {
+        "Name": "BP_gmp_fireworks_flare_01_a_white_Wieldable_C"
+    },
+    "BP_fod_PomegranateFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_PomegranateFresh_00_a_ItemInfo_C"
+    },
+    "BP_fod_PomegranateFresh_00_a_Wieldable_C": {
+        "Name": "BP_fod_PomegranateFresh_00_a_Wieldable_C"
+    },
+    "BP_CargoRunCrate_Plants_ItemInfo_DVR_C": {
+        "Name": "BP_CargoRunCrate_Plants_ItemInfo_DVR_C"
+    },
+    "BP_CargoRunCrate_Cloth_ItemInfo_DVR_C": {
+        "Name": "BP_CargoRunCrate_Cloth_ItemInfo_DVR_C"
+    },
+    "BP_MerchantCrate_GunpowderBarrel_ItemInfo_C": {
+        "Name": "BP_MerchantCrate_GunpowderBarrel_ItemInfo_C"
+    },
+    "BP_MerchantCrate_GunpowderBarrelProxy_C": {
+        "Name": "BP_MerchantCrate_GunpowderBarrelProxy_C"
+    },
+    "BP_CargoRunCrate_Rum_ItemInfo_DVR_C": {
+        "Name": "BP_CargoRunCrate_Rum_ItemInfo_DVR_C"
+    },
+    "BP_CargoRunCrate_Rum_Proxy_DVR_C": {
+        "Name": "BP_CargoRunCrate_Rum_Proxy_DVR_C"
+    },
+    "BP_Goldhoarder_Hyde_C": {
+        "Name": "BP_Goldhoarder_Hyde_C"
+    },
+    "BP_Clothing_Chester_C": {
+        "Name": "BP_Clothing_Chester_C"
+    },
+    "BP_Shopkeeper_Tad_C": {
+        "Name": "BP_Shopkeeper_Tad_C"
+    },
+    "BP_PetProxy_Cat_C": {
+        "Name": "BP_PetProxy_Cat_C"
+    },
+    "BP_CargoRunCrate_Cloth_Proxy_DVR_C": {
+        "Name": "BP_CargoRunCrate_Cloth_Proxy_DVR_C"
+    },
+    "BP_CargoRunCrate_Plants_Proxy_DVR_C": {
+        "Name": "BP_CargoRunCrate_Plants_Proxy_DVR_C"
+    },
+    "BP_fod_LeechesFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_LeechesFresh_00_a_ItemInfo_C"
+    },
+    "BP_fod_EarthwormsFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_EarthwormsFresh_00_a_ItemInfo_C"
+    },
+    "BP_fod_EarthwormsFresh_00_a_Wieldable_C": {
+        "Name": "BP_fod_EarthwormsFresh_00_a_Wieldable_C"
+    },
+    "BP_gmp_fireworks_flare_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_fireworks_flare_01_a_ItemInfo_C"
+    },
+    "BP_gmp_fireworks_flare_01_a_Wieldable_C": {
+        "Name": "BP_gmp_fireworks_flare_01_a_Wieldable_C"
+    },
+    "BP_Projectile_VolcanoRockMedium_C": {
+        "Name": "BP_Projectile_VolcanoRockMedium_C"
+    },
+    "BP_Projectile_VolcanoRockSmall_C": {
+        "Name": "BP_Projectile_VolcanoRockSmall_C"
+    },
+    "BP_Projectile_VolcanoRockLarge_C": {
+        "Name": "BP_Projectile_VolcanoRockLarge_C"
+    },
+    "BP_IslandCannon_C": {
+        "Name": "BP_IslandCannon_C"
+    },
+    "BP_Mermaid_C": {
+        "Name": "BP_Mermaid_C"
+    },
+    "BP_OrderOfSouls_Oya_C": {
+        "Name": "BP_OrderOfSouls_Oya_C"
+    },
+    "BP_Skull_OoS_C": {
+        "Name": "BP_Skull_OoS_C"
+    },
+    "BP_LargeShipNetProxy_C": {
+        "Name": "BP_LargeShipNetProxy_C"
+    },
+    "BP_CollectorsChest_ItemInfo_C": {
+        "Name": "BP_CollectorsChest_ItemInfo_C"
+    },
+    "BP_CollectorsChest_Proxy_C": {
+        "Name": "BP_CollectorsChest_Proxy_C"
+    },
+    "BP_TreasureArtifact_ItemInfo_DVR_Legendary_C": {
+        "Name": "BP_TreasureArtifact_ItemInfo_DVR_Legendary_C"
+    },
+    "BP_SunkenCurseArtefact_Sapphire_C": {
+        "Name": "BP_SunkenCurseArtefact_Sapphire_C"
+    },
+    "BP_Harpoon_C": {
+        "Name": "BP_Harpoon_C"
+    },
+    "BP_Campaign018_ReapersBones_01_c_ItemInfo_C": {
+        "Name": "BP_Campaign018_ReapersBones_01_c_ItemInfo_C"
+    },
+    "BP_BountyRewardSkullItemInfo_Mythical_C": {
+        "Name": "BP_BountyRewardSkullItemInfo_Mythical_C"
+    },
+    "BP_Campaign018_ReapersBones_01_c_Proxy_C": {
+        "Name": "BP_Campaign018_ReapersBones_01_c_Proxy_C"
+    },
+    "BP_BountyRewardSkull_Proxy_Mythical_C": {
+        "Name": "BP_BountyRewardSkull_Proxy_Mythical_C"
+    },
+    "BP_Cargorun_Tony_C": {
+        "Name": "BP_Cargorun_Tony_C"
+    },
+    "BP_GeyserDynamic_C": {
+        "Name": "BP_GeyserDynamic_C"
+    },
+    "BP_GeyserHole_C": {
+        "Name": "BP_GeyserHole_C"
+    },
+    "BP_SkeletonPawnBase_C": {
+        "Name": "BP_SkeletonPawnBase_C"
+    },
+    "BP_Linstock_C": {
+        "Name": "BP_Linstock_C"
+    },
+    "BP_AI_wpn_unarmedCombat_ItemInfo_C": {
+        "Name": "BP_AI_wpn_unarmedCombat_ItemInfo_C"
+    },
+    "BP_UnarmedCombat_Item_C": {
+        "Name": "BP_UnarmedCombat_Item_C"
+    },
+    "BP_AI_wpn_cutlass_ItemInfo_C": {
+        "Name": "BP_AI_wpn_cutlass_ItemInfo_C"
+    },
+    "BP_AI_wpn_cutlass_Wieldable_C": {
+        "Name": "BP_AI_wpn_cutlass_Wieldable_C"
+    },
+    "BP_Treasure_Artifact_Proxy_DVR_Legendary_C": {
+        "Name": "BP_Treasure_Artifact_Proxy_DVR_Legendary_C"
+    },
+    "BP_CargoRunCrate_Rum_Wieldable_DVR_C": {
+        "Name": "BP_CargoRunCrate_Rum_Wieldable_DVR_C"
+    },
+    "BP_CargoRunCrate_Plants_Wieldable_DVR_C": {
+        "Name": "BP_CargoRunCrate_Plants_Wieldable_DVR_C"
+    },
+    "BP_BountyRewardSkull_Mythical_C": {
+        "Name": "BP_BountyRewardSkull_Mythical_C"
+    },
+    "BP_TreasureMap_ItemInfo_XMarksTheSpot_DVR_C": {
+        "Name": "BP_TreasureMap_ItemInfo_XMarksTheSpot_DVR_C"
+    },
+    "BP_TreasureMap_DVR_C": {
+        "Name": "BP_TreasureMap_DVR_C"
+    },
+    "BP_TreasureMap_ItemInfo_Riddle_C": {
+        "Name": "BP_TreasureMap_ItemInfo_Riddle_C"
+    },
+    "BP_RiddleMap_C": {
+        "Name": "BP_RiddleMap_C"
+    },
+    "BP_OceanCrawlerCharacter_Eelectric_C": {
+        "Name": "BP_OceanCrawlerCharacter_Eelectric_C"
+    },
+    "BP_AI_wpn_EelSlap_ItemInfo_C": {
+        "Name": "BP_AI_wpn_EelSlap_ItemInfo_C"
+    },
+    "BP_EelThrowWeapon_ItemInfo_C": {
+        "Name": "BP_EelThrowWeapon_ItemInfo_C"
+    },
+    "BP_EelThrowWeapon_Wieldable_C": {
+        "Name": "BP_EelThrowWeapon_Wieldable_C"
+    },
+    "BP_AI_wpn_EelSlap_Wieldable_C": {
+        "Name": "BP_AI_wpn_EelSlap_Wieldable_C"
+    },
+    "BP_OceanCrawlerCharacter_Hermit_C": {
+        "Name": "BP_OceanCrawlerCharacter_Hermit_C"
+    },
+    "BP_AI_wpn_HermitUnarmedCombat_ItemInfo_C": {
+        "Name": "BP_AI_wpn_HermitUnarmedCombat_ItemInfo_C"
+    },
+    "BP_AI_wpn_HermitUnarmedCombat_Wieldable_C": {
+        "Name": "BP_AI_wpn_HermitUnarmedCombat_Wieldable_C"
+    },
+    "BP_HermitBurrow_C": {
+        "Name": "BP_HermitBurrow_C"
+    },
+    "BP_HermitBurrowEruptArea_C": {
+        "Name": "BP_HermitBurrowEruptArea_C"
+    },
+    "BP_MerchantCrate_Commodity_Ore_ItemInfo_C": {
+        "Name": "BP_MerchantCrate_Commodity_Ore_ItemInfo_C"
+    },
+    "BP_MerchantCrate_Commodity_Ore_Proxy_C": {
+        "Name": "BP_MerchantCrate_Commodity_Ore_Proxy_C"
+    },
+    "BP_TreasureArtifact_ItemInfo_vase_03_a_C": {
+        "Name": "BP_TreasureArtifact_ItemInfo_vase_03_a_C"
+    },
+    "BP_Treasure_Artifact_Proxy_vase_03_a_C": {
+        "Name": "BP_Treasure_Artifact_Proxy_vase_03_a_C"
+    },
+    "BP_WaterProjectile_C": {
+        "Name": "BP_WaterProjectile_C"
+    },
+    "BP_CargoRunCrate_Cloth_Wieldable_DVR_C": {
+        "Name": "BP_CargoRunCrate_Cloth_Wieldable_DVR_C"
+    },
+    "BP_ReviveGhost_C": {
+        "Name": "BP_ReviveGhost_C"
+    },
+    "BP_PlayerPirate_Ghost_C": {
+        "Name": "BP_PlayerPirate_Ghost_C"
+    },
+    "BP_GhostShipCaptain_C": {
+        "Name": "BP_GhostShipCaptain_C"
+    },
+    "BP_SmallShipNetProxy_C": {
+        "Name": "BP_SmallShipNetProxy_C"
+    },
+    "BP_SmallShipTemplate_C": {
+        "Name": "BP_SmallShipTemplate_C"
+    },
+    "BP_SmallShip_StandardHull_InternalShipWater_C": {
+        "Name": "BP_SmallShip_StandardHull_InternalShipWater_C"
+    },
+    "BP_AudioBoatSmallHullAmbi_C": {
+        "Name": "BP_AudioBoatSmallHullAmbi_C"
+    },
+    "BP_SmallShipWheel_C": {
+        "Name": "BP_SmallShipWheel_C"
+    },
+    "BP_Rudder_SmallShip_C": {
+        "Name": "BP_Rudder_SmallShip_C"
+    },
+    "BP_SmallShipAnchor_C": {
+        "Name": "BP_SmallShipAnchor_C"
+    },
+    "BP_SmallShip_Mast_C": {
+        "Name": "BP_SmallShip_Mast_C"
+    },
+    "BP_SmallShip_Sail_C": {
+        "Name": "BP_SmallShip_Sail_C"
+    },
+    "BP_SmallShipLadderMainMast_C": {
+        "Name": "BP_SmallShipLadderMainMast_C"
+    },
+    "BP_SailHoist_C": {
+        "Name": "BP_SailHoist_C"
+    },
+    "BP_SailAngle_C": {
+        "Name": "BP_SailAngle_C"
+    },
+    "BP_SmallShip_StandardHull_C": {
+        "Name": "BP_SmallShip_StandardHull_C"
+    },
+    "BP_SmallShip_StandardHull_Art_C": {
+        "Name": "BP_SmallShip_StandardHull_Art_C"
+    },
+    "BP_SmallShip_StandardHull_Art_Interior_Lower_Deck_C": {
+        "Name": "BP_SmallShip_StandardHull_Art_Interior_Lower_Deck_C"
+    },
+    "BP_SmallShip_StandardHull_Damage_C": {
+        "Name": "BP_SmallShip_StandardHull_Damage_C"
+    },
+    "BP_SmallShip_DamageZone_MezzanineDeck_00_C": {
+        "Name": "BP_SmallShip_DamageZone_MezzanineDeck_00_C"
+    },
+    "BP_SmallShip_DamageZone_MezzanineDeck_01_C": {
+        "Name": "BP_SmallShip_DamageZone_MezzanineDeck_01_C"
+    },
+    "BP_SmallShip_DamageZone_LowerDeck_00_C": {
+        "Name": "BP_SmallShip_DamageZone_LowerDeck_00_C"
+    },
+    "BP_SmallShip_DamageZone_LowerDeck_01_C": {
+        "Name": "BP_SmallShip_DamageZone_LowerDeck_01_C"
+    },
+    "BP_SmallShipLadder_C": {
+        "Name": "BP_SmallShipLadder_C"
+    },
+    "BP_Figurehead_SmallShip_C": {
+        "Name": "BP_Figurehead_SmallShip_C"
+    },
+    "BP_SmallShipStorageBarrel_Wood_C": {
+        "Name": "BP_SmallShipStorageBarrel_Wood_C"
+    },
+    "BP_SmallShip_Capstan_C": {
+        "Name": "BP_SmallShip_Capstan_C"
+    },
+    "BP_SmallMapTable_C": {
+        "Name": "BP_SmallMapTable_C"
+    },
+    "BP_SmallShipStorageBarrel_Cannonball_C": {
+        "Name": "BP_SmallShipStorageBarrel_Cannonball_C"
+    },
+    "BP_SmallShipStorageBarrel_Food_C": {
+        "Name": "BP_SmallShipStorageBarrel_Food_C"
+    },
+    "BP_SmallShipLanterns_C": {
+        "Name": "BP_SmallShipLanterns_C"
+    },
+    "BP_Lantern_SmallShip_Cabin_Quest_C": {
+        "Name": "BP_Lantern_SmallShip_Cabin_Quest_C"
+    },
+    "BP_RailingLight_SmallShip_BowLeftFront_C": {
+        "Name": "BP_RailingLight_SmallShip_BowLeftFront_C"
+    },
+    "BP_RailingLight_SmallShip_BowRightFront_C": {
+        "Name": "BP_RailingLight_SmallShip_BowRightFront_C"
+    },
+    "BP_Lantern_SmallShip_Cabin_Table_C": {
+        "Name": "BP_Lantern_SmallShip_Cabin_Table_C"
+    },
+    "BP_Lantern_SmallShip_DeckBrig_Back_C": {
+        "Name": "BP_Lantern_SmallShip_DeckBrig_Back_C"
+    },
+    "BP_Lantern_SmallShip_DeckFront_C": {
+        "Name": "BP_Lantern_SmallShip_DeckFront_C"
+    },
+    "BP_RailingLight_SmallShip_Wheel_C": {
+        "Name": "BP_RailingLight_SmallShip_Wheel_C"
+    },
+    "BP_SmallShipLadder_02_C": {
+        "Name": "BP_SmallShipLadder_02_C"
+    },
+    "BP_RowboatMountpoint_SmallShip_C": {
+        "Name": "BP_RowboatMountpoint_SmallShip_C"
+    },
+    "BP_Shroudbreaker_OnShip_Small_C": {
+        "Name": "BP_Shroudbreaker_OnShip_Small_C"
+    },
+    "BP_SmallShip_WindowHatch_C": {
+        "Name": "BP_SmallShip_WindowHatch_C"
+    },
+    "BP_SmallShip_QuestTable_ShipPartMMC_C": {
+        "Name": "BP_SmallShip_QuestTable_ShipPartMMC_C"
+    },
+    "BP_Bed_Small_C": {
+        "Name": "BP_Bed_Small_C"
+    },
+    "BP_Drapes_Small_C": {
+        "Name": "BP_Drapes_Small_C"
+    },
+    "BP_Rugs_Small_C": {
+        "Name": "BP_Rugs_Small_C"
+    },
+    "BP_Crest_Small_C": {
+        "Name": "BP_Crest_Small_C"
+    },
+    "BP_AISmallShipNetProxy_C": {
+        "Name": "BP_AISmallShipNetProxy_C"
+    },
+    "BP_AISmallShipTemplate_C": {
+        "Name": "BP_AISmallShipTemplate_C"
+    },
+    "BP_AudioBoatSkeletonSloopHullAmbi_C": {
+        "Name": "BP_AudioBoatSkeletonSloopHullAmbi_C"
+    },
+    "BP_AISmallShip_StandardHull_C": {
+        "Name": "BP_AISmallShip_StandardHull_C"
+    },
+    "BP_AISmallShip_StandardHull_Art_C": {
+        "Name": "BP_AISmallShip_StandardHull_Art_C"
+    },
+    "BP_AISmallShip_StandardHull_Damage_C": {
+        "Name": "BP_AISmallShip_StandardHull_Damage_C"
+    },
+    "BP_AICannon_C": {
+        "Name": "BP_AICannon_C"
+    },
+    "BP_AIShipStorageBarrel_Wood_C": {
+        "Name": "BP_AIShipStorageBarrel_Wood_C"
+    },
+    "BP_AIShipStorageBarrel_Cannonball_C": {
+        "Name": "BP_AIShipStorageBarrel_Cannonball_C"
+    },
+    "BP_AIShipStorageBarrel_Food_C": {
+        "Name": "BP_AIShipStorageBarrel_Food_C"
+    },
+    "BP_AIShipWheel_C": {
+        "Name": "BP_AIShipWheel_C"
+    },
+    "BP_Rowboat_WithFrontCannon_C": {
+        "Name": "BP_Rowboat_WithFrontCannon_C"
+    },
+    "BP_CannonRowboatStorageSeat_C": {
+        "Name": "BP_CannonRowboatStorageSeat_C"
+    },
+    "BP_Rowboat_Cannon_C": {
+        "Name": "BP_Rowboat_Cannon_C"
+    },
+    "BP_cmn_cannonball_cur_anchor_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_cur_anchor_01_a_ItemInfo_C"
+    },
+    "BP_cmn_cannonball_cur_anchor_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_cur_anchor_01_a_Wieldable_C"
+    },
+    "BP_gmp_compass_xli_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_compass_xli_01_a_ItemInfo_C"
+    },
+    "BP_tls_bucket_xli_01_a_ItemInfo_C": {
+        "Name": "BP_tls_bucket_xli_01_a_ItemInfo_C"
+    },
+    "BP_gmp_compass_xli_01_a_Wieldable_C": {
+        "Name": "BP_gmp_compass_xli_01_a_Wieldable_C"
+    },
+    "BP_msc_hurdygurdy_xli_01_a_ItemInfo_C": {
+        "Name": "BP_msc_hurdygurdy_xli_01_a_ItemInfo_C"
+    },
+    "BP_msc_concertina_xli_01_a_ItemInfo_C": {
+        "Name": "BP_msc_concertina_xli_01_a_ItemInfo_C"
+    },
+    "BP_msc_concertina_xli_01_a_Wieldable_C": {
+        "Name": "BP_msc_concertina_xli_01_a_Wieldable_C"
+    },
+    "BP_fod_SharkMeatCookedBite1_00_a_ItemInfo_C": {
+        "Name": "BP_fod_SharkMeatCookedBite1_00_a_ItemInfo_C"
+    },
+    "BP_fod_PineappleFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_PineappleFresh_00_a_ItemInfo_C"
+    },
+    "BP_fod_PorkMeatCooked_00_a_ItemInfo_C": {
+        "Name": "BP_fod_PorkMeatCooked_00_a_ItemInfo_C"
+    },
+    "BP_msc_hurdygurdy_xli_01_a_Wieldable_C": {
+        "Name": "BP_msc_hurdygurdy_xli_01_a_Wieldable_C"
+    },
+    "BP_wpn_blunderbuss_drc_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_blunderbuss_drc_01_a_ItemInfo_C"
+    },
+    "BP_wpn_blunderbuss_drc_01_a_Wieldable_C": {
+        "Name": "BP_wpn_blunderbuss_drc_01_a_Wieldable_C"
+    },
+    "BP_tls_speaking_trumpet_und_01_a_ItemInfo_C": {
+        "Name": "BP_tls_speaking_trumpet_und_01_a_ItemInfo_C"
+    },
+    "BP_tls_bucket_xli_01_a_Wieldable_C": {
+        "Name": "BP_tls_bucket_xli_01_a_Wieldable_C"
+    },
+    "BP_fod_PineappleFresh_00_a_Wieldable_C": {
+        "Name": "BP_fod_PineappleFresh_00_a_Wieldable_C"
+    },
+    "BP_tls_speaking_trumpet_und_01_a_Wieldable_C": {
+        "Name": "BP_tls_speaking_trumpet_und_01_a_Wieldable_C"
+    },
+    "BP_wpn_cutlass_yr1_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_cutlass_yr1_01_a_ItemInfo_C"
+    },
+    "BP_gmp_fishing_rod_eas_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_fishing_rod_eas_01_a_ItemInfo_C"
+    },
+    "BP_gmp_fishing_rod_eas_01_a_Wieldable_C": {
+        "Name": "BP_gmp_fishing_rod_eas_01_a_Wieldable_C"
+    },
+    "BP_cmp_pocket_watch_mrh_01_e_ItemInfo_C": {
+        "Name": "BP_cmp_pocket_watch_mrh_01_e_ItemInfo_C"
+    },
+    "BP_wpn_cutlass_yr1_01_a_Wieldable_C": {
+        "Name": "BP_wpn_cutlass_yr1_01_a_Wieldable_C"
+    },
+    "BP_cmp_pocket_watch_mrh_01_e_Wieldable_C": {
+        "Name": "BP_cmp_pocket_watch_mrh_01_e_Wieldable_C"
+    },
+    "BP_gmp_telescope_und_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_telescope_und_01_a_ItemInfo_C"
+    },
+    "BP_gmp_telescope_und_01_a_Wieldable_C": {
+        "Name": "BP_gmp_telescope_und_01_a_Wieldable_C"
+    },
+    "BP_TreasureMap_ItemInfo_Bounty_C": {
+        "Name": "BP_TreasureMap_ItemInfo_Bounty_C"
+    },
+    "BP_TreasureMap_ItemInfo_XMarksTheSpotPlayerBuried_C": {
+        "Name": "BP_TreasureMap_ItemInfo_XMarksTheSpotPlayerBuried_C"
+    },
+    "BP_fod_Plentifin_03_AmberCooked_00_a_ItemInfo_C": {
+        "Name": "BP_fod_Plentifin_03_AmberCooked_00_a_ItemInfo_C"
+    },
+    "BP_fod_ChickenMeatCooked_00_a_ItemInfo_C": {
+        "Name": "BP_fod_ChickenMeatCooked_00_a_ItemInfo_C"
+    },
+    "BP_PlayerBuriedTreasureMap_C": {
+        "Name": "BP_PlayerBuriedTreasureMap_C"
+    },
+    "BP_fod_MegMeatCooked_00_a_ItemInfo_C": {
+        "Name": "BP_fod_MegMeatCooked_00_a_ItemInfo_C"
+    },
+    "BP_BountyMap_C": {
+        "Name": "BP_BountyMap_C"
+    },
+    "BP_msc_hurdygurdy_par_01_a_ItemInfo_C": {
+        "Name": "BP_msc_hurdygurdy_par_01_a_ItemInfo_C"
+    },
+    "BP_tls_speaking_trumpet_kra_01_a_v02_ItemInfo_C": {
+        "Name": "BP_tls_speaking_trumpet_kra_01_a_v02_ItemInfo_C"
+    },
+    "BP_wpn_cutlass_smp_01_a_v03_ItemInfo_C": {
+        "Name": "BP_wpn_cutlass_smp_01_a_v03_ItemInfo_C"
+    },
+    "BP_msc_hurdygurdy_par_01_a_Wieldable_C": {
+        "Name": "BP_msc_hurdygurdy_par_01_a_Wieldable_C"
+    },
+    "BP_tls_speaking_trumpet_kra_01_a_v02_Wieldable_C": {
+        "Name": "BP_tls_speaking_trumpet_kra_01_a_v02_Wieldable_C"
+    },
+    "BP_msc_drum_und_01_a_ItemInfo_C": {
+        "Name": "BP_msc_drum_und_01_a_ItemInfo_C"
+    },
+    "BP_tls_lantern_s5_01_a_v01_ItemInfo_C": {
+        "Name": "BP_tls_lantern_s5_01_a_v01_ItemInfo_C"
+    },
+    "BP_tls_shovel_skl_01_a_v01_ItemInfo_C": {
+        "Name": "BP_tls_shovel_skl_01_a_v01_ItemInfo_C"
+    },
+    "BP_wpn_cutlass_smp_01_a_v03_Wieldable_C": {
+        "Name": "BP_wpn_cutlass_smp_01_a_v03_Wieldable_C"
+    },
+    "BP_msc_banjo_par_01_a_v02_ItemInfo_C": {
+        "Name": "BP_msc_banjo_par_01_a_v02_ItemInfo_C"
+    },
+    "BP_fod_ChickenMeatCooked_00_a_Wieldable_C": {
+        "Name": "BP_fod_ChickenMeatCooked_00_a_Wieldable_C"
+    },
+    "BP_msc_drum_und_01_a_Wieldable_C": {
+        "Name": "BP_msc_drum_und_01_a_Wieldable_C"
+    },
+    "BP_gmp_compass_cre_01_a_ItemInfo_C": {
+        "Name": "BP_gmp_compass_cre_01_a_ItemInfo_C"
+    },
+    "BP_tls_shovel_skl_01_a_v01_Wieldable_C": {
+        "Name": "BP_tls_shovel_skl_01_a_v01_Wieldable_C"
+    },
+    "BP_tls_bucket_elb_01_a_v02_ItemInfo_C": {
+        "Name": "BP_tls_bucket_elb_01_a_v02_ItemInfo_C"
+    },
+    "BP_msc_banjo_par_01_a_v02_Wieldable_C": {
+        "Name": "BP_msc_banjo_par_01_a_v02_Wieldable_C"
+    },
+    "BP_gmp_compass_cre_01_a_Wieldable_C": {
+        "Name": "BP_gmp_compass_cre_01_a_Wieldable_C"
+    },
+    "BP_tls_bucket_elb_01_a_v02_Wieldable_C": {
+        "Name": "BP_tls_bucket_elb_01_a_v02_Wieldable_C"
+    },
+    "BP_tls_lantern_s5_01_a_v01_Wieldable_C": {
+        "Name": "BP_tls_lantern_s5_01_a_v01_Wieldable_C"
+    },
+    "BP_gmp_telescope_smp_01_a_v03_ItemInfo_C": {
+        "Name": "BP_gmp_telescope_smp_01_a_v03_ItemInfo_C"
+    },
+    "BP_gmp_telescope_smp_01_a_v03_Wieldable_C": {
+        "Name": "BP_gmp_telescope_smp_01_a_v03_Wieldable_C"
+    },
+    "BP_cmp_shovel_gld_01_e_ItemInfo_C": {
+        "Name": "BP_cmp_shovel_gld_01_e_ItemInfo_C"
+    },
+    "BP_msc_banjo_und_01_a_ItemInfo_C": {
+        "Name": "BP_msc_banjo_und_01_a_ItemInfo_C"
+    },
+    "BP_msc_banjo_und_01_a_Wieldable_C": {
+        "Name": "BP_msc_banjo_und_01_a_Wieldable_C"
+    },
+    "BP_cmp_shovel_gld_01_e_Wieldable_C": {
+        "Name": "BP_cmp_shovel_gld_01_e_Wieldable_C"
+    },
+    "BP_msc_drum_xli_01_a_ItemInfo_C": {
+        "Name": "BP_msc_drum_xli_01_a_ItemInfo_C"
+    },
+    "BP_msc_drum_xli_01_a_Wieldable_C": {
+        "Name": "BP_msc_drum_xli_01_a_Wieldable_C"
+    },
+    "BP_TaleBook_FateOfTheMorningstar_AdditionalPuzzles_C": {
+        "Name": "BP_TaleBook_FateOfTheMorningstar_AdditionalPuzzles_C"
+    },
+    "BP_VotableTaleProposal_Ferry_C": {
+        "Name": "BP_VotableTaleProposal_Ferry_C"
+    },
+    "BP_Projectile_CannonBall_C": {
+        "Name": "BP_Projectile_CannonBall_C"
+    },
+    "BP_TreasureChest_ItemInfo_Legendary_DVR_C": {
+        "Name": "BP_TreasureChest_ItemInfo_Legendary_DVR_C"
+    },
+    "BP_TreasureChest_Proxy_Legendary_DVR_C": {
+        "Name": "BP_TreasureChest_Proxy_Legendary_DVR_C"
+    },
+    "BP_ChainLightningProjectile_C": {
+        "Name": "BP_ChainLightningProjectile_C"
+    },
+    "BP_SunkenCurseArtefact_Emerald_C": {
+        "Name": "BP_SunkenCurseArtefact_Emerald_C"
+    },
+    "BP_MerchantCrate_Commodity_Ore_Wieldable_C": {
+        "Name": "BP_MerchantCrate_Commodity_Ore_Wieldable_C"
+    },
+    "BP_SirenGem_ItemInfo_Sapphire_C": {
+        "Name": "BP_SirenGem_ItemInfo_Sapphire_C"
+    },
+    "BP_SirenGem_Proxy_Sapphire_C": {
+        "Name": "BP_SirenGem_Proxy_Sapphire_C"
+    },
+    "BP_riddle_trigger_C": {
+        "Name": "BP_riddle_trigger_C"
+    },
+    "BP_AILargeShipNetProxy_C": {
+        "Name": "BP_AILargeShipNetProxy_C"
+    },
+    "BP_AILargeShipTemplate_C": {
+        "Name": "BP_AILargeShipTemplate_C"
+    },
+    "BP_AudioBoatSkeletonHullAmbi_C": {
+        "Name": "BP_AudioBoatSkeletonHullAmbi_C"
+    },
+    "BP_AILargeShip_StandardHull_C": {
+        "Name": "BP_AILargeShip_StandardHull_C"
+    },
+    "BP_shp_skeleton_01_a_C": {
+        "Name": "BP_shp_skeleton_01_a_C"
+    },
+    "BP_AILargeShip_StandardHull_Damage_C": {
+        "Name": "BP_AILargeShip_StandardHull_Damage_C"
+    },
+    "BP_AILowerDeckDamageZone_C": {
+        "Name": "BP_AILowerDeckDamageZone_C"
+    },
+    "BP_AIMiddleDeckDamageZone_C": {
+        "Name": "BP_AIMiddleDeckDamageZone_C"
+    },
+    "BP_cmn_cannonball_cur_passive_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_cur_passive_01_a_ItemInfo_C"
+    },
+    "BP_cmn_cannonball_cur_passive_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_cur_passive_01_a_Wieldable_C"
+    },
+    "BP_cmn_cannonball_cur_rigging_01_a_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_cur_rigging_01_a_ItemInfo_C"
+    },
+    "BP_cmn_cannonball_cur_rigging_01_a_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_cur_rigging_01_a_Wieldable_C"
+    },
+    "BP_OceanCrawlerCharacter_Crab_C": {
+        "Name": "BP_OceanCrawlerCharacter_Crab_C"
+    },
+    "BP_MerchantCrate_GunpowderBarrel_C": {
+        "Name": "BP_MerchantCrate_GunpowderBarrel_C"
+    },
+    "BP_ShovelHole_C": {
+        "Name": "BP_ShovelHole_C"
+    },
+    "BP_TreasureArtifact_ItemInfo_goblet_01_a_C": {
+        "Name": "BP_TreasureArtifact_ItemInfo_goblet_01_a_C"
+    },
+    "BP_Ritual_Skull_ItemInfo_C": {
+        "Name": "BP_Ritual_Skull_ItemInfo_C"
+    },
+    "BP_MermaidGem_ItemInfo_Sapphire_C": {
+        "Name": "BP_MermaidGem_ItemInfo_Sapphire_C"
+    },
+    "BP_CollectorsChest_Wieldable_C": {
+        "Name": "BP_CollectorsChest_Wieldable_C"
+    },
+    "BP_wpn_sniper_rifle_hal_01_a_ItemInfo_C": {
+        "Name": "BP_wpn_sniper_rifle_hal_01_a_ItemInfo_C"
+    },
+    "BP_wpn_sniper_rifle_hal_01_a_Wieldable_C": {
+        "Name": "BP_wpn_sniper_rifle_hal_01_a_Wieldable_C"
+    },
+    "BP_PortableAmmoCrate_Wieldable_C": {
+        "Name": "BP_PortableAmmoCrate_Wieldable_C"
+    },
+    "BP_fod_PineappleFreshBite1_00_a_ItemInfo_C": {
+        "Name": "BP_fod_PineappleFreshBite1_00_a_ItemInfo_C"
+    },
+    "BP_fod_PineappleFreshBite1_00_a_Wieldable_C": {
+        "Name": "BP_fod_PineappleFreshBite1_00_a_Wieldable_C"
+    },
+    "BP_Seagulls_Barrels_C": {
+        "Name": "BP_Seagulls_Barrels_C"
+    },
+    "BP_Projectile_CannonBall_Cur_Passive_C": {
+        "Name": "BP_Projectile_CannonBall_Cur_Passive_C"
+    },
+    "BP_PhantomPawnBase_C": {
+        "Name": "BP_PhantomPawnBase_C"
+    },
+    "BP_AI_wpn_PhantomUnarmedCombat_ItemInfo_C": {
+        "Name": "BP_AI_wpn_PhantomUnarmedCombat_ItemInfo_C"
+    },
+    "BP_AI_wpn_PhantomUnarmedCombat_Wieldable_C": {
+        "Name": "BP_AI_wpn_PhantomUnarmedCombat_Wieldable_C"
+    },
+    "BP_AI_Phantom_wpn_blunderbuss_02_a_ItemInfo_C": {
+        "Name": "BP_AI_Phantom_wpn_blunderbuss_02_a_ItemInfo_C"
+    },
+    "BP_AI_Phantom_wpn_cutlass_ItemInfo_C": {
+        "Name": "BP_AI_Phantom_wpn_cutlass_ItemInfo_C"
+    },
+    "BP_AI_Phantom_wpn_blunderbuss_02_a_Wieldable_C": {
+        "Name": "BP_AI_Phantom_wpn_blunderbuss_02_a_Wieldable_C"
+    },
+    "BP_AI_Phantom_wpn_cutlass_Wieldable_C": {
+        "Name": "BP_AI_Phantom_wpn_cutlass_Wieldable_C"
+    },
+    "BP_AI_Phantom_wpn_flintlock_pistol_02_a_ItemInfo_C": {
+        "Name": "BP_AI_Phantom_wpn_flintlock_pistol_02_a_ItemInfo_C"
+    },
+    "BP_AI_Phantom_wpn_flintlock_pistol_02_a_Wieldable_C": {
+        "Name": "BP_AI_Phantom_wpn_flintlock_pistol_02_a_Wieldable_C"
+    },
+    "BP_SirenGem_Wieldable_Sapphire_C": {
+        "Name": "BP_SirenGem_Wieldable_Sapphire_C"
+    },
+    "BP_wpn_blunderbuss_smp_01_a_v03_ItemInfo_C": {
+        "Name": "BP_wpn_blunderbuss_smp_01_a_v03_ItemInfo_C"
+    },
+    "BP_fod_Plentifin_03_AmberCookedBite1_00_a_ItemInfo_C": {
+        "Name": "BP_fod_Plentifin_03_AmberCookedBite1_00_a_ItemInfo_C"
+    },
+    "BP_fod_Plentifin_03_AmberCookedBite1_00_a_Wieldable_C": {
+        "Name": "BP_fod_Plentifin_03_AmberCookedBite1_00_a_Wieldable_C"
+    },
+    "BP_wpn_blunderbuss_smp_01_a_v03_Wieldable_C": {
+        "Name": "BP_wpn_blunderbuss_smp_01_a_v03_Wieldable_C"
+    },
+    "BP_fod_SharkMeatCookedBite1_00_a_Wieldable_C": {
+        "Name": "BP_fod_SharkMeatCookedBite1_00_a_Wieldable_C"
+    },
+    "BP_fod_MangoFresh_00_a_ItemInfo_C": {
+        "Name": "BP_fod_MangoFresh_00_a_ItemInfo_C"
+    },
+    "BP_TinySharkExperience_C": {
+        "Name": "BP_TinySharkExperience_C"
+    },
+    "BP_TinyShark_C": {
+        "Name": "BP_TinyShark_C"
+    },
+    "BP_fod_PorkMeatCooked_00_a_Wieldable_C": {
+        "Name": "BP_fod_PorkMeatCooked_00_a_Wieldable_C"
+    },
+    "BP_fod_MangoFresh_00_a_Wieldable_C": {
+        "Name": "BP_fod_MangoFresh_00_a_Wieldable_C"
+    },
+    "BP_cmn_cannonball_Grenade_Scatter_ItemInfo_C": {
+        "Name": "BP_cmn_cannonball_Grenade_Scatter_ItemInfo_C"
+    },
+    "BP_cmn_cannonball_Grenade_Scatter_Wieldable_C": {
+        "Name": "BP_cmn_cannonball_Grenade_Scatter_Wieldable_C"
+    },
+    "BP_Projectile_Grenade_Scatter_C": {
+        "Name": "BP_Projectile_Grenade_Scatter_C"
+    },
+    "BP_SkellyFort_SkullCloud_C": {
+        "Name": "BP_SkellyFort_SkullCloud_C"
+    },
+    "BP_Projectile_VolcanoRockMini_C": {
+        "Name": "BP_Projectile_VolcanoRockMini_C"
+    },
+    "BP_Projectile_CannonBall_ChainShot_C": {
+        "Name": "BP_Projectile_CannonBall_ChainShot_C"
+    },
+    "BP_BoilingWaterProjectile_C": {
+        "Name": "BP_BoilingWaterProjectile_C"
+    },
+    "BP_Rowboat_C": {
+        "Name": "BP_Rowboat_C"
+    },
+    "BP_EmissaryFlotsam_AthenasFortune_Rank4_ItemInfo_C": {
+        "Name": "BP_EmissaryFlotsam_AthenasFortune_Rank4_ItemInfo_C"
+    },
+    "BP_EmissaryFlotsam_AthenasFortune_Rank4_Proxy_C": {
+        "Name": "BP_EmissaryFlotsam_AthenasFortune_Rank4_Proxy_C"
+    },
+    "BP_TreasureChest_ItemInfo_PirateLegend_DVR_C": {
+        "Name": "BP_TreasureChest_ItemInfo_PirateLegend_DVR_C"
+    },
+    "BP_TreasureChest_Wieldable_PirateLegend_DVR_C": {
+        "Name": "BP_TreasureChest_Wieldable_PirateLegend_DVR_C"
+    },
+    "BP_TreasureChest_Proxy_PirateLegend_DVR_C": {
+        "Name": "BP_TreasureChest_Proxy_PirateLegend_DVR_C"
+    },
+    "BP_xmas_WSP_Outpost2_Dressing_C": {
+        "Name": "BP_xmas_WSP_Outpost2_Dressing_C"
+    },
+    "BP_PetWieldable_Dog_Default_C": {
+        "Name": "BP_PetWieldable_Dog_Default_C"
+    },
+    "BP_xmas_tavern_dressing_C": {
+        "Name": "BP_xmas_tavern_dressing_C"
+    },
+    "BP_Shipwright_Shelley_C": {
+        "Name": "BP_Shipwright_Shelley_C"
+    },
+    "BP_Merchant_Mildred_C": {
+        "Name": "BP_Merchant_Mildred_C"
+    },
+    "BP_Shark_C": {
+        "Name": "BP_Shark_C"
+    },
+    "BP_Sovereign_wsp_2_C": {
+        "Name": "BP_Sovereign_wsp_2_C"
+    },
+    "BP_Item_Sovereign_Scroll_C": {
+        "Name": "BP_Item_Sovereign_Scroll_C"
+    },
+    "BP_ARoguesLegacy_TashaTent_C": {
+        "Name": "BP_ARoguesLegacy_TashaTent_C"
+    },
+    "BP_MerchantCrate_BananaCrate_ItemInfo_C": {
+        "Name": "BP_MerchantCrate_BananaCrate_ItemInfo_C"
+    },
+    "BP_AshenChestGoldPouches_ItemInfo_C": {
+        "Name": "BP_AshenChestGoldPouches_ItemInfo_C"
+    },
+    "BP_MerchantCrate_BananaCrateProxy_C": {
+        "Name": "BP_MerchantCrate_BananaCrateProxy_C"
+    },
+    "BP_xmas_WSP_Outpost_1_Dressing_C": {
+        "Name": "BP_xmas_WSP_Outpost_1_Dressing_C"
+    },
+    "BP_Sovereign_wsp_1_C": {
+        "Name": "BP_Sovereign_wsp_1_C"
+    },
+    "BP_TreasureArtifact_ItemInfo_DVR_Rare_C": {
+        "Name": "BP_TreasureArtifact_ItemInfo_DVR_Rare_C"
+    },
+    "BP_Treasure_Artifact_Proxy_DVR_Rare_C": {
+        "Name": "BP_Treasure_Artifact_Proxy_DVR_Rare_C"
+    },
+    "BP_LegendaryTavern_C": {
+        "Name": "BP_LegendaryTavern_C"
+    },
+    "BP_TaleBook_Shroudbreaker_PlunderOutpost_AdditionalPuzzles_C": {
+        "Name": "BP_TaleBook_Shroudbreaker_PlunderOutpost_AdditionalPuzzles_C"
+    },
+    "BP_VotableTaleProposal_Vertical_C": {
+        "Name": "BP_VotableTaleProposal_Vertical_C"
+    },
+    "BP_Innkeeper_Tanya_C": {
+        "Name": "BP_Innkeeper_Tanya_C"
+    },
+    "BP_TaleBook_CursedRogue_AdditionalPuzzles_C": {
+        "Name": "BP_TaleBook_CursedRogue_AdditionalPuzzles_C"
+    },
+    "BP_VotableTaleProposal_C": {
+        "Name": "BP_VotableTaleProposal_C"
+    },
+    "BP_Orderofsouls_Olivia_C": {
+        "Name": "BP_Orderofsouls_Olivia_C"
+    },
+    "BP_Goldhoarder_Harry_C": {
+        "Name": "BP_Goldhoarder_Harry_C"
+    },
+    "BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails_C": {
+        "Name": "BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails_C"
+    },
+    "BP_Merchant_Maureen_C": {
+        "Name": "BP_Merchant_Maureen_C"
+    },
+    "BP_Campaign005_CursedSails_ShopkeeperTravis_PreCursedSails_C": {
+        "Name": "BP_Campaign005_CursedSails_ShopkeeperTravis_PreCursedSails_C"
+    },
+    "BP_SirenPreSpawnMusicActor_C": {
+        "Name": "BP_SirenPreSpawnMusicActor_C"
+    },
+    "BP_SirenPostSpawnMusicActor_C": {
+        "Name": "BP_SirenPostSpawnMusicActor_C"
+    },
+    "BP_SirenLeaderPawn_C": {
+        "Name": "BP_SirenLeaderPawn_C"
+    },
+    "BP_SirenGruntPawn_C": {
+        "Name": "BP_SirenGruntPawn_C"
+    },
+    "BP_AI_wpn_SirenTrident_ItemInfo_C": {
+        "Name": "BP_AI_wpn_SirenTrident_ItemInfo_C"
+    },
+    "BP_AI_wpn_SirenTrident_Wieldable_C": {
+        "Name": "BP_AI_wpn_SirenTrident_Wieldable_C"
+    },
+    "BP_AI_wpn_SirenScratch_ItemInfo_C": {
+        "Name": "BP_AI_wpn_SirenScratch_ItemInfo_C"
+    },
+    "BP_AI_wpn_SirenSong_ItemInfo_C": {
+        "Name": "BP_AI_wpn_SirenSong_ItemInfo_C"
+    },
+    "BP_AI_wpn_SirenSong_Wieldable_C": {
+        "Name": "BP_AI_wpn_SirenSong_Wieldable_C"
+    },
+    "BP_SirenScratch_Wieldable_C": {
+        "Name": "BP_SirenScratch_Wieldable_C"
+    },
+    "BP_Projectile_SirenSong_C": {
+        "Name": "BP_Projectile_SirenSong_C"
+    },
+    "BP_AIProjectile_SirenTrident_C": {
+        "Name": "BP_AIProjectile_SirenTrident_C"
+    },
+    "BP_SapphireHealStatusEffectZone_C": {
+        "Name": "BP_SapphireHealStatusEffectZone_C"
+    },
+    "BP_EmeraldHealStatusEffectZone_C": {
+        "Name": "BP_EmeraldHealStatusEffectZone_C"
+    },
+    "BP_Campaign005_CursedSails_ClothingChris_PreCursedSails_C": {
+        "Name": "BP_Campaign005_CursedSails_ClothingChris_PreCursedSails_C"
+    },
+    "BP_Premium_Eduardo_C": {
+        "Name": "BP_Premium_Eduardo_C"
+    },
+    "BP_TreasureArtifact_Wieldable_DVR_Rare_C": {
+        "Name": "BP_TreasureArtifact_Wieldable_DVR_Rare_C"
+    },
+    "BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_C": {
+        "Name": "BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_C"
+    },
+    "BP_ItemPreview_C": {
+        "Name": "BP_ItemPreview_C"
+    },
+    "BP_ItemPreview_Lighting_C": {
+        "Name": "BP_ItemPreview_Lighting_C"
+    }
+}
