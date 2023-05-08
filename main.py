@@ -5,13 +5,21 @@ For community support, please contact me on Discord: DougTheDruid#2784
 """
 import pyglet
 import globals
+import time
+import multiprocessing
 from base64 import b64decode
+from win32gui import GetWindowText, GetForegroundWindow
 from pyglet.text import Label
 from pyglet.gl import Config
 from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, foreground_batch, background_batch, \
     version, logger, LabelOutline
+from mapping import ship_keys, world_events_keys
 from sot_hack import SoTMemoryReader
-from win32gui import GetWindowText, GetForegroundWindow
+from Modules import (
+    ShipModule,
+    CrewsModule,
+    WorldEventsModule
+)
 
 # The FPS __Target__ for the program.
 FPS_TARGET = 165
@@ -23,13 +31,22 @@ DEBUG = False
 clock = pyglet.clock.Clock()
 
 
-def generate_all(_):
+def generate_all(shared_dict, lock):
     """
     Triggers an entire read_actors call in our SoT Memory Reader. Will
     re-populate all of the display objects if something entered the screen
     or render distance.
     """
-    smr.read_actors()
+    process_smr = SoTMemoryReader() 
+
+    while 1:
+        process_smr.read_actors()
+
+        with lock:
+            for key in process_smr.to_be_shared:
+                shared_dict[key] = process_smr.to_be_shared[key]
+
+        time.sleep(5.0)
 
 
 def update_graphics(_):
@@ -41,6 +58,41 @@ def update_graphics(_):
     """
     # Update our players coordinate information
     smr.update_my_coords()
+
+    # If we have something new
+    if main_shared_dict:
+
+        # Delete old objects
+        for display_ob in smr.display_objects:
+            display_ob.delete()
+
+        smr.display_objects.clear()
+        
+        # To be sure that main_shared_dict won't be changed during iteration
+        dict_keys = list(main_shared_dict.keys())
+        dict_values = list(main_shared_dict.values())
+
+        # We saved all what we need, so we can clear shared dict now
+        main_shared_dict.clear()
+
+        # Creating new objects
+        while dict_keys:
+            key = dict_keys.pop()
+            args = dict_values.pop()
+
+            # We won't check if config enabled for each actor type, since we have already did this in read_actors
+
+            if key in ship_keys:
+                ship = ShipModule(*args, smr.my_coords)
+                smr.display_objects.append(ship)
+
+            elif key == "CrewService":
+                smr.crew_data = CrewsModule(*args)
+
+            elif key in world_events_keys:
+                world_event = WorldEventsModule(*args, smr.my_coords)
+                smr.display_objects.append(world_event)
+
 
     # Initialize a list of items which are no longer valid in this loop
     to_remove = []
@@ -116,8 +168,14 @@ if __name__ == '__main__':
             foreground_batch.draw()
             fps_display.draw()
 
+    # Shared data for multiprocessing
+    multiprocess_manager = multiprocessing.Manager()
+    multiprocess_lock = multiprocess_manager.Lock()
+    main_shared_dict = multiprocess_manager.dict()
+
     # We schedule an "update all" to scan all actors every 5seconds
-    pyglet.clock.schedule_interval(generate_all, 5)
+    # pyglet.clock.schedule_interval(generate_all, 5)
+    multiprocessing.Process(target=generate_all, args=(main_shared_dict, multiprocess_lock), daemon=True).start()
 
     # We schedule a check to make sure the game is still running every 3 seconds
     pyglet.clock.schedule_interval(globals.rm.check_process_is_active, 3)

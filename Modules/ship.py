@@ -23,7 +23,7 @@ class ShipModule(DisplayObject):
     Class to generate information for a ship object in memory
     """
 
-    def __init__(self, actor_id, address, my_coords, raw_name):
+    def __init__(self, actor_id, address, raw_name, my_coords):
         """
         Upon initialization of this class, we immediately initialize the
         DisplayObject parent class as well (to utilize common methods)
