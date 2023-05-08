@@ -44,4 +44,29 @@ ships = {
     # },  # To implement, must modify ship.py's update method for visibility
 }
 
+world_events = {
+    "BP_Seagull01_32POI_Circling_Shipwreck_C": {
+        "Name": "Shipwreck",
+    },
+    "BP_SkellyFort_RitualSkullCloud_C": {
+        "Name": "Fort of the Damned",
+    },
+    "BP_LegendSkellyFort_SkullCloud_C": {
+        "Name": "Fort of Fortune",
+    },
+    "BP_GhostShips_Signal_Flameheart_NetProxy_C": {
+        "Name": "Ghost Fleet",
+    },
+    "BP_SkellyFort_SkullCloud_C": {
+        "Name": "Skeleton Fort",
+    },
+    "BP_SkellyShip_ShipCloud_C": {
+        "Name": "Skeleton Fleet",
+    },
+    "BP_AshenLord_SkullCloud_C": {
+        "Name": "Ashen Lord",
+    },
+}
+
+world_events_keys = set(world_events.keys())
 ship_keys = set(ships.keys())

@@ -3,17 +3,18 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 For community support, please contact me on Discord: DougTheDruid#2784
 """
-from base64 import b64decode
 import pyglet
+import globals
+from base64 import b64decode
 from pyglet.text import Label
 from pyglet.gl import Config
-from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, main_batch, \
-    version, logger, initialize_window
+from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, foreground_batch, background_batch, \
+    version, logger, LabelOutline
 from sot_hack import SoTMemoryReader
-
+from win32gui import GetWindowText, GetForegroundWindow
 
 # The FPS __Target__ for the program.
-FPS_TARGET = 60
+FPS_TARGET = 165
 
 # See explanation in Main, toggle for a non-graphical debug
 DEBUG = False
@@ -55,6 +56,7 @@ def update_graphics(_):
 
     # Clean up any items which arent valid anymore
     for removable in to_remove:
+        removable.delete()
         smr.display_objects.remove(removable)
 
 
@@ -79,7 +81,7 @@ if __name__ == '__main__':
 
     # Create an overlay window with Pyglet at the same size as our SoT Window
     window = pyglet.window.Window(SOT_WINDOW_W, SOT_WINDOW_H,
-                                  vsync=False, style='overlay', config=config,
+                                  vsync=True, style='overlay', config=config,
                                   caption="DougTheDruid's ESP Framework")
     hwnd = window._hwnd  # pylint: disable=protected-access
 
@@ -95,23 +97,30 @@ if __name__ == '__main__':
         """
         window.clear()
 
-        # Update our player count Label & crew list
-        if smr.crew_data:
-            player_count.text = f"Player Count: {smr.crew_data.total_players}"
-            # crew_list.text = smr.crew_data.crew_str
+        if GetWindowText(GetForegroundWindow()) == "Sea of Thieves":
+            # Update our player count Label & crew list
+            if smr.crew_data:
+                for x in range(0, len(smr.crew_data.crew_strings)):
+                    crew_list[x].color = smr.crew_data.crew_strings[x][1]
+                    crew_list[x].text = smr.crew_data.crew_strings[x][0]
+                    if x == 0:
+                        crew_list[x].y = (SOT_WINDOW_H-25) * 0.9
+                    else:
+                        crew_list[x].y = crew_list[x-1].y - 40 - ((20 * (crew_list[x-1].text.count('\n') - 1)) if x > 0 else 0 )
+            
+                for x in range(len(smr.crew_data.crew_strings), 6):
+                    crew_list[x].text = ""
 
-        # Draw our main batch & FPS counter at the bottom left
-        main_batch.draw()
-        fps_display.draw()
-
-    # Initializing the window for writing
-    init = initialize_window()
+            # Draw our main batch & FPS counter at the bottom left
+            background_batch.draw()
+            foreground_batch.draw()
+            fps_display.draw()
 
     # We schedule an "update all" to scan all actors every 5seconds
     pyglet.clock.schedule_interval(generate_all, 5)
 
     # We schedule a check to make sure the game is still running every 3 seconds
-    pyglet.clock.schedule_interval(smr.rm.check_process_is_active, 3)
+    pyglet.clock.schedule_interval(globals.rm.check_process_is_active, 3)
 
     # We schedule a basic graphics load which is responsible for updating
     # the actors we are interested in (from our generate_all). Runs as fast as possible
@@ -121,22 +130,17 @@ if __name__ == '__main__':
     # Note: May not translate to actual FPS, but rather FPS of the program
     fps_display = pyglet.window.FPSDisplay(window)
 
-    # Our base player_count label in the top-right of our screen. Updated
-    # in on_draw(). Use a default of "Initializing", which will update once the
-    # hack is actually running
-    player_count = Label("...Initializing Framework...",
-                         x=SOT_WINDOW_W * 0.85,
-                         y=SOT_WINDOW_H * 0.9, batch=main_batch)
-
     # The label for showing all players on the server under the count
     # This purely INITIALIZES it does not inherently update automatically
-    if False:  # pylint: disable=using-constant-test
-        crew_list = Label("", x=SOT_WINDOW_W * 0.85,
-                          y=(SOT_WINDOW_H-25) * 0.9, batch=main_batch, width=300,
-                          multiline=True)
-        # Note: The width of 300 is the max pixel width of a single line
-        # before auto-wrapping the text to the next line. Updated in on_draw()
+    crew_list: list[Label] = list()
+
+    for x in range(6):
+        crew_list.append(LabelOutline("", x=SOT_WINDOW_W * 0.85, multiline=True, width=1000,
+                            y=(SOT_WINDOW_H-25) * 0.9 + 25 * x, batch=foreground_batch, shadows_batch=background_batch, color=(0, 0, 0, 255)))
+        
+    # Note: The width of 300 is the max pixel width of a single line
+    # before auto-wrapping the text to the next line. Updated in on_draw()
 
     # Runs our application, targeting a specific refresh rate (1/60 = 60fps)
-    pyglet.app.run(interval=1/FPS_TARGET)
+    pyglet.app.run()
     # Note - ***Nothing past here will execute as app.run() is a loop***

@@ -14,11 +14,9 @@ from pyglet.text import Label
 # True=Enabled & False=Disabled for each relevant config items
 CONFIG = {
     "CREWS_ENABLED": True,
-    "SHIPS_ENABLED": False
+    "SHIPS_ENABLED": True,
+    "WORLD_ENABLED": True,
 }
-
-# Used to track unique crews
-crew_tracker = {}
 
 version = "1.5.0"
 
@@ -44,7 +42,78 @@ except Exception as e:
 
 # Creates a pyglet "Batch" that we draw our information to. Effectively serves
 # as a piece of paper, so we save render cost because its 2D
-main_batch = Batch()
+foreground_batch = Batch()
+background_batch = Batch()
+
+# Outlined label
+class LabelOutline:
+    def __init__(self, text='',
+                 font_name=None, font_size=None, bold=False, italic=False, stretch=False,
+                 color=(255, 255, 255, 255),
+                 x=0, y=0, width=None, height=None,
+                 anchor_x='left', anchor_y='baseline',
+                 align='left',
+                 multiline=False, dpi=None, batch=None, shadows_batch=None, group=None):
+        self.label = Label(text=text, font_name=font_name, font_size=font_size, bold=bold,
+                           italic=italic, stretch=stretch, color=color, x=x, y=y, width=width, height=height,
+                           anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=batch, group=group)
+        self.shadows: list[Label] = list()
+
+        for sx in [-1, 0, 1]:
+            for sy in [-1, 0, 1]:
+                if sx == 0 and sy == 0: continue
+                self.shadows.append(Label(text=text, font_name=font_name, font_size=font_size, bold=bold,
+                            italic=italic, stretch=stretch, color=(0, 0, 0, 255), x=x+sx, y=y+sy, width=width, height=height,
+                            anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=shadows_batch, group=group))
+        
+    @property
+    def color(self):
+        return self.label.color
+    
+    @color.setter
+    def color(self, value):
+        self.label.color = value
+
+    @property
+    def text(self):
+        return self.label.text
+    
+    @text.setter
+    def text(self, value):
+        self.label.text = value
+        for shadow in self.shadows:
+            shadow.text = value
+    
+    @property
+    def x(self):
+        return self.label.x
+    
+    @x.setter
+    def x(self, value):
+        diff = self.label.x - value
+        self.label.x = value
+
+        for shadow in self.shadows:
+            shadow.x -= diff
+    
+    @property
+    def y(self):
+        return self.label.y
+    
+    @y.setter
+    def y(self, value):
+        diff = self.label.y - value
+        self.label.y = value
+
+        for shadow in self.shadows:
+            shadow.y -= diff
+
+    def delete(self):
+        self.label.delete()
+        for shadow in self.shadows:
+            shadow.delete()
+        del self
+
 
 # Load our offset json file
 with open("offsets.json") as infile:
@@ -177,13 +246,3 @@ def calculate_distance(obj_to: dict, obj_from: dict) -> int:
     return int(math.sqrt((obj_to.get("x") - obj_from.get("x")) ** 2 +
                          (obj_to.get("y") - obj_from.get("y")) ** 2 +
                          (obj_to.get("z") - obj_from.get("z")) ** 2))
-
-
-def initialize_window():
-    """
-    Initializes our window with a given label
-    """
-    b_label = Label(b64decode('RG91Z1RoZURydWlkJ3MgRVNQIEZyYW1ld29yaw==').decode("utf-8"),
-                    x=SOT_WINDOW_W - 537, y=10, font_size=24, bold=True,
-                    color=(127, 127, 127, 65), batch=main_batch)
-    return b_label

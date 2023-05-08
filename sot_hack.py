@@ -6,12 +6,16 @@ For community support, please contact me on Discord: DougTheDruid#2784
 
 import struct
 import logging
+import globals
 from memory_helper import ReadMemory
-from mapping import ship_keys
+from mapping import ship_keys, world_events_keys
 from helpers import OFFSETS, CONFIG, logger
-from Modules.ship import Ship
-from Modules.crews import Crews
-
+from Modules import (
+    ShipModule,
+    CrewsModule,
+    WorldEventsModule,
+    DisplayObject
+)
 
 class SoTMemoryReader:
     """
@@ -32,35 +36,36 @@ class SoTMemoryReader:
         Also initialize a number of class variables which help us cache some
         basic information
         """
-        self.rm = ReadMemory("SoTGame.exe")
-        base_address = self.rm.base_address
-        logging.info(f"Process ID: {self.rm.pid}")
+        globals.rm = ReadMemory("SoTGame.exe")
 
-        u_world_offset = self.rm.read_ulong(
-            base_address + self.rm.u_world_base + 3
-        )
-        u_world = base_address + self.rm.u_world_base + u_world_offset + 7
-        self.world_address = self.rm.read_ptr(u_world)
+        base_address = globals.rm.base_address
+        logging.info(f"Process ID: {globals.rm.pid}")
 
-        g_name_offset = self.rm.read_ulong(
-            base_address + self.rm.g_name_base + 3
+        u_world_offset = globals.rm.read_ulong(
+            base_address + globals.rm.u_world_base + 3
         )
-        g_name = base_address + self.rm.g_name_base + g_name_offset + 7
+        u_world = base_address + globals.rm.u_world_base + u_world_offset + 7
+        self.world_address = globals.rm.read_ptr(u_world)
+
+        g_name_offset = globals.rm.read_ulong(
+            base_address + globals.rm.g_name_base + 3
+        )
+        g_name = base_address + globals.rm.g_name_base + g_name_offset + 7
         logging.info(f"SoT gName Address: {hex(g_name)}")
-        self.g_name = self.rm.read_ptr(g_name)
+        self.g_name = globals.rm.read_ptr(g_name)
 
-        g_objects_offset = self.rm.read_ulong(
-            base_address + self.rm.g_object_base + 2
+        g_objects_offset = globals.rm.read_ulong(
+            base_address + globals.rm.g_object_base + 2
         )
-        g_objects = base_address + self.rm.g_object_base + g_objects_offset + 22
+        g_objects = base_address + globals.rm.g_object_base + g_objects_offset + 22
         logging.info(f"SoT gObject Address: {hex(g_objects)}")
-        self.g_objects = self.rm.read_ptr(g_objects)
+        self.g_objects = globals.rm.read_ptr(g_objects)
 
-        self.u_level = self.rm.read_ptr(self.world_address +
+        self.u_level = globals.rm.read_ptr(self.world_address +
                                         OFFSETS.get('World.PersistentLevel'))
 
         self.u_local_player = self._load_local_player()
-        self.player_controller = self.rm.read_ptr(
+        self.player_controller = globals.rm.read_ptr(
             self.u_local_player + OFFSETS.get('LocalPlayer.PlayerController')
         )
 
@@ -68,8 +73,7 @@ class SoTMemoryReader:
         self.my_coords['fov'] = 90
 
         self.actor_name_map = {}
-        self.server_players = []
-        self.display_objects = []
+        self.display_objects: list[DisplayObject] = []
         self.crew_data = None
 
     def _load_local_player(self) -> int:
@@ -79,13 +83,13 @@ class SoTMemoryReader:
         :rtype: int
         :return: Memory address of the local player object
         """
-        game_instance = self.rm.read_ptr(
+        game_instance = globals.rm.read_ptr(
             self.world_address + OFFSETS.get('World.OwningGameInstance')
         )
-        local_player = self.rm.read_ptr(
+        local_player = globals.rm.read_ptr(
             game_instance + OFFSETS.get('GameInstance.LocalPlayers')
         )
-        return self.rm.read_ptr(local_player)
+        return globals.rm.read_ptr(local_player)
 
     def update_my_coords(self):
         """
@@ -93,7 +97,7 @@ class SoTMemoryReader:
         storing that new info back into the my_coords field. Necessary as
         we dont always run a full scan and we need a way to update ourselves
         """
-        manager = self.rm.read_ptr(
+        manager = globals.rm.read_ptr(
             self.player_controller + OFFSETS.get('PlayerController.CameraManager')
         )
         self.my_coords = self._coord_builder(
@@ -116,10 +120,10 @@ class SoTMemoryReader:
         for a specific actor
         """
         if fov:
-            actor_bytes = self.rm.read_bytes(actor_address + offset, 44)
+            actor_bytes = globals.rm.read_bytes(actor_address + offset, 44)
             unpacked = struct.unpack("<ffffff16pf", actor_bytes)
         else:
-            actor_bytes = self.rm.read_bytes(actor_address + offset, 24)
+            actor_bytes = globals.rm.read_bytes(actor_address + offset, 24)
             unpacked = struct.unpack("<ffffff", actor_bytes)
 
         coordinate_dict = {"x": unpacked[0]/100, "y": unpacked[1]/100,
@@ -142,32 +146,24 @@ class SoTMemoryReader:
         """
         # On a full run, start by cleaning up all the existing text renders
         for display_ob in self.display_objects:
-            try:
-                display_ob.text_render.delete()
-            except:
-                continue
-            try:
-                display_ob.icon.delete()
-            except:
-                continue
+            display_ob.delete()
 
         self.display_objects = []
         self.update_my_coords()
 
-        actor_raw = self.rm.read_bytes(self.u_level + 0xa0, 0xC)
+        actor_raw = globals.rm.read_bytes(self.u_level + 0xa0, 0xC)
         actor_data = struct.unpack("<Qi", actor_raw)
 
         # Credit @mogistink https://www.unknowncheats.me/forum/members/3434160.html
         # One very large read for all the actors addresses to save us 1000+ reads every read_all
-        level_actors_raw = self.rm.read_bytes(actor_data[0], actor_data[1] * 8)
+        level_actors_raw = globals.rm.read_bytes(actor_data[0], actor_data[1] * 8)
 
-        self.server_players = []
         for x in range(0, actor_data[1]):
             # We start by getting the ActorID for a given actor, and comparing
             # that ID to a list of "known" id's we cache in self.actor_name_map
             raw_name = ""
             actor_address = int.from_bytes(level_actors_raw[(x*8):(x*8+8)], byteorder='little', signed=False)
-            actor_id = self.rm.read_int(
+            actor_id = globals.rm.read_int(
                 actor_address + OFFSETS.get('Actor.actorId')
             )
 
@@ -175,7 +171,7 @@ class SoTMemoryReader:
             # saving memory calls
             if actor_id not in self.actor_name_map and actor_id != 0:
                 try:
-                    raw_name = self.rm.read_gname(actor_id)
+                    raw_name = globals.rm.read_gname(actor_id)
                     self.actor_name_map[actor_id] = raw_name
                 except Exception as e:
                     logger.error(f"Unable to find actor name: {e}")
@@ -186,21 +182,13 @@ class SoTMemoryReader:
             if not raw_name:
                 continue
 
-            # If we have Ship ESP enabled in helpers.py, and the name of the
-            # actor is in our mapping.py ship_keys object, interpret the actor
-            # as a ship
             if CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
-                ship = Ship(self.rm, actor_id, actor_address, self.my_coords,
-                            raw_name)
-                # if "Near" not in ship.name and ship.distance < 1720:
-                #     continue
-                # else:
+                ship = ShipModule(actor_id, actor_address, self.my_coords, raw_name)
                 self.display_objects.append(ship)
 
-            # If we have the crews data enabled in helpers.py and the name
-            # of the actor is CrewService, we create a class based on that Crew
-            # data to generate information about people on the server
-            # NOTE: This will NOT give us information on nearby players for the
-            # sake of ESP
             elif CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
-                self.crew_data = Crews(self.rm, actor_id, actor_address)
+                self.crew_data = CrewsModule(actor_id, actor_address)
+
+            elif CONFIG.get("WORLD_ENABLED") and raw_name in world_events_keys:
+                world_event = WorldEventsModule(actor_id, actor_address, self.my_coords, raw_name)
+                self.display_objects.append(world_event)

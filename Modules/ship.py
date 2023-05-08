@@ -3,23 +3,27 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 """
 
-from pyglet.text import Label
+from pyglet.sprite import Sprite
 from pyglet.shapes import Circle
-from helpers import calculate_distance, object_to_screen, main_batch, \
-     TEXT_OFFSET_X, TEXT_OFFSET_Y
+from pyglet.text import Label
+from pyglet import image
+from helpers import calculate_distance, object_to_screen, foreground_batch, background_batch
 from mapping import ships
-from Modules.display_object import DisplayObject
+from Modules import DisplayObject
+from Classes import Ship
 
-SHIP_COLOR = (100, 0, 0)  # The color we want the indicator circle to be
-CIRCLE_SIZE = 10  # The size of the indicator circle we want
+CIRCLE_SIZE = 25
+SLOOP_ICON = image.load('Images/Sloop_icon.png')
+BRIGANTINE_ICON = image.load('Images/Brigantine_icon.png')
+GALLEON_ICON = image.load('Images/Galleon_icon.png')
 
 
-class Ship(DisplayObject):
+class ShipModule(DisplayObject):
     """
     Class to generate information for a ship object in memory
     """
 
-    def __init__(self, memory_reader, actor_id, address, my_coords, raw_name):
+    def __init__(self, actor_id, address, my_coords, raw_name):
         """
         Upon initialization of this class, we immediately initialize the
         DisplayObject parent class as well (to utilize common methods)
@@ -39,7 +43,7 @@ class Ship(DisplayObject):
         :param raw_name: The raw actor name used to translate w/ mapping.py
         """
         # Initialize our super-class
-        super().__init__(memory_reader)
+        super().__init__()
 
         self.actor_id = actor_id
         self.address = address
@@ -56,13 +60,33 @@ class Ship(DisplayObject):
         self.screen_coords = object_to_screen(self.my_coords, self.coords)
 
         # All of our actual display information & rendering
-        self.color = SHIP_COLOR
+        own_crew = Ship(self.address).get_crew()
+        self.color = own_crew.color[:3] if own_crew else (255, 255, 255)
         self.text_str = self._built_text_string()
         self.text_render = self._build_text_render()
-        self.icon = self._build_circle_render()
+        self.circle = self._build_circle_render()
+        self.icon = self._build_icon_render()
 
         # Used to track if the display object needs to be removed
         self.to_delete = False
+        
+
+    def _build_icon_render(self) -> Sprite:
+        """
+        Creates an icon based on ship type
+        """
+        if "Galleon" in self.name:
+            ship_type = GALLEON_ICON
+        elif "Brig" in self.name:
+            ship_type = BRIGANTINE_ICON
+        else:
+            ship_type = SLOOP_ICON
+
+        if self.screen_coords:
+            return Sprite(ship_type, self.screen_coords[0] - CIRCLE_SIZE, self.screen_coords[1] - CIRCLE_SIZE,
+                          batch=foreground_batch)
+
+        return Sprite(ship_type, 0, 0, batch=foreground_batch)
 
     def _build_circle_render(self) -> Circle:
         """
@@ -71,10 +95,10 @@ class Ship(DisplayObject):
         Assigns the object to our batch & group
         """
         if self.screen_coords:
-            return Circle(self.screen_coords[0], self.screen_coords[1],
-                          CIRCLE_SIZE, color=self.color, batch=main_batch)
+            return Circle(self.screen_coords[0] - CIRCLE_SIZE/2, self.screen_coords[1] - CIRCLE_SIZE/2,
+                          CIRCLE_SIZE, color=self.color, batch=background_batch)
 
-        return Circle(0, 0, 10, color=self.color, batch=main_batch)
+        return Circle(0, 0, CIRCLE_SIZE, color=self.color, batch=background_batch)
 
     def _built_text_string(self) -> str:
         """
@@ -95,11 +119,11 @@ class Ship(DisplayObject):
         """
         if self.screen_coords:
             return Label(self.text_str,
-                         x=self.screen_coords[0] + TEXT_OFFSET_X,
-                         y=self.screen_coords[1] + TEXT_OFFSET_Y,
-                         batch=main_batch)
+                         x=self.screen_coords[0] + CIRCLE_SIZE / 2 + 10,
+                         y=self.screen_coords[1] + CIRCLE_SIZE / 2 - 30,
+                         batch=foreground_batch)
 
-        return Label(self.text_str, x=0, y=0, batch=main_batch)
+        return Label(self.text_str, x=0, y=0, batch=foreground_batch)
 
     def update(self, my_coords: dict):
         """
@@ -116,6 +140,7 @@ class Ship(DisplayObject):
         """
         if self._get_actor_id(self.address) != self.actor_id:
             self.to_delete = True
+            self.circle.delete()
             self.icon.delete()
             self.text_render.delete()
             return
@@ -132,19 +157,24 @@ class Ship(DisplayObject):
             # seamlessly at 1750m
             if "Near" in self.name and new_distance > 1750:
                 self.text_render.visible = False
+                self.circle.visible = False
                 self.icon.visible = False
             elif "Near" not in self.name and new_distance < 1750:
                 self.text_render.visible = False
+                self.circle.visible = False
                 self.icon.visible = False
             else:
                 self.text_render.visible = True
                 self.icon.visible = True
+                self.circle.visible = True
 
             # Update the position of our circle and text
-            self.icon.x = self.screen_coords[0]
-            self.icon.y = self.screen_coords[1]
-            self.text_render.x = self.screen_coords[0] + TEXT_OFFSET_X
-            self.text_render.y = self.screen_coords[1] + TEXT_OFFSET_Y
+            self.circle.x = self.screen_coords[0] - CIRCLE_SIZE / 2
+            self.circle.y = self.screen_coords[1] - CIRCLE_SIZE / 2
+            self.icon.x = self.screen_coords[0] - CIRCLE_SIZE * 1.45
+            self.icon.y = self.screen_coords[1] - CIRCLE_SIZE * 1.45
+            self.text_render.x = self.screen_coords[0] + CIRCLE_SIZE / 2 + 10
+            self.text_render.y = self.screen_coords[1] + CIRCLE_SIZE / 2 - 30
 
             # Update our text to reflect out new distance
             self.distance = new_distance
@@ -154,4 +184,10 @@ class Ship(DisplayObject):
         else:
             # if it isn't on our screen, set it to invisible to save resources
             self.text_render.visible = False
+            self.circle.visible = False
             self.icon.visible = False
+    
+    def _delete(self):
+        self.text_render.delete()
+        self.circle.delete()
+        self.icon.delete()
