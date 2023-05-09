@@ -27,6 +27,8 @@ class DisplayObject(metaclass=abc.ABCMeta):
         read memory data from the game
         """
         self.coord_offset = OFFSETS.get('SceneComponent.ActorCoordinates')
+        self.actor_id = -1
+        self.to_delete = False
 
     def _get_actor_id(self, address: int) -> int:
         """

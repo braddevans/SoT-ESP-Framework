@@ -10,12 +10,92 @@ import globals
 from memory_helper import ReadMemory
 from mapping import ship_keys, world_events_keys
 from helpers import OFFSETS, CONFIG, logger
-from Modules import (
-    ShipModule,
-    CrewsModule,
-    WorldEventsModule,
-    DisplayObject
-)
+from Modules import DisplayObject
+
+
+class ActorsReader:
+    """Stripped-down SotMemoryReader for multiprocessing actors reading
+    """
+
+    def __init__(self):
+        self.rm = ReadMemory("SoTGame.exe")
+        base_address = self.rm.base_address
+
+        self.tracking_objects = dict()
+        self.to_be_shared = dict()
+        self.to_be_shared["new"] = dict(); self.to_be_shared["to_delete"] = list()
+        self.actor_name_map = dict()
+
+        u_world_offset = self.rm.read_ulong(
+            base_address + self.rm.u_world_base + 3
+        )
+
+        u_world = base_address + self.rm.u_world_base + u_world_offset + 7
+        self.world_address = self.rm.read_ptr(u_world)
+
+        self.u_level = self.rm.read_ptr(self.world_address +
+                                        OFFSETS.get('World.PersistentLevel'))
+
+
+    def read_actors(self):
+        """
+        Represents a full scan of every actor within our render distance.
+        Will create an object for each type of object we are interested in,
+        and store it in a class variable (display_objects).
+        Then our main game loop updates those objects
+        """
+        actors = dict()
+
+        actor_raw = self.rm.read_bytes(self.u_level + 0xa0, 0xC)
+        actor_data = struct.unpack("<Qi", actor_raw)
+
+        # remove deleted objects from tracking
+        for k in self.to_be_shared["to_delete"]:
+            del self.tracking_objects[k]
+
+        # Credit @mogistink https://www.unknowncheats.me/forum/members/3434160.html
+        # One very large read for all the actors addresses to save us 1000+ reads every read_all
+        level_actors_raw = self.rm.read_bytes(actor_data[0], actor_data[1] * 8)
+
+        for x in range(0, actor_data[1]):
+            # We start by getting the ActorID for a given actor, and comparing
+            # that ID to a list of "known" id's we cache in self.actor_name_map
+            raw_name = ""
+            actor_address = int.from_bytes(level_actors_raw[(x*8):(x*8+8)], byteorder='little', signed=False)
+            actor_id = self.rm.read_int(
+                actor_address + OFFSETS.get('Actor.actorId')
+            )
+
+            # We save a mapping of actor id to actor name for the sake of
+            # saving memory calls
+            if actor_id not in self.actor_name_map and actor_id != 0:
+                try:
+                    raw_name = self.rm.read_gname(actor_id)
+                    self.actor_name_map[actor_id] = raw_name
+                except Exception as e:
+                    logger.error(f"Unable to find actor name: {e}")
+            elif actor_id in self.actor_name_map:
+                raw_name = self.actor_name_map.get(actor_id)
+
+            # Ignore anything we cannot find a name for
+            if not raw_name:
+                continue
+
+            if CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
+                actors.update({actor_id: [actor_address, raw_name]})
+
+            elif CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
+                actors.update({actor_id: [actor_address, raw_name]})
+
+            elif CONFIG.get("WORLD_ENABLED") and raw_name in world_events_keys:
+                actors.update({actor_id: [actor_address, raw_name]})
+
+        new_actors = {k: v for k, v in actors.items() if k not in self.tracking_objects}
+        to_delete_actors = [k for k in self.tracking_objects if k not in actors]
+
+        self.tracking_objects.update(new_actors)
+        self.to_be_shared = {"new": new_actors, "to_delete": to_delete_actors}
+
 
 class SoTMemoryReader:
     """
@@ -138,57 +218,3 @@ class SoTMemoryReader:
             coordinate_dict['fov'] = unpacked[7]
 
         return coordinate_dict
-
-    def read_actors(self):
-        """
-        Represents a full scan of every actor within our render distance.
-        Will create an object for each type of object we are interested in,
-        and store it in a class variable (display_objects).
-        Then our main game loop updates those objects
-        """
-        # On a full run, start by cleaning up all the existing text renders
-        # for display_ob in self.display_objects:
-        #     display_ob.delete()
-
-        self.display_objects.clear()
-        self.to_be_shared.clear()
-
-        actor_raw = self.rm.read_bytes(self.u_level + 0xa0, 0xC)
-        actor_data = struct.unpack("<Qi", actor_raw)
-
-        # Credit @mogistink https://www.unknowncheats.me/forum/members/3434160.html
-        # One very large read for all the actors addresses to save us 1000+ reads every read_all
-        level_actors_raw = self.rm.read_bytes(actor_data[0], actor_data[1] * 8)
-
-        for x in range(0, actor_data[1]):
-            # We start by getting the ActorID for a given actor, and comparing
-            # that ID to a list of "known" id's we cache in self.actor_name_map
-            raw_name = ""
-            actor_address = int.from_bytes(level_actors_raw[(x*8):(x*8+8)], byteorder='little', signed=False)
-            actor_id = self.rm.read_int(
-                actor_address + OFFSETS.get('Actor.actorId')
-            )
-
-            # We save a mapping of actor id to actor name for the sake of
-            # saving memory calls
-            if actor_id not in self.actor_name_map and actor_id != 0:
-                try:
-                    raw_name = self.rm.read_gname(actor_id)
-                    self.actor_name_map[actor_id] = raw_name
-                except Exception as e:
-                    logger.error(f"Unable to find actor name: {e}")
-            elif actor_id in self.actor_name_map:
-                raw_name = self.actor_name_map.get(actor_id)
-
-            # Ignore anything we cannot find a name for
-            if not raw_name:
-                continue
-
-            if CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
-                self.to_be_shared[raw_name] = [actor_id, actor_address, raw_name]
-
-            elif CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
-                self.to_be_shared[raw_name] = [actor_id, actor_address]
-
-            elif CONFIG.get("WORLD_ENABLED") and raw_name in world_events_keys:
-                self.to_be_shared[raw_name] = [actor_id, actor_address, raw_name]

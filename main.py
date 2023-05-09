@@ -14,7 +14,7 @@ from pyglet.gl import Config
 from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, foreground_batch, background_batch, \
     version, logger, LabelOutline
 from mapping import ship_keys, world_events_keys
-from sot_hack import SoTMemoryReader
+from sot_hack import SoTMemoryReader, ActorsReader
 from Modules import (
     ShipModule,
     CrewsModule,
@@ -31,20 +31,22 @@ DEBUG = False
 clock = pyglet.clock.Clock()
 
 
-def generate_all(shared_dict, lock):
+def generate_all(_shared_dict_new: dict, _shared_list_to_delete: list, lock):
     """
     Triggers an entire read_actors call in our SoT Memory Reader. Will
     re-populate all of the display objects if something entered the screen
     or render distance.
     """
-    process_smr = SoTMemoryReader() 
+    actors_reader = ActorsReader() 
 
     while 1:
-        process_smr.read_actors()
+        actors_reader.read_actors()
 
         with lock:
-            for key in process_smr.to_be_shared:
-                shared_dict[key] = process_smr.to_be_shared[key]
+            for actor_id, args in actors_reader.to_be_shared["new"].items():
+                _shared_dict_new.update({actor_id: args})
+            for actor_id in actors_reader.to_be_shared["to_delete"]:
+                _shared_list_to_delete.append(actor_id)
 
         time.sleep(5.0)
 
@@ -59,21 +61,23 @@ def update_graphics(_):
     # Update our players coordinate information
     smr.update_my_coords()
 
-    # If we have something new
-    if main_shared_dict:
-
-        # Delete old objects
+    # Delete old objects
+    if shared_list_to_delete:
         for display_ob in smr.display_objects:
-            display_ob.delete()
+            if display_ob.actor_id in shared_list_to_delete:
+                smr.display_objects.remove(display_ob)
+                display_ob.delete()
 
-        smr.display_objects.clear()
-        
+        shared_list_to_delete.clear()
+
+    # If we have something new
+    if shared_dict_new:
         # To be sure that main_shared_dict won't be changed during iteration
-        dict_keys = list(main_shared_dict.keys())
-        dict_values = list(main_shared_dict.values())
+        dict_keys = list(shared_dict_new.keys())
+        dict_values = list(shared_dict_new.values())
 
         # We saved all what we need, so we can clear shared dict now
-        main_shared_dict.clear()
+        shared_dict_new.clear()
 
         # Creating new objects
         while dict_keys:
@@ -81,16 +85,18 @@ def update_graphics(_):
             args = dict_values.pop()
 
             # We won't check if config enabled for each actor type, since we have already did this in read_actors
+            # args[-1] == raw_name
+            # key = actor_id
 
-            if key in ship_keys:
-                ship = ShipModule(*args, smr.my_coords)
+            if args[-1] in ship_keys:
+                ship = ShipModule(key, *args, smr.my_coords)
                 smr.display_objects.append(ship)
 
-            elif key == "CrewService":
-                smr.crew_data = CrewsModule(*args)
+            elif args[-1] == "CrewService":
+                smr.crew_data = CrewsModule(key, *args)
 
-            elif key in world_events_keys:
-                world_event = WorldEventsModule(*args, smr.my_coords)
+            elif args[-1] in world_events_keys:
+                world_event = WorldEventsModule(key, *args, smr.my_coords)
                 smr.display_objects.append(world_event)
 
 
@@ -171,11 +177,14 @@ if __name__ == '__main__':
     # Shared data for multiprocessing
     multiprocess_manager = multiprocessing.Manager()
     multiprocess_lock = multiprocess_manager.Lock()
-    main_shared_dict = multiprocess_manager.dict()
+    shared_dict_new = multiprocess_manager.dict()
+    shared_list_to_delete = multiprocess_manager.list()
 
     # We schedule an "update all" to scan all actors every 5seconds
     # pyglet.clock.schedule_interval(generate_all, 5)
-    multiprocessing.Process(target=generate_all, args=(main_shared_dict, multiprocess_lock), daemon=True).start()
+    multiprocessing.Process(target=generate_all, 
+                            args=(shared_dict_new, shared_list_to_delete, multiprocess_lock),
+                            daemon=True).start()
 
     # We schedule a check to make sure the game is still running every 3 seconds
     pyglet.clock.schedule_interval(globals.rm.check_process_is_active, 3)

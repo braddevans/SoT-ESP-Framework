@@ -15,7 +15,7 @@ class CrewsModule(DisplayObject):
     Class to generate information about the crews current on our server
     """
 
-    def __init__(self, actor_id, address):
+    def __init__(self, actor_id, address, raw_name):
         """
         be located at the screen coordinated + our text_offsets from helpers.py
         The function of this class is to collect all of the data about the crews

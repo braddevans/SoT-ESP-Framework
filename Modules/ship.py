@@ -60,8 +60,6 @@ class ShipModule(DisplayObject):
         self.screen_coords = object_to_screen(self.my_coords, self.coords)
 
         # All of our actual display information & rendering
-        own_crew = Ship(self.address).get_crew()
-        self.color = own_crew.color[:3] if own_crew else (255, 255, 255)
         self.text_str = self._built_text_string()
         self.text_render = self._build_text_render()
         self.circle = self._build_circle_render()
@@ -96,9 +94,9 @@ class ShipModule(DisplayObject):
         """
         if self.screen_coords:
             return Circle(self.screen_coords[0] - CIRCLE_SIZE/2, self.screen_coords[1] - CIRCLE_SIZE/2,
-                          CIRCLE_SIZE, color=self.color, batch=background_batch)
+                          CIRCLE_SIZE, color=(255, 255, 255), batch=background_batch)
 
-        return Circle(0, 0, CIRCLE_SIZE, color=self.color, batch=background_batch)
+        return Circle(0, 0, CIRCLE_SIZE, color=(255, 255, 255), batch=background_batch)
 
     def _built_text_string(self) -> str:
         """
@@ -175,6 +173,10 @@ class ShipModule(DisplayObject):
             self.icon.y = self.screen_coords[1] - CIRCLE_SIZE * 1.45
             self.text_render.x = self.screen_coords[0] + CIRCLE_SIZE / 2 + 10
             self.text_render.y = self.screen_coords[1] + CIRCLE_SIZE / 2 - 30
+   
+            # Update ship color if we know the crew
+            own_crew = Ship(self.address).get_crew()
+            self.circle.color = own_crew.color[:3] if own_crew else (255, 255, 255)
 
             # Update our text to reflect out new distance
             self.distance = new_distance
