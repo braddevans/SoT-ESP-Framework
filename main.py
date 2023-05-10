@@ -68,10 +68,12 @@ def update_graphics(_):
                 smr.display_objects.remove(display_ob)
                 display_ob.delete()
 
-        shared_list_to_delete.clear()
+        while shared_list_to_delete:
+            shared_list_to_delete.pop()
 
     # If we have something new
     if shared_dict_new:
+
         # To be sure that main_shared_dict won't be changed during iteration
         dict_keys = list(shared_dict_new.keys())
         dict_values = list(shared_dict_new.values())

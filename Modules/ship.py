@@ -175,8 +175,9 @@ class ShipModule(DisplayObject):
             self.text_render.y = self.screen_coords[1] + CIRCLE_SIZE / 2 - 30
    
             # Update ship color if we know the crew
-            own_crew = Ship(self.address).get_crew()
-            self.circle.color = own_crew.color[:3] if own_crew else (255, 255, 255)
+            if sum(self.circle.color) == 255 * 3:
+                own_crew = Ship(self.address).get_crew()
+                self.circle.color = own_crew.color[:3] if own_crew else (255, 255, 255)
 
             # Update our text to reflect out new distance
             self.distance = new_distance
