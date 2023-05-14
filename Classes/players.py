@@ -41,15 +41,11 @@ class Ship:
     def __init__(self, address):
         self.address = address
 
-    def get_crew(self) -> Crew:
+    def get_crew_guid(self) -> Crew:
         crew_onwership_ptr = globals.rm.read_ptr(self.address + OFFSETS.get("Ship.CrewOwnershipComponent"))
         guid = globals.rm.read_bytes(crew_onwership_ptr + OFFSETS.get("CrewOwnershipComponent.CachedCrewId"), 16)
         guid = struct.unpack("<iiii", guid)
-
-        if guid in Crew.tracker:
-            return Crew.tracker[guid]
-        else:
-            return None
+        return guid
 
 
 class Player:

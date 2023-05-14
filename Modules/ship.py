@@ -10,7 +10,7 @@ from pyglet import image
 from helpers import calculate_distance, object_to_screen, foreground_batch, background_batch
 from mapping import ships
 from Modules import DisplayObject
-from Classes import Ship
+from Classes import Ship, Crew
 
 CIRCLE_SIZE = 25
 SLOOP_ICON = image.load('Images/Sloop_icon.png')
@@ -58,6 +58,7 @@ class ShipModule(DisplayObject):
         self.distance = calculate_distance(self.coords, self.my_coords)
 
         self.screen_coords = object_to_screen(self.my_coords, self.coords)
+        self.crew_guid = Ship(self.address).get_crew_guid()
 
         # All of our actual display information & rendering
         self.text_str = self._built_text_string()
@@ -175,9 +176,8 @@ class ShipModule(DisplayObject):
             self.text_render.y = self.screen_coords[1] + CIRCLE_SIZE / 2 - 30
    
             # Update ship color if we know the crew
-            if sum(self.circle.color) == 255 * 3:
-                own_crew = Ship(self.address).get_crew()
-                self.circle.color = own_crew.color[:3] if own_crew else (255, 255, 255)
+            if self.crew_guid in Crew.tracker:
+                self.circle.color = Crew.tracker[self.crew_guid].color[:3]
 
             # Update our text to reflect out new distance
             self.distance = new_distance

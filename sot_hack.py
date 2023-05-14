@@ -93,7 +93,6 @@ class ActorsReader:
 
                 if CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
                     actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
-                    CrewService_address = f'{actor_address}{actor_id}'
 
                 elif CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
                     actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
