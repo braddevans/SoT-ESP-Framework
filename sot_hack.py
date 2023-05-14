@@ -11,20 +11,25 @@ from memory_helper import ReadMemory
 from mapping import ship_keys, world_events_keys
 from helpers import OFFSETS, CONFIG, logger
 from Modules import DisplayObject
+from Classes.players import Player
 
 
 class ActorsReader:
-    """Stripped-down SotMemoryReader for multiprocessing actors reading
+    """
+    Stripped-down SotMemoryReader for multiprocessing actors reading
     """
 
     def __init__(self):
         self.rm = ReadMemory("SoTGame.exe")
+        globals.rm = self.rm
+
         base_address = self.rm.base_address
 
         self.tracking_objects = dict()
         self.to_be_shared = dict()
         self.to_be_shared["new"] = dict(); self.to_be_shared["to_delete"] = list()
         self.actor_name_map = dict()
+        self.force_update_actors = ['CrewService']
 
         u_world_offset = self.rm.read_ulong(
             base_address + self.rm.u_world_base + 3
@@ -33,8 +38,10 @@ class ActorsReader:
         u_world = base_address + self.rm.u_world_base + u_world_offset + 7
         self.world_address = self.rm.read_ptr(u_world)
 
-        self.u_level = self.rm.read_ptr(self.world_address +
+        self.persistent_level = self.rm.read_ptr(self.world_address +
                                         OFFSETS.get('World.PersistentLevel'))
+        self.levels = self.rm.read_bytes(self.world_address + OFFSETS.get('World.Levels'), 16)
+        self.levels = struct.unpack("<Qii", self.levels)
 
 
     def read_actors(self):
@@ -45,56 +52,63 @@ class ActorsReader:
         Then our main game loop updates those objects
         """
         actors = dict()
-
-        actor_raw = self.rm.read_bytes(self.u_level + 0xa0, 0xC)
-        actor_data = struct.unpack("<Qi", actor_raw)
+        CrewService_address = 0
 
         # remove deleted objects from tracking
         for k in self.to_be_shared["to_delete"]:
             del self.tracking_objects[k]
 
-        # Credit @mogistink https://www.unknowncheats.me/forum/members/3434160.html
-        # One very large read for all the actors addresses to save us 1000+ reads every read_all
-        level_actors_raw = self.rm.read_bytes(actor_data[0], actor_data[1] * 8)
+        for level_index in range(0, self.levels[1]):
+            level = self.rm.read_ptr(self.levels[0] + 8 * level_index)
+            actor_raw = self.rm.read_bytes(level + 0xa0, 0xC)
+            actor_data = struct.unpack("<Qi", actor_raw)
 
-        for x in range(0, actor_data[1]):
-            # We start by getting the ActorID for a given actor, and comparing
-            # that ID to a list of "known" id's we cache in self.actor_name_map
-            raw_name = ""
-            actor_address = int.from_bytes(level_actors_raw[(x*8):(x*8+8)], byteorder='little', signed=False)
-            actor_id = self.rm.read_int(
-                actor_address + OFFSETS.get('Actor.actorId')
-            )
-
-            # We save a mapping of actor id to actor name for the sake of
-            # saving memory calls
-            if actor_id not in self.actor_name_map and actor_id != 0:
-                try:
-                    raw_name = self.rm.read_gname(actor_id)
-                    self.actor_name_map[actor_id] = raw_name
-                except Exception as e:
-                    logger.error(f"Unable to find actor name: {e}")
-            elif actor_id in self.actor_name_map:
-                raw_name = self.actor_name_map.get(actor_id)
-
-            # Ignore anything we cannot find a name for
-            if not raw_name:
+            if actor_data[1] <= 0:
                 continue
 
-            if CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
-                actors.update({actor_id: [actor_address, raw_name]})
+            level_actors_raw = self.rm.read_bytes(actor_data[0], actor_data[1] * 8)
+            for x in range(0, actor_data[1]):
+                # We start by getting the ActorID for a given actor, and comparing
+                # that ID to a list of "known" id's we cache in self.actor_name_map
+                raw_name = ""
+                actor_address = int.from_bytes(level_actors_raw[(x*8):(x*8+8)], byteorder='little', signed=False)
+                actor_id = self.rm.read_int(
+                    actor_address + OFFSETS.get('Actor.actorId')
+                )
 
-            elif CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
-                actors.update({actor_id: [actor_address, raw_name]})
+                # We save a mapping of actor id to actor name for the sake of
+                # saving memory calls
+                if actor_id not in self.actor_name_map and actor_id != 0:
+                    try:
+                        raw_name = self.rm.read_gname(actor_id)
+                        self.actor_name_map[actor_id] = raw_name
+                    except Exception as e:
+                        logger.error(f"Unable to find actor name: {e}")
+                elif actor_id in self.actor_name_map:
+                    raw_name = self.actor_name_map.get(actor_id)
 
-            elif CONFIG.get("WORLD_ENABLED") and raw_name in world_events_keys:
-                actors.update({actor_id: [actor_address, raw_name]})
+                # Ignore anything we cannot find a name for
+                if not raw_name:
+                    continue
 
-        new_actors = {k: v for k, v in actors.items() if k not in self.tracking_objects}
+                if CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
+                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+                    CrewService_address = f'{actor_address}{actor_id}'
+
+                elif CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
+                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+
+                elif CONFIG.get("WORLD_ENABLED") and raw_name in world_events_keys:
+                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+
+                elif CONFIG.get("PLAYERS_ENABLED") and raw_name == "BP_PlayerPirate_C":
+                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+
+        new_actors = {k: v for k, v in actors.items() if (k not in self.tracking_objects or v[-1] in self.force_update_actors)}
         to_delete_actors = [k for k in self.tracking_objects if k not in actors]
 
+        self.to_be_shared = {"new": new_actors.copy(), "to_delete": to_delete_actors}
         self.tracking_objects.update(new_actors)
-        self.to_be_shared = {"new": new_actors, "to_delete": to_delete_actors}
 
 
 class SoTMemoryReader:
@@ -142,12 +156,13 @@ class SoTMemoryReader:
         logging.info(f"SoT gObject Address: {hex(g_objects)}")
         self.g_objects = self.rm.read_ptr(g_objects)
 
-        self.u_level = self.rm.read_ptr(self.world_address +
-                                        OFFSETS.get('World.PersistentLevel'))
-
         self.u_local_player = self._load_local_player()
         self.player_controller = self.rm.read_ptr(
             self.u_local_player + OFFSETS.get('LocalPlayer.PlayerController')
+        )
+
+        Player.local_player_pawn = self.rm.read_ptr(
+            self.player_controller + OFFSETS.get('PlayerController.AcknowledgedPawn')
         )
 
         self.my_coords = self._coord_builder(self.u_local_player)

@@ -10,12 +10,14 @@ from base64 import b64decode
 import win32gui
 from pyglet.graphics import Batch
 from pyglet.text import Label
+from pyglet.shapes import Rectangle
 
 # True=Enabled & False=Disabled for each relevant config items
 CONFIG = {
     "CREWS_ENABLED": True,
     "SHIPS_ENABLED": True,
     "WORLD_ENABLED": True,
+    "PLAYERS_ENABLED": True,
 }
 
 version = "1.5.0"
@@ -40,10 +42,12 @@ except Exception as e:
     logger.error("Unable to find SoT window; exiting.")
     exit(-1)
 
+
 # Creates a pyglet "Batch" that we draw our information to. Effectively serves
 # as a piece of paper, so we save render cost because its 2D
 foreground_batch = Batch()
 background_batch = Batch()
+
 
 # Outlined label
 class LabelOutline:
@@ -65,7 +69,25 @@ class LabelOutline:
                 self.shadows.append(Label(text=text, font_name=font_name, font_size=font_size, bold=bold,
                             italic=italic, stretch=stretch, color=(0, 0, 0, 255), x=x+sx, y=y+sy, width=width, height=height,
                             anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=shadows_batch, group=group))
-        
+    
+    @property
+    def content_width(self):
+        return self.label.content_width
+    
+    @property
+    def content_height(self):
+        return self.label.content_height
+
+    @property
+    def visible(self):
+        return self.label.visible
+    
+    @visible.setter
+    def visible(self, value):
+        self.label.visible = value
+        for shadow in self.shadows:
+            shadow.visible = value
+
     @property
     def color(self):
         return self.label.color
@@ -112,6 +134,101 @@ class LabelOutline:
         self.label.delete()
         for shadow in self.shadows:
             shadow.delete()
+        del self
+
+
+# Label with background
+class LabelPanel:
+    def __init__(self, text='',
+                 font_name=None, font_size=None, bold=False, italic=False, stretch=False,
+                 color=(255, 255, 255, 255), line_color=(255, 255, 255, 255),
+                 x=0, y=0, width=None, height=None,
+                 anchor_x='left', anchor_y='baseline',
+                 align='left',
+                 multiline=False, dpi=None, group=None):
+        self.label = Label(text=text, font_name=font_name, font_size=font_size, bold=bold,
+                           italic=italic, stretch=stretch, color=color, x=x, y=y, width=width, height=height,
+                           anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=foreground_batch, group=group)
+        
+        line_height = 2 if line_color[-1] > 0 else 0
+        self.background = Rectangle(x=x-6, y=y-self.label.content_height-line_height+12, width=self.label.content_width + 12, height=self.label.content_height + 6 + line_height,
+                                    color=(0, 0, 0), batch=background_batch, group=group)
+        self.background.opacity = 150
+
+        if line_color[-1] > 0:
+            self.line = Rectangle(x=self.background.x, y=self.background.y, width=self.background.width, height=2,
+                                  color=line_color[:3], batch=background_batch, group=group)
+            self.line.opacity = line_color[-1]
+        else:
+            self.line = None
+        
+    @property
+    def content_width(self):
+        return self.label.content_width
+    
+    @property
+    def content_height(self):
+        return self.label.content_height
+
+    @property
+    def visible(self):
+        return self.label.visible
+    
+    @visible.setter
+    def visible(self, value):
+        self.label.visible = value
+        self.background.visible = value
+        if self.line:
+            self.line.visible = value
+
+    @property
+    def color(self):
+        return self.label.color
+    
+    @color.setter
+    def color(self, value):
+        self.label.color = value
+
+    @property
+    def text(self):
+        return self.label.text
+    
+    @text.setter
+    def text(self, value):
+        self.label.text = value
+        self.background.width = self.label.content_width + 12
+        if self.line:
+            self.line.width = self.background.width
+    
+    @property
+    def x(self):
+        return self.label.x
+    
+    @x.setter
+    def x(self, value):
+        diff = self.label.x - value
+        self.label.x = value
+        self.background.x -= diff
+        if self.line:
+            self.line.x -= diff
+    
+    @property
+    def y(self):
+        return self.label.y
+    
+    @y.setter
+    def y(self, value):
+        diff = self.label.y - value
+        self.label.y = value
+        self.background.y -= diff
+        if self.line:
+            self.line.y -= diff
+
+    def delete(self):
+        self.label.delete()
+        self.background.delete()
+        if self.line:
+            self.line.delete()
         del self
 
 
@@ -243,6 +360,10 @@ def calculate_distance(obj_to: dict, obj_from: dict) -> int:
     :rtype: int
     :return: the distance in meters from obj_from to obj_to
     """
-    return int(math.sqrt((obj_to.get("x") - obj_from.get("x")) ** 2 +
+    distance = math.sqrt((obj_to.get("x") - obj_from.get("x")) ** 2 +
                          (obj_to.get("y") - obj_from.get("y")) ** 2 +
-                         (obj_to.get("z") - obj_from.get("z")) ** 2))
+                         (obj_to.get("z") - obj_from.get("z")) ** 2)
+    try:
+        return int(distance)
+    except:
+        return 0

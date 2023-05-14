@@ -113,7 +113,7 @@ class CrewsModule(DisplayObject):
                 players = list()
                 for player_index in range(0, crew[1]):
                     player_state_ptr = globals.rm.read_ptr(crew[0] + 8 * player_index)
-                    players.append(Player(player_state_ptr))
+                    players.append(Crew.CrewPlayer(player_state_ptr))
 
                 crew_obj = Crew(self.address, crew_guid, crew[1], crews_color[x], players, ship)
                 crews_data.append(crew_obj)

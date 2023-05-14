@@ -6,6 +6,8 @@ For community support, please contact me on Discord: DougTheDruid#2784
 import pyglet
 import globals
 import time
+import win32gui
+import win32con
 import multiprocessing
 from base64 import b64decode
 from win32gui import GetWindowText, GetForegroundWindow
@@ -15,10 +17,12 @@ from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, foreground_batch, ba
     version, logger, LabelOutline
 from mapping import ship_keys, world_events_keys
 from sot_hack import SoTMemoryReader, ActorsReader
+from Classes.players import Player
 from Modules import (
     ShipModule,
     CrewsModule,
-    WorldEventsModule
+    WorldEventsModule,
+    PlayerEspModule
 )
 
 # The FPS __Target__ for the program.
@@ -37,6 +41,7 @@ def generate_all(_shared_dict_new: dict, _shared_list_to_delete: list, lock):
     re-populate all of the display objects if something entered the screen
     or render distance.
     """
+
     actors_reader = ActorsReader() 
 
     while 1:
@@ -91,14 +96,18 @@ def update_graphics(_):
             # key = actor_id
 
             if args[-1] in ship_keys:
-                ship = ShipModule(key, *args, smr.my_coords)
+                ship = ShipModule(*args, smr.my_coords)
                 smr.display_objects.append(ship)
 
             elif args[-1] == "CrewService":
-                smr.crew_data = CrewsModule(key, *args)
+                smr.crew_data = CrewsModule(*args)
 
             elif args[-1] in world_events_keys:
-                world_event = WorldEventsModule(key, *args, smr.my_coords)
+                world_event = WorldEventsModule(*args, smr.my_coords)
+                smr.display_objects.append(world_event)
+
+            elif args[-1] == "BP_PlayerPirate_C" and not Player.is_local_player(args[1]):
+                world_event = PlayerEspModule(*args, smr.my_coords)
                 smr.display_objects.append(world_event)
 
 
@@ -120,12 +129,8 @@ def update_graphics(_):
         smr.display_objects.remove(removable)
 
 
-if __name__ == '__main__':
-    logger.info(
-        b64decode("RG91Z1RoZURydWlkJ3MgRVNQIEZyYW1ld29yayBTdGFydGluZw==").decode("utf-8")
-    )
-    logger.info(f"Hack Version: {version}")
 
+if __name__ == '__main__':
     # Initialize our SoT Hack object, and do a first run of reading actors
     smr = SoTMemoryReader()
 
@@ -147,6 +152,10 @@ if __name__ == '__main__':
 
     # Move our window to the same location that our SoT Window is at
     window.set_location(SOT_WINDOW[0], SOT_WINDOW[1])
+
+    # Trick to hide the window from alt-tab menu
+    win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
+                                   win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_TOOLWINDOW)
 
     @window.event
     def on_draw():
@@ -171,7 +180,7 @@ if __name__ == '__main__':
                 for x in range(len(smr.crew_data.crew_strings), 6):
                     crew_list[x].text = ""
 
-            # Draw our main batch & FPS counter at the bottom left
+            # Batches
             background_batch.draw()
             foreground_batch.draw()
             fps_display.draw()
@@ -206,9 +215,6 @@ if __name__ == '__main__':
     for x in range(6):
         crew_list.append(LabelOutline("", x=SOT_WINDOW_W * 0.85, multiline=True, width=1000,
                             y=(SOT_WINDOW_H-25) * 0.9 + 25 * x, batch=foreground_batch, shadows_batch=background_batch, color=(0, 0, 0, 255)))
-        
-    # Note: The width of 300 is the max pixel width of a single line
-    # before auto-wrapping the text to the next line. Updated in on_draw()
 
     # Runs our application, targeting a specific refresh rate (1/60 = 60fps)
     pyglet.app.run()

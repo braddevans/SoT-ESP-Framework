@@ -46,25 +46,44 @@ ships = {
 
 world_events = {
     "BP_Seagull01_32POI_Circling_Shipwreck_C": {
+        "Name": "Shipwreck loot",
+        "Color": (255, 255, 255, 200)
+    },
+    "BP_Shipwreck_01_a_NetProxy_C": {
         "Name": "Shipwreck",
+        "Color": (255, 255, 255, 200)
+    },
+    "BP_Seagull01_8POI_C": {
+        "Name": "Cargo Shipwreck",
+        "Color": (255, 255, 255, 200)
+    },
+    "BP_Seagull01_8POI_LostShipments_C": {
+        "Name": "Shipwreck LostShipments",
+        "Color": (255, 255, 255, 200)
     },
     "BP_SkellyFort_RitualSkullCloud_C": {
         "Name": "Fort of the Damned",
+        "Color": (255, 255, 255, 200)
     },
     "BP_LegendSkellyFort_SkullCloud_C": {
         "Name": "Fort of Fortune",
+        "Color": (255, 255, 255, 200)
     },
     "BP_GhostShips_Signal_Flameheart_NetProxy_C": {
         "Name": "Ghost Fleet",
+        "Color": (0, 212, 4, 200)
     },
     "BP_SkellyFort_SkullCloud_C": {
         "Name": "Skeleton Fort",
+        "Color": (0, 153, 3, 200)
     },
     "BP_SkellyShip_ShipCloud_C": {
         "Name": "Skeleton Fleet",
+        "Color": (0, 196, 3, 200)
     },
     "BP_AshenLord_SkullCloud_C": {
         "Name": "Ashen Lord",
+        "Color": (255, 255, 255, 200)
     },
 }
 

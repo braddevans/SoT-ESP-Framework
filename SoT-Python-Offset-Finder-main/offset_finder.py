@@ -68,6 +68,7 @@ if __name__ == '__main__':
         "Actor.actorId": 24,  # The ID number associated with an actor type
         "SceneComponent.ActorCoordinates": 0x12c,  # Currently located at SceneComponent.RelativeScale3D+0xC
 
+        "Actor.Owner": get_offset(ENGINE, "Actor", "Owner"),
         "CrewService.Crews":  get_offset(ATHENA, "CrewService", "Crews"),
         "Crew.Players": get_offset(ATHENA_STRUCT, "Crew", "Players"),
         "Crew.Size": get_size(ATHENA_STRUCT, "Crew"),
@@ -81,11 +82,15 @@ if __name__ == '__main__':
         "LocalPlayer.PlayerController": get_offset(ENGINE, "Player", "PlayerController"),
         "PlayerCameraManager.CameraCache": get_offset(ENGINE, "PlayerCameraManager", "CameraCache"),
         "PlayerController.CameraManager": get_offset(ENGINE, "PlayerController", "PlayerCameraManager"),
-        "PlayerState.PlayerName": get_offset(ENGINE, "PlayerState", "PlayerName"),
+        "PlayerController.AcknowledgedPawn": get_offset(ENGINE, "PlayerController", "AcknowledgedPawn"),
+        "Pawn.PlayerState": get_offset(ENGINE, "Pawn", "PlayerState"),
         "World.OwningGameInstance": get_offset(ENGINE, "World", "OwningGameInstance"),
         "World.PersistentLevel": get_offset(ENGINE, "World", "PersistentLevel"),
+        "World.Levels": get_offset(ENGINE, "World", "Levels"),
         "Ship.CrewOwnershipComponent": get_offset(ATHENA, "Ship", "CrewOwnershipComponent"),
         "CrewOwnershipComponent.CachedCrewId": get_offset(ATHENA, "CrewOwnershipComponent", "CachedCrewId"),
+        "AthenaCharacter.OldPlayerState": get_offset(ATHENA, "AthenaCharacter", "OldPlayerState"),
+        "AthenaPlayerState.PlayerActivity": get_offset(ATHENA, "AthenaPlayerState", "PlayerActivity"),
     }
     with open("offsets.json", "w+") as outfile:
         outfile.write(json.dumps(output, indent=2, sort_keys=True))
