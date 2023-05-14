@@ -58,7 +58,7 @@ class ShipModule(DisplayObject):
         self.distance = calculate_distance(self.coords, self.my_coords)
 
         self.screen_coords = object_to_screen(self.my_coords, self.coords)
-        self.crew_guid = Ship(self.address).get_crew_guid()
+        self.crew_guid = Ship.get_crew_guid(self.address)
 
         # All of our actual display information & rendering
         self.text_str = self._built_text_string()

@@ -134,7 +134,7 @@ class CrewsModule(DisplayObject):
             self.to_delete = True
             return
         self.crew_info = self._get_crews_info()
-        self.crew_strings = self._built_text_string()
+        self.crew_strings = self._built_text_string()   
 
     def _delete(self):
         ...

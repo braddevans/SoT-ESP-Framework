@@ -14,6 +14,11 @@ from Modules import DisplayObject
 from Classes.players import Player
 
 
+class MemoryReaderOnly:
+    def __init__(self):
+        self.rm = ReadMemory("SoTGame.exe")
+
+
 class ActorsReader:
     """
     Stripped-down SotMemoryReader for multiprocessing actors reading
@@ -30,6 +35,7 @@ class ActorsReader:
         self.to_be_shared["new"] = dict(); self.to_be_shared["to_delete"] = list()
         self.actor_name_map = dict()
         self.force_update_actors = ['CrewService']
+        self.should_update_barrels = False
 
         u_world_offset = self.rm.read_ulong(
             base_address + self.rm.u_world_base + 3
@@ -38,12 +44,35 @@ class ActorsReader:
         u_world = base_address + self.rm.u_world_base + u_world_offset + 7
         self.world_address = self.rm.read_ptr(u_world)
 
+        self.u_local_player = self._load_local_player()
+        self.player_controller = self.rm.read_ptr(
+            self.u_local_player + OFFSETS.get('LocalPlayer.PlayerController')
+        )
+
+        self.local_player_pawn = self.rm.read_ptr(
+            self.player_controller + OFFSETS.get('PlayerController.AcknowledgedPawn')
+        )
+
         self.persistent_level = self.rm.read_ptr(self.world_address +
                                         OFFSETS.get('World.PersistentLevel'))
         self.levels = self.rm.read_bytes(self.world_address + OFFSETS.get('World.Levels'), 16)
         self.levels = struct.unpack("<Qii", self.levels)
 
-
+    def _load_local_player(self) -> int:
+        """
+        Returns the local player object out of uWorld.UGameInstance.
+        Used to get the players coordinates before reading any actors
+        :rtype: int
+        :return: Memory address of the local player object
+        """
+        game_instance = self.rm.read_ptr(
+            self.world_address + OFFSETS.get('World.OwningGameInstance')
+        )
+        local_player = self.rm.read_ptr(
+            game_instance + OFFSETS.get('GameInstance.LocalPlayers')
+        )
+        return self.rm.read_ptr(local_player)
+    
     def read_actors(self):
         """
         Represents a full scan of every actor within our render distance.
@@ -52,10 +81,14 @@ class ActorsReader:
         Then our main game loop updates those objects
         """
         actors = dict()
-        CrewService_address = 0
+
+        old_player_state = globals.rm.read_ptr(self.local_player_pawn + OFFSETS.get("AthenaCharacter.OldPlayerState"))
+        player_activity = int.from_bytes(globals.rm.read_bytes(old_player_state + OFFSETS.get("AthenaPlayerState.PlayerActivity"), 1), byteorder='little')
 
         # remove deleted objects from tracking
         for k in self.to_be_shared["to_delete"]:
+            if '__local_handler_BP_MerchantCrate_AnyItemCrate_Wieldable_C' in k:
+                self.should_update_barrels = False
             del self.tracking_objects[k]
 
         for level_index in range(0, self.levels[1]):
@@ -87,21 +120,31 @@ class ActorsReader:
                 elif actor_id in self.actor_name_map:
                     raw_name = self.actor_name_map.get(actor_id)
 
+                if player_activity == 6:
+                    owner = self.rm.read_ptr(actor_address + OFFSETS.get("Actor.Owner"))
+
                 # Ignore anything we cannot find a name for
                 if not raw_name:
                     continue
 
                 if CONFIG.get('CREWS_ENABLED') and raw_name == "CrewService":
-                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+                    actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
 
                 elif CONFIG.get('SHIPS_ENABLED') and raw_name in ship_keys:
-                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+                    actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
 
                 elif CONFIG.get("WORLD_ENABLED") and raw_name in world_events_keys:
-                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+                    actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
 
                 elif CONFIG.get("PLAYERS_ENABLED") and raw_name == "BP_PlayerPirate_C":
-                    actors.update({f'{actor_address}{actor_id}': [actor_id, actor_address, raw_name]})
+                    actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
+
+                elif CONFIG.get("BARRELS_ENABLED") and self.should_update_barrels and ("BP_IslandStorageBarrel" in raw_name or "gmp_bar" in raw_name):
+                    actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
+
+                elif player_activity == 6 and owner == self.local_player_pawn and raw_name == "BP_MerchantCrate_AnyItemCrate_Wieldable_C":
+                    self.should_update_barrels = True
+                    actors.update({f'{actor_address}__local_handler_{raw_name}': [actor_id, actor_address, "local_handler_" + raw_name]})
 
         new_actors = {k: v for k, v in actors.items() if (k not in self.tracking_objects or v[-1] in self.force_update_actors)}
         to_delete_actors = [k for k in self.tracking_objects if k not in actors]

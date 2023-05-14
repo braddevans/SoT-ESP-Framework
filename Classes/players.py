@@ -38,11 +38,10 @@ class Crew:
 
 
 class Ship:
-    def __init__(self, address):
-        self.address = address
 
-    def get_crew_guid(self) -> Crew:
-        crew_onwership_ptr = globals.rm.read_ptr(self.address + OFFSETS.get("Ship.CrewOwnershipComponent"))
+    @staticmethod
+    def get_crew_guid(address) -> Crew:
+        crew_onwership_ptr = globals.rm.read_ptr(address + OFFSETS.get("Ship.CrewOwnershipComponent"))
         guid = globals.rm.read_bytes(crew_onwership_ptr + OFFSETS.get("CrewOwnershipComponent.CachedCrewId"), 16)
         guid = struct.unpack("<iiii", guid)
         return guid
@@ -53,6 +52,7 @@ class Player:
 
     # Sets on SotMemoryReader initialization
     local_player_pawn = None
+    local_player_handles = None
     
     @classmethod
     def is_local_player(cls, actor) -> bool:
@@ -70,6 +70,14 @@ class Player:
             for player in Crew.tracker[crew].players:
                 if player._name == cls.get_name(actor):
                     return Crew.tracker[crew]
+        return None
+    
+    @classmethod
+    def get_crew_guid(cls, actor) -> Crew:
+        for crew in Crew.tracker:
+            for player in Crew.tracker[crew].players:
+                if player._name == cls.get_name(actor):
+                    return crew
         return None
     
     @classmethod

@@ -91,6 +91,12 @@ if __name__ == '__main__':
         "CrewOwnershipComponent.CachedCrewId": get_offset(ATHENA, "CrewOwnershipComponent", "CachedCrewId"),
         "AthenaCharacter.OldPlayerState": get_offset(ATHENA, "AthenaCharacter", "OldPlayerState"),
         "AthenaPlayerState.PlayerActivity": get_offset(ATHENA, "AthenaPlayerState", "PlayerActivity"),
+        "Barrel.StorageContainerComponent": get_offset("SDKs\\JSON-SDK\\BP_IslandStorageBarrel_Outpost_Classes.json", "BP_IslandStorageBarrel_Outpost_C", "StorageContainer"),
+        "StorageContainerComponent.ContainerNodes": get_offset(ATHENA, "StorageContainerComponent", "ContainerNodes"),
+        "StorageContainerBackingStore.ContainerNodes": get_offset(ATHENA_STRUCT, "StorageContainerBackingStore", "ContainerNodes"),
+        "StorageContainerNode.Size": get_size(ATHENA_STRUCT, "StorageContainerNode"),
+        "StorageContainerNode.ItemDesc": get_offset(ATHENA_STRUCT, "StorageContainerNode", "ItemDesc"),
+        "StorageContainerNode.NumItems": get_offset(ATHENA_STRUCT, "StorageContainerNode", "NumItems"),
     }
-    with open("offsets.json", "w+") as outfile:
+    with open("../offsets.json", "w+") as outfile:
         outfile.write(json.dumps(output, indent=2, sort_keys=True))

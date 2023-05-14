@@ -18,6 +18,7 @@ CONFIG = {
     "SHIPS_ENABLED": True,
     "WORLD_ENABLED": True,
     "PLAYERS_ENABLED": True,
+    "BARRELS_ENABLED": True,
 }
 
 version = "1.5.0"
@@ -141,7 +142,7 @@ class LabelOutline:
 class LabelPanel:
     def __init__(self, text='',
                  font_name=None, font_size=None, bold=False, italic=False, stretch=False,
-                 color=(255, 255, 255, 255), line_color=(255, 255, 255, 255),
+                 color=(255, 255, 255, 255), line_color=(255, 255, 255, 220),
                  x=0, y=0, width=None, height=None,
                  anchor_x='left', anchor_y='baseline',
                  align='left',
@@ -150,8 +151,8 @@ class LabelPanel:
                            italic=italic, stretch=stretch, color=color, x=x, y=y, width=width, height=height,
                            anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=foreground_batch, group=group)
         
-        line_height = 2 if line_color[-1] > 0 else 0
-        self.background = Rectangle(x=x-6, y=y-self.label.content_height-line_height+12, width=self.label.content_width + 12, height=self.label.content_height + 6 + line_height,
+        self.line_height = 2 if line_color[-1] > 0 else 0
+        self.background = Rectangle(x=x-6, y=y-self.label.content_height-self.line_height+12, width=self.label.content_width + 12, height=self.label.content_height + 6 + self.line_height,
                                     color=(0, 0, 0), batch=background_batch, group=group)
         self.background.opacity = 150
 
@@ -197,8 +198,11 @@ class LabelPanel:
     def text(self, value):
         self.label.text = value
         self.background.width = self.label.content_width + 12
+        self.background.y = self.label.y - self.label.content_height-self.line_height+12
+        self.background.height = self.label.content_height + 6 + self.line_height
         if self.line:
             self.line.width = self.background.width
+            self.line.y = self.background.y
     
     @property
     def x(self):
