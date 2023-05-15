@@ -7,7 +7,7 @@ For community support, please contact me on Discord: DougTheDruid#2784
 import struct
 import logging
 import globals
-from memory_helper import ReadMemory
+from memory_helper import ReadWriteMemory
 from mapping import ship_keys, world_events_keys
 from helpers import OFFSETS, CONFIG, logger
 from Modules import DisplayObject
@@ -57,7 +57,7 @@ class BarrelsReading:
             return "Scroll"
 
     def __init__(self, barrels_shared, barrels_should_update):
-        self.rm = ReadMemory("SoTGame.exe")
+        self.rm = ReadWriteMemory("SoTGame.exe")
         self.items_map = {}
         self._barrels_shared = barrels_shared
         self._barrels_should_update = barrels_should_update
@@ -108,7 +108,7 @@ class ActorsReader:
     """
 
     def __init__(self):
-        self.rm = ReadMemory("SoTGame.exe")
+        self.rm = ReadWriteMemory("SoTGame.exe")
         globals.rm = self.rm
 
         base_address = self.rm.base_address
@@ -203,8 +203,8 @@ class ActorsReader:
                 elif actor_id in self.actor_name_map:
                     raw_name = self.actor_name_map.get(actor_id)
 
-                if player_activity == 6:
-                    owner = self.rm.read_ptr(actor_address + OFFSETS.get("Actor.Owner"))
+                # if player_activity == 6:
+                owner = self.rm.read_ptr(actor_address + OFFSETS.get("Actor.Owner"))
 
                 # Ignore anything we cannot find a name for
                 if not raw_name:
@@ -225,9 +225,10 @@ class ActorsReader:
                 elif CONFIG.get("BARRELS_ENABLED") and self.should_update_barrels and ("BP_IslandStorageBarrel" in raw_name or "gmp_bar" in raw_name):
                     actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
 
-                elif player_activity == 6 and owner == self.local_player_pawn and raw_name == "BP_MerchantCrate_AnyItemCrate_Wieldable_C":
-                    self.should_update_barrels = True
-                    actors.update({f'{actor_address}__local_handler_{raw_name}': [actor_id, actor_address, "local_handler_" + raw_name]})
+                elif owner == self.local_player_pawn:
+                    if player_activity == 6 and raw_name == "BP_MerchantCrate_AnyItemCrate_Wieldable_C":
+                        self.should_update_barrels = True
+                        actors.update({f'{actor_address}__local_handler_{raw_name}': [actor_id, actor_address, "local_handler_" + raw_name]})
 
         new_actors = {k: v for k, v in actors.items() if (k not in self.tracking_objects or v[-1] in self.force_update_actors)}
         to_delete_actors = [k for k in self.tracking_objects if k not in actors]
@@ -255,8 +256,9 @@ class SoTMemoryReader:
         Also initialize a number of class variables which help us cache some
         basic information
         """
-        self.rm = ReadMemory("SoTGame.exe")
+        self.rm = ReadWriteMemory("SoTGame.exe")
         globals.rm = self.rm
+        globals.smr = self
 
         base_address = self.rm.base_address
         logging.info(f"Process ID: {self.rm.pid}")
@@ -282,8 +284,13 @@ class SoTMemoryReader:
         self.g_objects = self.rm.read_ptr(g_objects)
 
         self.u_local_player = self._load_local_player()
+
         self.player_controller = self.rm.read_ptr(
             self.u_local_player + OFFSETS.get('LocalPlayer.PlayerController')
+        )
+
+        self.player_camera_manager = self.rm.read_ptr(
+            self.player_controller + OFFSETS.get('PlayerController.CameraManager')
         )
 
         Player.local_player_pawn = self.rm.read_ptr(
@@ -291,7 +298,7 @@ class SoTMemoryReader:
         )
 
         self.my_coords = self._coord_builder(self.u_local_player)
-        self.my_coords['fov'] = 90
+        self.my_coords['fov'] = CONFIG.get("FOV")
 
         self.actor_name_map = {}
         self.display_objects: list[DisplayObject] = []
@@ -319,11 +326,8 @@ class SoTMemoryReader:
         storing that new info back into the my_coords field. Necessary as
         we dont always run a full scan and we need a way to update ourselves
         """
-        manager = self.rm.read_ptr(
-            self.player_controller + OFFSETS.get('PlayerController.CameraManager')
-        )
         self.my_coords = self._coord_builder(
-            manager,
+            self.player_camera_manager,
             OFFSETS.get('PlayerCameraManager.CameraCache')
             + OFFSETS.get('CameraCacheEntry.MinimalViewInfo'),
             fov=True)
@@ -355,6 +359,6 @@ class SoTMemoryReader:
             coordinate_dict["cam_y"] = unpacked[4]
             coordinate_dict["cam_z"] = unpacked[5]
         if fov:
-            coordinate_dict['fov'] = unpacked[7]
+            coordinate_dict['fov'] = CONFIG.get("FOV")
 
         return coordinate_dict

@@ -81,6 +81,7 @@ if __name__ == '__main__':
         "GameInstance.LocalPlayers": get_offset(ENGINE, "GameInstance", "LocalPlayers"),
         "LocalPlayer.PlayerController": get_offset(ENGINE, "Player", "PlayerController"),
         "PlayerCameraManager.CameraCache": get_offset(ENGINE, "PlayerCameraManager", "CameraCache"),
+        "PlayerCameraManager.DefaultFOV": get_offset(ENGINE, "PlayerCameraManager", "DefaultFOV"),
         "PlayerController.CameraManager": get_offset(ENGINE, "PlayerController", "PlayerCameraManager"),
         "PlayerController.AcknowledgedPawn": get_offset(ENGINE, "PlayerController", "AcknowledgedPawn"),
         "Pawn.PlayerState": get_offset(ENGINE, "Pawn", "PlayerState"),

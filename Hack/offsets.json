@@ -16,6 +16,7 @@
   "LocalPlayer.PlayerController": 48,
   "Pawn.PlayerState": 1000,
   "PlayerCameraManager.CameraCache": 1088,
+  "PlayerCameraManager.DefaultFOV": 992,
   "PlayerController.AcknowledgedPawn": 1080,
   "PlayerController.CameraManager": 1112,
   "PlayerState.PlayerName": 976,

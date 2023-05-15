@@ -16,7 +16,10 @@ MAX_MODULE_NAME32 = 255
 TH32CS_SNAPMODULE = 0x00000008
 TH32CS_SNAPMODULE32 = 0x00000010
 PROCESS_QUERY_INFORMATION = 0x0400
+PROCESS_VM_OPERATION = 0x0008
 PROCESS_VM_READ = 0x0010
+PROCESS_VM_WRITE = 0x0020
+
 
 
 # ModuleEntry32, CreateToolhelp32Snapshot, and Module32First are ctypes which
@@ -62,6 +65,12 @@ ReadProcessMemory.argtypes = [ctypes.wintypes.HANDLE, ctypes.wintypes.LPCVOID,
                               ctypes.POINTER(ctypes.c_size_t)]
 ReadProcessMemory.restype = ctypes.wintypes.BOOL
 
+WriteProcesMemory = kernel32.WriteProcessMemory
+WriteProcesMemory.argtypes = [ctypes.wintypes.HANDLE, ctypes.wintypes.LPCVOID, 
+                              ctypes.wintypes.LPVOID, ctypes.c_size_t,
+                              ctypes.POINTER(ctypes.c_size_t)]
+WriteProcesMemory.restype = ctypes.wintypes.BOOL
+
 UWORLDPATTERN = "48 8B 05 ? ? ? ? 48 8B 88 ? ? ? ? 48 85 C9 74 06 48 8B 49 70"
 GOBJECTPATTERN = "89 0D ? ? ? ? 48 8B DF 48 89 5C 24"
 GNAMEPATTERN = "48 8B 1D ? ? ? ? 48 85 DB 75 ? B9 08 04 00 00"
@@ -101,7 +110,7 @@ def search_data_for_pattern(data: bytes, raw_pattern: str):
     ).start()
 
 
-class ReadMemory:
+class ReadWriteMemory:
     """
     Class responsible for aiding in memory reading
     """
@@ -158,7 +167,7 @@ class ReadMemory:
         """
         try:
             return kernel32.OpenProcess(PROCESS_QUERY_INFORMATION
-                                                      | PROCESS_VM_READ,
+                                                      | PROCESS_VM_READ | PROCESS_VM_OPERATION | PROCESS_VM_WRITE,
                                                       False, self.pid)
         except Exception as e:
             raise Exception(f"Cannot create handle for pid {self.pid}: "
@@ -203,6 +212,41 @@ class ReadMemory:
         :return: value indicating the game process is alive or not
         """
         return psutil.pid_exists(self.pid)
+
+    def write_byte(self, address: int, data):
+        if not isinstance(address, int):
+            raise TypeError(f'Address must be int: {address}')
+        buff = ctypes.c_byte(data)
+        result = WriteProcesMemory(self.handle, ctypes.c_void_p(address), ctypes.byref(buff), ctypes.sizeof(buff), None)
+        return result
+    
+    def write_ubyte(self, address: int, data):
+        if not isinstance(address, int):
+            raise TypeError(f'Address must be int: {address}')
+        buff = ctypes.c_ubyte(data)
+        result = WriteProcesMemory(self.handle, ctypes.c_void_p(address), ctypes.byref(buff), ctypes.sizeof(buff), None)
+        return result
+    
+    def write_int(self, address: int, data: int):
+        if not isinstance(address, int):
+            raise TypeError(f'Address must be int: {address}')
+        buff = ctypes.c_int(data)
+        result = WriteProcesMemory(self.handle, ctypes.c_void_p(address), ctypes.byref(buff), ctypes.sizeof(buff), None)
+        return result
+
+    def write_float(self, address: int, data: float):
+        if not isinstance(address, int):
+            raise TypeError(f'Address must be int: {address}')
+        buff = ctypes.c_float(data)
+        result = WriteProcesMemory(self.handle, ctypes.c_void_p(address), ctypes.byref(buff), ctypes.sizeof(buff), None)
+        return result
+    
+    def write_ulong(self, address: int, data):
+        if not isinstance(address, int):
+            raise TypeError(f'Address must be int: {address}')
+        buff = ctypes.c_ulong(data)
+        result = WriteProcesMemory(self.handle, ctypes.c_void_p(address), ctypes.byref(buff), ctypes.sizeof(buff), None)
+        return result
 
     def read_bytes(self, address: int, byte: int) -> bytes:
         """

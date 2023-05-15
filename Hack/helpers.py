@@ -18,6 +18,7 @@ CONFIG = {
     "WORLD_ENABLED": True,
     "PLAYERS_ENABLED": True,
     "BARRELS_ENABLED": True,
+    "FOV": 110
 }
 
 # Config specification for logging file
