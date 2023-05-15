@@ -3,21 +3,22 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 For community support, please contact me on Discord: DougTheDruid#2784
 """
-import pyglet
-import globals
+
 import time
-import struct
 import win32gui
 import win32con
 import multiprocessing
-from base64 import b64decode
-from win32gui import GetWindowText, GetForegroundWindow
+import globals
+import pyglet
+
 from pyglet.text import Label
 from pyglet.gl import Config
-from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, foreground_batch, background_batch, \
-    version, logger, LabelOutline, OFFSETS
+from win32gui import GetWindowText, GetForegroundWindow
 from mapping import ship_keys, world_events_keys
-from sot_hack import SoTMemoryReader, ActorsReader, MemoryReaderOnly
+from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, CONFIG,\
+    foreground_batch, background_batch, LabelOutline
+
+from sot_hack import SoTMemoryReader, ActorsReader, BarrelsReading
 from Classes.players import Player
 from Modules import (
     ShipModule,
@@ -30,9 +31,6 @@ from Modules import (
 
 # The FPS __Target__ for the program.
 FPS_TARGET = 165
-
-# See explanation in Main, toggle for a non-graphical debug
-DEBUG = False
 
 # Pyglet clock used to track time via FPS
 clock = pyglet.clock.Clock()
@@ -59,82 +57,12 @@ def generate_all(_shared_dict_new: dict, _shared_list_to_delete: list, lock):
         time.sleep(5.0)
         
 
-def update_barrels(_barrels_shared, _barrels_should_update, _fps_target, lock):
-    def get_item_short_name(name):
-        if "cannon_ball" in name:
-            return "Cannon Ball"
-        if "cannonball_chain_shot" in name:
-            return "Cannon Chain"
-        if "cannonball_Grenade" in name:
-            return "Dispersion Ball"
-        if "cannonball_cur_fire" in name:
-            return "Fire Ball"
-        if "cannonball_cur" in name:
-            return "Cursed Cannon Ball"
-        if "repair_wood" in name:
-            return "Wood"
-        if "PomegranateFresh" in name:
-            return "Granate"
-        if "CoconutFresh" in name:
-            return "Coconut" 
-        if "BananaFresh" in name:
-            return "Banana"
-        if "PineappleFresh" in name:
-            return "Pineapple"
-        if "MangoFresh" in name:
-            return "Mango"
-        if "GrubsFresh" in name:
-            return "Grubs"
-        if "LeechesFresh" in name:
-            return "Leeches"
-        if "EarthwormsFresh" in name:
-            return "Earthworms"
-        if "fireworks_flare" in name:
-            return "Flare"
-        if "fireworks_rocket" in name:
-            return "Fireworks S"
-        if "fireworks_cake" in name:
-            return "Fireworks M"
-        if "fireworks_living" in name:
-            return "Fireworks L"
-        if "MapInABarrel" in name:
-            return "Scroll"
-    
-    reader = MemoryReaderOnly()
-    items_map = {}
-
+def update_barrels(_barrels_shared, _barrels_should_update, _fps_target):
+    reader = BarrelsReading(_barrels_shared, _barrels_should_update)
     while 1:
-        if _barrels_should_update[0]:
-            if _barrels_shared:
-                actors = list(_barrels_shared.keys())
-                for actor in actors:
-                    ret_value = ""
-
-                    container_nodes = struct.unpack("<Qii", reader.rm.read_bytes(
-                        actor + OFFSETS.get("StorageContainerComponent.ContainerNodes") + OFFSETS.get("StorageContainerBackingStore.ContainerNodes"), 16
-                    ))
-
-                    if container_nodes[1] > 0:
-                        for i in range(0, container_nodes[1]):
-                            node = (container_nodes[0] + i * OFFSETS.get("StorageContainerNode.Size"))
-                            ItemDesc = reader.rm.read_ptr(node + OFFSETS.get("StorageContainerNode.ItemDesc"))
-                            actor_id = reader.rm.read_int(ItemDesc + OFFSETS.get('Actor.actorId'))
-
-                            if actor_id not in items_map:
-                                gname = reader.rm.read_gname(actor_id)
-                                items_map[actor_id] = get_item_short_name(gname)
-                        
-                            item_name = items_map[actor_id]
-                            item_count = reader.rm.read_int(node + OFFSETS.get("StorageContainerNode.NumItems"))
-                            ret_value += f'\n- {item_count} {item_name}'
-
-                    if actor in _barrels_shared:
-                        _barrels_shared[actor] = ret_value
-            
-
         time.sleep(1/_fps_target)
-    
-
+        reader.read_barrels()
+       
 
 def update_globals(_, global_module: GlobalModule):
     global_module.update()
@@ -175,12 +103,11 @@ def update_graphics(_):
 
         # Creating new objects
         while dict_keys:
-            key = dict_keys.pop()
+            dict_keys.pop()
             args = dict_values.pop()
 
             # We won't check if config enabled for each actor type, since we have already did this in read_actors
             # args[-1] == raw_name
-            # key = actor_id
 
             if args[-1] in ship_keys:
                 ship = ShipModule(*args, smr.my_coords)
@@ -228,28 +155,20 @@ if __name__ == '__main__':
     # Initialize our SoT Hack object, and do a first run of reading actors
     smr = SoTMemoryReader()
 
-    # Custom Debug mode for using a literal python interpreter debugger
-    # to validate our fields. Does not generate a GUI.
-    if DEBUG:
-        while True:
-            smr.read_actors()
-
     # You may want to add/modify this custom config per the pyglet docs to
     # disable vsync or other options: https://tinyurl.com/45tcx6eu
     config = Config(double_buffer=True, depth_size=24, alpha_size=8)
 
     # Create an overlay window with Pyglet at the same size as our SoT Window
     window = pyglet.window.Window(SOT_WINDOW_W, SOT_WINDOW_H,
-                                  vsync=True, style='overlay', config=config,
-                                  caption="DougTheDruid's ESP Framework")
-    hwnd = window._hwnd  # pylint: disable=protected-access
+                                  vsync=True, style='overlay', config=config)
 
     # Move our window to the same location that our SoT Window is at
     window.set_location(SOT_WINDOW[0], SOT_WINDOW[1])
 
     # Trick to hide the window from alt-tab menu
-    win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
-                                   win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_TOOLWINDOW)
+    win32gui.SetWindowLong(window._hwnd, win32con.GWL_EXSTYLE,
+                                   win32gui.GetWindowLong(window._hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_TOOLWINDOW)
 
     @window.event
     def on_draw():
@@ -260,24 +179,29 @@ if __name__ == '__main__':
         """
         window.clear()
 
-        if GetWindowText(GetForegroundWindow()) == "Sea of Thieves":
-            # Update our player count Label & crew list
-            if smr.crew_data:
-                for x in range(0, len(smr.crew_data.crew_strings)):
-                    crew_list[x].color = smr.crew_data.crew_strings[x][1]
-                    crew_list[x].text = smr.crew_data.crew_strings[x][0]
-                    if x == 0:
-                        crew_list[x].y = (SOT_WINDOW_H-25) * 0.9
-                    else:
-                        crew_list[x].y = crew_list[x-1].y - 40 - ((20 * (crew_list[x-1].text.count('\n') - 1)) if x > 0 else 0 )
-            
-                for x in range(len(smr.crew_data.crew_strings), 6):
-                    crew_list[x].text = ""
+        if GetWindowText(GetForegroundWindow()) != "Sea of Thieves":
+            return
+        
+        # Crew list update
+        if smr.crew_data:
+            for x in range(0, len(smr.crew_data.crew_strings)):        # Each string in smr.crew_data.crew_strings is a crew
+                crew_list[x].color = smr.crew_data.crew_strings[x][1]  # Color based just on crew order
+                crew_list[x].text = smr.crew_data.crew_strings[x][0] 
 
-            # Batches
-            background_batch.draw()
-            foreground_batch.draw()
-            fps_display.draw()
+                # Position adjustment
+                if x == 0:
+                    crew_list[x].y = (SOT_WINDOW_H-25) * 0.9
+                else:
+                    crew_list[x].y = crew_list[x-1].y - 40 - ((20 * (crew_list[x-1].text.count('\n') - 1)) if x > 0 else 0 )
+        
+            # If we have less than 6 crews, we don't want to display non-existent
+            for x in range(len(smr.crew_data.crew_strings), 6):
+                crew_list[x].text = ""
+
+        # Batches
+        background_batch.draw()
+        foreground_batch.draw()
+        fps_display.draw()
 
     # Shared data for multiprocessing `read_actors`
     multiprocess_manager = multiprocessing.Manager()
@@ -285,26 +209,25 @@ if __name__ == '__main__':
     shared_dict_new = multiprocess_manager.dict()
     shared_list_to_delete = multiprocess_manager.list()
 
-    # Shared data for barrels reading
+    # Shared data for multiprocessing `barrels reading`
     barrels_manager = multiprocessing.Manager()
-    barrels_lock = barrels_manager.Lock()
     barrels_shared = barrels_manager.dict()
     barrels_shared.keys()
     barrels_should_update = barrels_manager.list()
     barrels_should_update.append(False)
     globals.barrels_should_update = barrels_should_update
-    globals.barrels_lock = barrels_lock
     globals.barrels_shared = barrels_shared
 
-    # We schedule an "update all" to scan all actors every 5seconds
-    # pyglet.clock.schedule_interval(generate_all, 5)
+    # Actors reading in the separate process
     multiprocessing.Process(target=generate_all, 
                             args=(shared_dict_new, shared_list_to_delete, multiprocess_lock),
                             daemon=True).start()
     
-    multiprocessing.Process(target=update_barrels, 
-                            args=(barrels_shared, barrels_should_update, 20, barrels_lock),
-                            daemon=True).start()
+    # Barrels reading in the separate process
+    if CONFIG.get("BARRELS_ENABLED"):
+        multiprocessing.Process(target=update_barrels, 
+                                args=(barrels_shared, barrels_should_update, 20),
+                                daemon=True).start()
 
     # We schedule a check to make sure the game is still running every 3 seconds
     pyglet.clock.schedule_interval_soft(globals.rm.check_process_is_active, 3)
@@ -330,3 +253,4 @@ if __name__ == '__main__':
                             y=(SOT_WINDOW_H-25) * 0.9 + 25 * x, batch=foreground_batch, shadows_batch=background_batch, color=(0, 0, 0, 255)))
 
     pyglet.app.run()
+    

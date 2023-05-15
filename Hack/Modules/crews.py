@@ -7,7 +7,7 @@ import struct
 import globals
 from helpers import OFFSETS
 from Modules.display_object import DisplayObject
-from Classes import Crew, Player
+from Classes import Crew
 
 
 class CrewsModule(DisplayObject):

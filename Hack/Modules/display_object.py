@@ -7,7 +7,6 @@ import struct
 import abc
 import globals
 from helpers import OFFSETS
-from memory_helper import ReadMemory
 from contextlib import suppress
 
 

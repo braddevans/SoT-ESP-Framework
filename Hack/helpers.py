@@ -6,7 +6,6 @@
 import math
 import json
 import logging
-from base64 import b64decode
 import win32gui
 from pyglet.graphics import Batch
 from pyglet.text import Label
@@ -21,16 +20,11 @@ CONFIG = {
     "BARRELS_ENABLED": True,
 }
 
-version = "1.5.0"
-
 # Config specification for logging file
-logging.basicConfig(filename='DougsESP.log', level=logging.DEBUG,
+logging.basicConfig(filename='ESP.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(message)s', filemode="w")
 logger = logging.getLogger()
 
-# Offset values for the text labels from the circles we draw to the screen
-TEXT_OFFSET_X = 13
-TEXT_OFFSET_Y = -5
 
 # Information on SoT height and width. Used here and in main.py to display
 # data to the screen. May need to manually override if wonky

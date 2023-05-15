@@ -3,8 +3,7 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 """
 
-from pyglet.text import Label
-from helpers import calculate_distance, object_to_screen, foreground_batch, background_batch, LabelPanel
+from helpers import calculate_distance, object_to_screen, LabelPanel
 from Modules import DisplayObject
 from mapping import world_events
 
