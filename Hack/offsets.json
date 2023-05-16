@@ -3,6 +3,7 @@
   "Actor.actorId": 24,
   "Actor.rootComponent": 360,
   "AthenaCharacter.OldPlayerState": 2696,
+  "AthenaCharacter.WieldedItemComponent": 2160,
   "AthenaPlayerState.PlayerActivity": 1824,
   "Barrel.StorageContainerComponent": 1240,
   "CameraCacheEntry.MinimalViewInfo": 16,
@@ -28,6 +29,7 @@
   "StorageContainerNode.ItemDesc": 0,
   "StorageContainerNode.NumItems": 8,
   "StorageContainerNode.Size": 16,
+  "WieldedItemComponent.CurrentlyWieldedItem": 752,
   "World.Levels": 336,
   "World.OwningGameInstance": 448,
   "World.PersistentLevel": 48

@@ -236,9 +236,9 @@ if __name__ == '__main__':
     # the actors we are interested in (from our generate_all). Runs as fast as possible
     pyglet.clock.schedule_interval_soft(update_graphics, 1/FPS_TARGET)
 
-    # We don't want to update global things on the same fps_target
+    # Global things
     global_module = GlobalModule()
-    pyglet.clock.schedule_interval_soft(update_globals, 1/30, global_module)
+    pyglet.clock.schedule_interval_soft(update_globals, 1/FPS_TARGET, global_module)
 
     # Adds an FPS counter at the bottom left corner of our pyglet window
     # Note: May not translate to actual FPS, but rather FPS of the program

@@ -298,7 +298,7 @@ class SoTMemoryReader:
         )
 
         self.my_coords = self._coord_builder(self.u_local_player)
-        self.my_coords['fov'] = CONFIG.get("FOV")
+        self.my_coords['fov'] = globals.fov
 
         self.actor_name_map = {}
         self.display_objects: list[DisplayObject] = []
@@ -359,6 +359,6 @@ class SoTMemoryReader:
             coordinate_dict["cam_y"] = unpacked[4]
             coordinate_dict["cam_z"] = unpacked[5]
         if fov:
-            coordinate_dict['fov'] = CONFIG.get("FOV")
+            coordinate_dict['fov'] = globals.fov
 
         return coordinate_dict

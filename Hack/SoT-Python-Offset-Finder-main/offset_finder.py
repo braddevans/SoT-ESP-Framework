@@ -98,6 +98,8 @@ if __name__ == '__main__':
         "StorageContainerNode.Size": get_size(ATHENA_STRUCT, "StorageContainerNode"),
         "StorageContainerNode.ItemDesc": get_offset(ATHENA_STRUCT, "StorageContainerNode", "ItemDesc"),
         "StorageContainerNode.NumItems": get_offset(ATHENA_STRUCT, "StorageContainerNode", "NumItems"),
+        "AthenaCharacter.WieldedItemComponent": get_offset(ATHENA, "AthenaCharacter", "WieldedItemComponent"),
+        "WieldedItemComponent.CurrentlyWieldedItem": get_offset(ATHENA, "WieldedItemComponent", "CurrentlyWieldedItem"),
     }
     with open("../offsets.json", "w+") as outfile:
         outfile.write(json.dumps(output, indent=2, sort_keys=True))
