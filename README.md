@@ -1,10 +1,10 @@
 # SoT Hack (Based on Doug's Framework)
-Hello everyone I'm doing this framework for learning purposes, I'm not selling anything. You can get banned for using any cheats!
+Hello all! I'm doing this framework for learning purposes, I'm not selling anything. You can get banned for using any cheats!
 
 ## Installation
 ```
-> git clone https://github.com/Flowseal/SoT-ESP-Framework.git
-> cd SoT-ESP-Framework
+> git clone https://github.com/Flowseal/SoT-Hack.git
+> cd SoT-Hack
 > pip install -r -requirements.txt
 > cd Hack
 > python main.py
