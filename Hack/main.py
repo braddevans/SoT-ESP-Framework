@@ -29,9 +29,6 @@ from Modules import (
     GlobalModule
 )
 
-# The FPS __Target__ for the program.
-FPS_TARGET = 165
-
 # Pyglet clock used to track time via FPS
 clock = pyglet.clock.Clock()
 
@@ -234,11 +231,11 @@ if __name__ == '__main__':
 
     # We schedule a basic graphics load which is responsible for updating
     # the actors we are interested in (from our generate_all). Runs as fast as possible
-    pyglet.clock.schedule_interval_soft(update_graphics, 1/FPS_TARGET)
+    pyglet.clock.schedule_interval_soft(update_graphics, 1/CONFIG.get("FPS_TARGET"))
 
     # Global things
     global_module = GlobalModule()
-    pyglet.clock.schedule_interval_soft(update_globals, 1/FPS_TARGET, global_module)
+    pyglet.clock.schedule_interval_soft(update_globals, 1/CONFIG.get("FPS_TARGET"), global_module)
 
     # Adds an FPS counter at the bottom left corner of our pyglet window
     # Note: May not translate to actual FPS, but rather FPS of the program

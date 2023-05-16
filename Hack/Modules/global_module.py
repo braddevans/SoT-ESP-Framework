@@ -23,8 +23,9 @@ class GlobalModule(DisplayObject):
         self.scope_time = 0
         self.last_recorded_scope_time = 0
         self.last_fov_value = self._desired_fov
-        self.last_fov_state = 0  # 0 = decreasing, 1 = increasing
+        self.last_fov_state = -1  # 0 = decreasing, 1 = increasing
         globals.rm.write_float(globals.smr.player_camera_manager + OFFSETS.get("PlayerCameraManager.DefaultFOV") + 4, self._desired_fov)
+        globals.fov = self.last_fov_value
 
 
     def update_fov(self):
@@ -41,7 +42,9 @@ class GlobalModule(DisplayObject):
                 self.last_recorded_scope_time = time.time()
                 self.last_fov_state = 1
 
-            self.scope_time = min(self.scope_time + (time.time() - self.last_recorded_scope_time), TOTAL_SCOPE_TIME)
+            self.scope_time += time.time() - self.last_recorded_scope_time
+            if self.scope_time > TOTAL_SCOPE_TIME:
+                self.scope_time = TOTAL_SCOPE_TIME
 
 
         elif not should_lower_fov and self.scope_time > 0:
@@ -53,19 +56,22 @@ class GlobalModule(DisplayObject):
             if self.scope_time < 0:
                 self.scope_time = 0
    
-        if self.scope_time > 0 and self.scope_time < TOTAL_SCOPE_TIME:
+        if self.last_fov_state != -1:
             self.last_recorded_scope_time = time.time()   
             self.last_fov_value = self._desired_scope_fov + (self._desired_fov - self._desired_scope_fov) * (1 - self.scope_time / TOTAL_SCOPE_TIME)
             globals.rm.write_float(globals.smr.player_camera_manager + OFFSETS.get("PlayerCameraManager.DefaultFOV") + 4, self.last_fov_value)
+
+            if self.scope_time == TOTAL_SCOPE_TIME or self.scope_time == 0:
+                self.last_fov_state == -1
         
-        globals.fov = self.last_fov_value
+            globals.fov = self.last_fov_value
     
 
     def update(self):
         globals.local_player_activity = int.from_bytes(globals.rm.read_bytes(self.old_player_state + OFFSETS.get("AthenaPlayerState.PlayerActivity"), 1), byteorder='little')
         globals.barrels_should_update[0] = globals.local_player_activity == 6 and Player.local_player_handles == "BP_MerchantCrate_AnyItemCrate_Wieldable_C"
 
-        if self._desired_fov != self._desired_scope_fov:
+        if self._desired_fov != self._desired_scope_fov and self._desired_fov > 0:
             self.update_fov()
         
 

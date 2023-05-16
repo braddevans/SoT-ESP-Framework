@@ -203,8 +203,8 @@ class ActorsReader:
                 elif actor_id in self.actor_name_map:
                     raw_name = self.actor_name_map.get(actor_id)
 
-                # if player_activity == 6:
-                owner = self.rm.read_ptr(actor_address + OFFSETS.get("Actor.Owner"))
+                if player_activity == 6:
+                    owner = self.rm.read_ptr(actor_address + OFFSETS.get("Actor.Owner"))
 
                 # Ignore anything we cannot find a name for
                 if not raw_name:
@@ -225,7 +225,7 @@ class ActorsReader:
                 elif CONFIG.get("BARRELS_ENABLED") and self.should_update_barrels and ("BP_IslandStorageBarrel" in raw_name or "gmp_bar" in raw_name):
                     actors.update({f'{actor_address}__{raw_name}': [actor_id, actor_address, raw_name]})
 
-                elif owner == self.local_player_pawn:
+                elif player_activity == 6 and owner == self.local_player_pawn:
                     if player_activity == 6 and raw_name == "BP_MerchantCrate_AnyItemCrate_Wieldable_C":
                         self.should_update_barrels = True
                         actors.update({f'{actor_address}__local_handler_{raw_name}': [actor_id, actor_address, "local_handler_" + raw_name]})
@@ -359,6 +359,6 @@ class SoTMemoryReader:
             coordinate_dict["cam_y"] = unpacked[4]
             coordinate_dict["cam_z"] = unpacked[5]
         if fov:
-            coordinate_dict['fov'] = globals.fov
+            coordinate_dict['fov'] = globals.fov if globals.fov > 0 else unpacked[7]
 
         return coordinate_dict

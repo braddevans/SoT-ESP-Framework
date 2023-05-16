@@ -11,15 +11,15 @@ from pyglet.graphics import Batch
 from pyglet.text import Label
 from pyglet.shapes import Rectangle
 
-# True=Enabled & False=Disabled for each relevant config items
 CONFIG = {
+    "FPS_TARGET": 165,
     "CREWS_ENABLED": True,
     "SHIPS_ENABLED": True,
     "WORLD_ENABLED": True,
     "PLAYERS_ENABLED": True,
     "BARRELS_ENABLED": True,
-    "FOV": 110,
-    "SCOPE_FOV": 23
+    "FOV": 0,  # 0 to disable custom fov
+    "SCOPE_FOV": 34.615,
 }
 
 # Config specification for logging file
