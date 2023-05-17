@@ -87,7 +87,7 @@ class BarrelsModule(DisplayObject):
             self.text_render.x = self.screen_coords[0]
             self.text_render.y = self.screen_coords[1]
   
-            # If barrel's content have benn updated
+            # If barrel's content have been updated
             if new_barrels_content != "":
                 self.text_render.text = f"Barrel ({self.distance}m)"
                 self.text_render.text += new_barrels_content
