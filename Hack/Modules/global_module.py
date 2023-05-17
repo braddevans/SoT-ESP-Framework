@@ -69,7 +69,7 @@ class GlobalModule(DisplayObject):
 
     def update(self):
         globals.local_player_activity = int.from_bytes(globals.rm.read_bytes(self.old_player_state + OFFSETS.get("AthenaPlayerState.PlayerActivity"), 1), byteorder='little')
-        globals.barrels_should_update[0] = globals.local_player_activity == 6 and Player.local_player_handles == "BP_MerchantCrate_AnyItemCrate_Wieldable_C"
+        globals.barrels_should_update = globals.local_player_activity == 6 and Player.local_player_handles == "BP_MerchantCrate_AnyItemCrate_Wieldable_C"
 
         if self._desired_fov != self._desired_scope_fov and self._desired_fov > 0:
             self.update_fov()

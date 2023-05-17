@@ -60,6 +60,11 @@ class LabelOutline:
                            anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=batch, group=group)
         self.shadows: list[Label] = list()
 
+        self._visible = True
+        self._x = x
+        self._y = y
+        self._text = text
+
         for sx in [-1, 0, 1]:
             for sy in [-1, 0, 1]:
                 if sx == 0 and sy == 0: continue
@@ -81,6 +86,9 @@ class LabelOutline:
     
     @visible.setter
     def visible(self, value):
+        if self._visible == value:
+            return
+        self._visible = value
         self.label.visible = value
         for shadow in self.shadows:
             shadow.visible = value
@@ -99,6 +107,9 @@ class LabelOutline:
     
     @text.setter
     def text(self, value):
+        if self._text == value:
+            return
+        self._text = value
         self.label.text = value
         for shadow in self.shadows:
             shadow.text = value
@@ -109,6 +120,9 @@ class LabelOutline:
     
     @x.setter
     def x(self, value):
+        if self._x == value:
+            return
+        self._x = value
         diff = self.label.x - value
         self.label.x = value
 
@@ -121,6 +135,9 @@ class LabelOutline:
     
     @y.setter
     def y(self, value):
+        if self._y == value:
+            return
+        self._y = value
         diff = self.label.y - value
         self.label.y = value
 
@@ -151,6 +168,10 @@ class LabelPanel:
         self.background = Rectangle(x=x-6, y=y-self.label.content_height-self.line_height+12, width=self.label.content_width + 12, height=self.label.content_height + 6 + self.line_height,
                                     color=(0, 0, 0), batch=background_batch, group=group)
         self.background.opacity = 150
+        self._visible = True
+        self._x = x
+        self._y = y
+        self._text = text
 
         if line_color[-1] > 0:
             self.line = Rectangle(x=self.background.x, y=self.background.y, width=self.background.width, height=2,
@@ -173,6 +194,9 @@ class LabelPanel:
     
     @visible.setter
     def visible(self, value):
+        if value == self._visible:
+            return
+        self._visible = value
         self.label.visible = value
         self.background.visible = value
         if self.line:
@@ -192,6 +216,9 @@ class LabelPanel:
     
     @text.setter
     def text(self, value):
+        if self._text == value:
+            return
+        self._text = value
         self.label.text = value
         self.background.width = self.label.content_width + 12
         self.background.y = self.label.y - self.label.content_height-self.line_height+12
@@ -206,6 +233,9 @@ class LabelPanel:
     
     @x.setter
     def x(self, value):
+        if self._x == value:
+            return
+        self._x = value
         diff = self.label.x - value
         self.label.x = value
         self.background.x -= diff
@@ -218,6 +248,9 @@ class LabelPanel:
     
     @y.setter
     def y(self, value):
+        if self._y == value:
+            return
+        self._y = value
         diff = self.label.y - value
         self.label.y = value
         self.background.y -= diff

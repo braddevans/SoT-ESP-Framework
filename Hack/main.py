@@ -18,7 +18,7 @@ from mapping import ship_keys, world_events_keys
 from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, CONFIG,\
     foreground_batch, background_batch, LabelOutline
 
-from sot_hack import SoTMemoryReader, ActorsReader, BarrelsReading
+from sot_hack import SoTMemoryReader, ActorsReader
 from Classes.players import Player
 from Modules import (
     ShipModule,
@@ -52,13 +52,6 @@ def generate_all(_shared_dict_new: dict, _shared_list_to_delete: list, lock):
                 _shared_list_to_delete.append(actor_id)
 
         time.sleep(5.0)
-        
-
-def update_barrels(_barrels_shared, _barrels_should_update, _fps_target):
-    reader = BarrelsReading(_barrels_shared, _barrels_should_update)
-    while 1:
-        time.sleep(1/_fps_target)
-        reader.read_barrels()
        
 
 def update_globals(_, global_module: GlobalModule):
@@ -206,25 +199,10 @@ if __name__ == '__main__':
     shared_dict_new = multiprocess_manager.dict()
     shared_list_to_delete = multiprocess_manager.list()
 
-    # Shared data for multiprocessing `barrels reading`
-    barrels_manager = multiprocessing.Manager()
-    barrels_shared = barrels_manager.dict()
-    barrels_shared.keys()
-    barrels_should_update = barrels_manager.list()
-    barrels_should_update.append(False)
-    globals.barrels_should_update = barrels_should_update
-    globals.barrels_shared = barrels_shared
-
     # Actors reading in the separate process
     multiprocessing.Process(target=generate_all, 
                             args=(shared_dict_new, shared_list_to_delete, multiprocess_lock),
                             daemon=True).start()
-    
-    # Barrels reading in the separate process
-    if CONFIG.get("BARRELS_ENABLED"):
-        multiprocessing.Process(target=update_barrels, 
-                                args=(barrels_shared, barrels_should_update, 20),
-                                daemon=True).start()
 
     # We schedule a check to make sure the game is still running every 3 seconds
     pyglet.clock.schedule_interval_soft(globals.rm.check_process_is_active, 3)
