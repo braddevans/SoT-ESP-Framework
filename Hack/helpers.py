@@ -22,6 +22,10 @@ CONFIG = {
     "SCOPE_FOV": 34.615,
 }
 
+# Load our offset json file
+with open("offsets.json") as infile:
+    OFFSETS = json.load(infile)
+
 # Config specification for logging file
 logging.basicConfig(filename='ESP.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(message)s', filemode="w")
@@ -265,9 +269,86 @@ class LabelPanel:
         del self
 
 
-# Load our offset json file
-with open("offsets.json") as infile:
-    OFFSETS = json.load(infile)
+class LabelDefault:
+    def __init__(self, text='',
+                 font_name=None, font_size=None, bold=False, italic=False, stretch=False,
+                 color=(255, 255, 255, 255),
+                 x=0, y=0, width=None, height=None,
+                 anchor_x='left', anchor_y='baseline',
+                 align='left',
+                 multiline=False, dpi=None, batch=None, group=None):
+        self.label = Label(text=text, font_name=font_name, font_size=font_size, bold=bold,
+                           italic=italic, stretch=stretch, color=color, x=x, y=y, width=width, height=height,
+                           anchor_x=anchor_x, anchor_y=anchor_y, align=align, multiline=multiline, dpi=dpi, batch=batch, group=group)
+
+        self._visible = True
+        self._x = x
+        self._y = y
+        self._text = text
+    
+    @property
+    def content_width(self):
+        return self.label.content_width
+    
+    @property
+    def content_height(self):
+        return self.label.content_height
+
+    @property
+    def visible(self):
+        return self.label.visible
+    
+    @visible.setter
+    def visible(self, value):
+        if self._visible == value:
+            return
+        self._visible = value
+        self.label.visible = value
+
+    @property
+    def color(self):
+        return self.label.color
+    
+    @color.setter
+    def color(self, value):
+        self.label.color = value
+
+    @property
+    def text(self):
+        return self.label.text
+    
+    @text.setter
+    def text(self, value):
+        if self._text == value:
+            return
+        self._text = value
+        self.label.text = value
+    
+    @property
+    def x(self):
+        return self.label.x
+    
+    @x.setter
+    def x(self, value):
+        if self._x == value:
+            return
+        self._x = value
+        self.label.x = value
+    
+    @property
+    def y(self):
+        return self.label.y
+    
+    @y.setter
+    def y(self, value):
+        if self._y == value:
+            return
+        self._y = value
+        self.label.y = value
+
+    def delete(self):
+        self.label.delete()
+        del self
 
 
 def dot(array_1: tuple, array_2: tuple) -> float:
