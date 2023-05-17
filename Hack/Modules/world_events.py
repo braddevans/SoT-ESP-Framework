@@ -3,9 +3,10 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 """
 
-from helpers import calculate_distance, object_to_screen, LabelPanel
-from Modules import DisplayObject
+from helpers import calculate_distance, object_to_screen
 from mapping import world_events
+from Modules import DisplayObject
+from Graphics.elements import LabelPanel
 
 
 class WorldEventsModule(DisplayObject):

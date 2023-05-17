@@ -5,17 +5,17 @@
 
 from pyglet.sprite import Sprite
 from pyglet.shapes import Circle
-from pyglet.text import Label
 from pyglet import image
 from helpers import calculate_distance, object_to_screen, foreground_batch, background_batch
 from mapping import ships
+from Graphics.elements import LabelDefault
 from Modules import DisplayObject
 from Classes import Ship, Crew
 
 CIRCLE_SIZE = 25
-SLOOP_ICON = image.load('Images/Sloop_icon.png')
-BRIGANTINE_ICON = image.load('Images/Brigantine_icon.png')
-GALLEON_ICON = image.load('Images/Galleon_icon.png')
+SLOOP_ICON = image.load('Graphics/Images/Sloop_icon.png')
+BRIGANTINE_ICON = image.load('Graphics/Images/Brigantine_icon.png')
+GALLEON_ICON = image.load('Graphics/Images/Galleon_icon.png')
 
 
 class ShipModule(DisplayObject):
@@ -106,23 +106,23 @@ class ShipModule(DisplayObject):
         """
         return f"{self.name} - {self.distance}m"
 
-    def _build_text_render(self) -> Label:
+    def _build_text_render(self) -> LabelDefault:
         """
         Function to build our actual label which is sent to Pyglet. Sets it to
         be located at the screen coordinated + our text_offsets from helpers.py
 
         Assigns the object to our batch & group
 
-        :rtype: Label
+        :rtype: LabelDefault
         :return: What text we want displayed next to the ship
         """
         if self.screen_coords:
-            return Label(self.text_str,
+            return LabelDefault(self.text_str,
                          x=self.screen_coords[0] + CIRCLE_SIZE / 2 + 10,
                          y=self.screen_coords[1] + CIRCLE_SIZE / 2 - 30,
                          batch=foreground_batch)
 
-        return Label(self.text_str, x=0, y=0, batch=foreground_batch)
+        return LabelDefault(self.text_str, x=0, y=0, batch=foreground_batch)
 
     def update(self, my_coords: dict):
         """

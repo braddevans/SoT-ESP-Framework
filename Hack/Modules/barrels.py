@@ -1,5 +1,6 @@
 import globals
-from helpers import calculate_distance, object_to_screen, LabelPanel, OFFSETS
+from helpers import calculate_distance, object_to_screen, OFFSETS
+from Graphics.elements import LabelPanel
 from Modules import DisplayObject
 from Classes import Barrel
 

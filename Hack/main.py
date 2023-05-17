@@ -11,14 +11,14 @@ import multiprocessing
 import globals
 import pyglet
 
-from pyglet.text import Label
 from pyglet.gl import Config
 from win32gui import GetWindowText, GetForegroundWindow
 from mapping import ship_keys, world_events_keys
 from helpers import SOT_WINDOW, SOT_WINDOW_H, SOT_WINDOW_W, CONFIG,\
-    foreground_batch, background_batch, LabelOutline
+    foreground_batch, background_batch
 
 from sot_hack import SoTMemoryReader, ActorsReader
+from Graphics.elements import LabelOutline
 from Classes.players import Player
 from Modules import (
     ShipModule,
@@ -221,7 +221,7 @@ if __name__ == '__main__':
 
     # The label for showing all players on the server under the count
     # This purely INITIALIZES it does not inherently update automatically
-    crew_list: list[Label] = list()
+    crew_list: list[LabelOutline] = list()
 
     for x in range(6):
         crew_list.append(LabelOutline("", x=SOT_WINDOW_W * 0.85, multiline=True, width=1000,

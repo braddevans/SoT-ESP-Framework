@@ -1,4 +1,5 @@
-from helpers import calculate_distance, object_to_screen, LabelPanel
+from helpers import calculate_distance, object_to_screen
+from Graphics.elements import LabelPanel
 from Modules import DisplayObject
 from Classes import Player, Crew
 
