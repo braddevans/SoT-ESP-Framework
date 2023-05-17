@@ -93,7 +93,7 @@ class BarrelsModule(DisplayObject):
                 self.text_render.text = f"Barrel ({self.distance}m)"
                 self.text_render.text += new_barrels_content
             else:
-                self.text_render.label.text.replace(f'{self.distance}m', f'{new_distance}m')
+                self.text_render.label.text = self.text_render.label.text.replace(f'{self.distance}m', f'{new_distance}m')
             
             self.distance = new_distance
 
