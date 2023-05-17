@@ -9,21 +9,12 @@ import logging
 import win32gui
 from pyglet.graphics import Batch
 
-CONFIG = {
-    "FPS_TARGET": 165,
-    "CREWS_ENABLED": True,
-    "SHIPS_ENABLED": True,
-    "WORLD_ENABLED": True,
-    "PLAYERS_ENABLED": True,
-    "BARRELS_ENABLED": True,
-    "FOV": 0,  # 0 to disable custom fov
-    "SCOPE_FOV": 34.615,
-}
 
-
-# Load our offset json file
 with open("offsets.json") as infile:
     OFFSETS = json.load(infile)
+
+with open("config.json") as infile:
+    CONFIG = json.load(infile)
 
 
 # Config specification for logging file
