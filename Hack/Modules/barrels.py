@@ -1,4 +1,5 @@
 import globals
+import re
 from helpers import calculate_distance, object_to_screen, OFFSETS
 from Graphics.elements import LabelPanel
 from Modules import DisplayObject
@@ -93,7 +94,10 @@ class BarrelsModule(DisplayObject):
                 self.text_render.text = f"Barrel ({self.distance}m)"
                 self.text_render.text += new_barrels_content
             else:
-                self.text_render.label.text = self.text_render.label.text.replace(f'{self.distance}m', f'{new_distance}m')
+                match = re.search('( (.*)m)', self.text_render.label.text)
+                if match:
+                    dst = match.group(1)
+                    self.text_render.label.text = self.text_render.label.text.replace(dst, f' ({new_distance}m')
             
             self.distance = new_distance
 
