@@ -3,6 +3,7 @@
 @Source https://github.com/DougTheDruid/SoT-ESP-Framework
 """
 
+import os
 from pyglet.sprite import Sprite
 from pyglet.shapes import Circle
 from pyglet import image
@@ -13,9 +14,9 @@ from Modules import DisplayObject
 from Classes import Ship, Crew
 
 CIRCLE_SIZE = 25
-SLOOP_ICON = image.load('Graphics/Images/Sloop_icon.png')
-BRIGANTINE_ICON = image.load('Graphics/Images/Brigantine_icon.png')
-GALLEON_ICON = image.load('Graphics/Images/Galleon_icon.png')
+SLOOP_ICON = image.load(os.path.join(os.getcwd(), 'Graphics', 'Images', 'Sloop_icon.png'))
+BRIGANTINE_ICON = image.load(os.path.join(os.getcwd(), 'Graphics', 'Images', 'Brigantine_icon.png'))
+GALLEON_ICON = image.load(os.path.join(os.getcwd(), 'Graphics', 'Images', 'Galleon_icon.png'))
 
 
 class ShipModule(DisplayObject):

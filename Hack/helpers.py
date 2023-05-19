@@ -7,13 +7,14 @@ import math
 import json
 import logging
 import win32gui
+import os
 from pyglet.graphics import Batch
 
 
-with open("offsets.json") as infile:
+with open(os.path.join(os.getcwd(), "offsets.json")) as infile:
     OFFSETS = json.load(infile)
 
-with open("config.json") as infile:
+with open(os.path.join(os.getcwd(), "config.json")) as infile:
     CONFIG = json.load(infile)
 
 
