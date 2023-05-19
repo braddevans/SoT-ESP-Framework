@@ -1,5 +1,5 @@
 # SoT Hack (Based on Doug's Framework)
-Hello all! I'm doing this framework for learning purposes, I'm not selling anything. You can get banned for using any cheats!
+Hello all! I'm doing this framework for learning purposes, I'm not selling anything. You can get ban for using any cheats!
 
 ## Installation
 ```
