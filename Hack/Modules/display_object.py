@@ -5,8 +5,9 @@
 
 import struct
 import abc
+import globals
 from helpers import OFFSETS
-from memory_helper import ReadMemory
+from contextlib import suppress
 
 
 class DisplayObject(metaclass=abc.ABCMeta):
@@ -17,15 +18,16 @@ class DisplayObject(metaclass=abc.ABCMeta):
     considered "common" and reduces redundant code.
     """
 
-    def __init__(self, memory_reader: ReadMemory):
+    def __init__(self):
         """
         Some of our DisplayObject calls need to make memory reads, so we will
         ser out memory reader as a class variable.
         :param memory_reader: The SoT MemoryHelper object we are utilizing to
         read memory data from the game
         """
-        self.rm = memory_reader
         self.coord_offset = OFFSETS.get('SceneComponent.ActorCoordinates')
+        self.actor_id = -1
+        self.to_delete = False
 
     def _get_actor_id(self, address: int) -> int:
         """
@@ -35,7 +37,7 @@ class DisplayObject(metaclass=abc.ABCMeta):
         :rtype: int
         :return: The AActors ID
         """
-        return self.rm.read_int(
+        return globals.rm.read_int(
             address + OFFSETS.get('Actor.actorId')
         )
 
@@ -46,7 +48,7 @@ class DisplayObject(metaclass=abc.ABCMeta):
         :rtype: int
         :return: the address of an AActors root component
         """
-        return self.rm.read_ptr(
+        return globals.rm.read_ptr(
             address + OFFSETS.get("Actor.rootComponent")
         )
 
@@ -60,7 +62,7 @@ class DisplayObject(metaclass=abc.ABCMeta):
         :return: A dictionary containing the coordinate information
         for a specific actor
         """
-        actor_bytes = self.rm.read_bytes(root_comp_ptr + offset, 24)
+        actor_bytes = globals.rm.read_bytes(root_comp_ptr + offset, 24)
         unpacked = struct.unpack("<ffffff", actor_bytes)
 
         coordinate_dict = {"x": unpacked[0] / 100, "y": unpacked[1] / 100,
@@ -72,4 +74,17 @@ class DisplayObject(metaclass=abc.ABCMeta):
         """
         Required implementation method that we can call to update
         the objects data in a quick fashion vs scanning every actor.
+        """
+
+    def delete(self):
+        """
+        Delete itself after the full update without exceptions
+        """
+        with suppress(Exception):
+            self._delete()
+    
+    @abc.abstractmethod
+    def _delete(self):
+        """
+        Deleting object's labels, icons, circles etc..
         """

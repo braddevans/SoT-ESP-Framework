@@ -1,0 +1,10 @@
+{
+    "FPS_TARGET": 165,
+    "CREWS_ENABLED": true,
+    "SHIPS_ENABLED": true,
+    "WORLD_ENABLED": true,
+    "PLAYERS_ENABLED": true,
+    "BARRELS_ENABLED": true,
+    "FOV": 0,
+    "SCOPE_FOV": 34.615
+}

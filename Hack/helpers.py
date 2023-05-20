@@ -6,30 +6,23 @@
 import math
 import json
 import logging
-from base64 import b64decode
 import win32gui
+import os
 from pyglet.graphics import Batch
-from pyglet.text import Label
 
-# True=Enabled & False=Disabled for each relevant config items
-CONFIG = {
-    "CREWS_ENABLED": True,
-    "SHIPS_ENABLED": False
-}
 
-# Used to track unique crews
-crew_tracker = {}
+with open(os.path.join(os.getcwd(), "offsets.json")) as infile:
+    OFFSETS = json.load(infile)
 
-version = "1.5.0"
+with open(os.path.join(os.getcwd(), "config.json")) as infile:
+    CONFIG = json.load(infile)
+
 
 # Config specification for logging file
-logging.basicConfig(filename='DougsESP.log', level=logging.DEBUG,
+logging.basicConfig(filename='ESP.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(message)s', filemode="w")
 logger = logging.getLogger()
 
-# Offset values for the text labels from the circles we draw to the screen
-TEXT_OFFSET_X = 13
-TEXT_OFFSET_Y = -5
 
 # Information on SoT height and width. Used here and in main.py to display
 # data to the screen. May need to manually override if wonky
@@ -42,13 +35,11 @@ except Exception as e:
     logger.error("Unable to find SoT window; exiting.")
     exit(-1)
 
+
 # Creates a pyglet "Batch" that we draw our information to. Effectively serves
 # as a piece of paper, so we save render cost because its 2D
-main_batch = Batch()
-
-# Load our offset json file
-with open("offsets.json") as infile:
-    OFFSETS = json.load(infile)
+foreground_batch = Batch()
+background_batch = Batch()
 
 
 def dot(array_1: tuple, array_2: tuple) -> float:
@@ -174,16 +165,10 @@ def calculate_distance(obj_to: dict, obj_from: dict) -> int:
     :rtype: int
     :return: the distance in meters from obj_from to obj_to
     """
-    return int(math.sqrt((obj_to.get("x") - obj_from.get("x")) ** 2 +
+    distance = math.sqrt((obj_to.get("x") - obj_from.get("x")) ** 2 +
                          (obj_to.get("y") - obj_from.get("y")) ** 2 +
-                         (obj_to.get("z") - obj_from.get("z")) ** 2))
-
-
-def initialize_window():
-    """
-    Initializes our window with a given label
-    """
-    b_label = Label(b64decode('RG91Z1RoZURydWlkJ3MgRVNQIEZyYW1ld29yaw==').decode("utf-8"),
-                    x=SOT_WINDOW_W - 537, y=10, font_size=24, bold=True,
-                    color=(127, 127, 127, 65), batch=main_batch)
-    return b_label
+                         (obj_to.get("z") - obj_from.get("z")) ** 2)
+    try:
+        return int(distance)
+    except:
+        return 0
